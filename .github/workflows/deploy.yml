@@ -14,18 +14,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
+      - name: Install latest MkDocs and plugins
         run: |
-          pip install "mkdocs-material[pymdown-extensions]"
+          pip install mkdocs-material[pymdown-extensions]
           pip list
 
-      - name: Build MkDocs
+      - name: Build MkDocs site
         run: mkdocs build --strict
 
       - name: Upload build

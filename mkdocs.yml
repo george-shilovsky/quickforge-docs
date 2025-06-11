@@ -10,7 +10,6 @@ theme:
     - navigation.tabs
     - navigation.sections
     - search.highlight
-    - content.code.copy
   palette:
     scheme: slate
     primary: blue

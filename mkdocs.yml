@@ -33,6 +33,6 @@ markdown_extensions:
   - toc:
       permalink: true
   - codehilite
-  - pymdownx.copybutton
+  - material.extensions.copybutton
   - pymdownx.highlight
   - pymdownx.superfences

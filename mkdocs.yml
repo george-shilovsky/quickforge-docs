@@ -15,13 +15,16 @@ theme:
     accent: indigo
 
 nav:
-  - SaveKitLite:
-      - Home: index.md
-      - Setup: setup.md
-      - Saving & Loading: save-load.md
-      - Working with Variables: variables.md
-      - UI Integration: ui.md
-      - Blueprint Reference: blueprint-reference.md
-      - Demo: demo.md
-      - Limitations: limitations.md
-      - Comparison with UE Save System: comparison.md
+  - Home: index.md
+  - SaveKit Lite:
+      - Overview: SaveKitLite/index.md
+      - Setup: SaveKitLite/setup.md
+      - Save & Load: SaveKitLite/save-load.md
+      - UI Integration: SaveKitLite/ui.md
+      - Blueprint Reference: SaveKitLite/blueprint-reference.md
+      - Limitations: SaveKitLite/limitations.md
+      - Variables: SaveKitLite/variables.md
+      - Demo: SaveKitLite/demo.md
+      - Comparison: SaveKitLite/comparison.md
+  - SaveKit Pro:
+      - Overview: SaveKitPro/index.md

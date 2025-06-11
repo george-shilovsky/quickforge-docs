@@ -23,6 +23,9 @@ extra:
     - icon: fontawesome/brands/discord
       link: https://discord.gg/qujzsty4
       name: QuickForge Studio on Discord
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/@QuickForgeStudio
+      name: QuickForge Studio on Youtube
 
 nav:
   - Home: index.md

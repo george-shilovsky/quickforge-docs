@@ -2,9 +2,6 @@ site_name: QuickForge Studio Documentation
 site_url: https://docs.quickforgestudio.com
 repo_url: https://github.com/george-shilovsky/quickforge-docs
 
-docs_dir: .
-site_dir: _site
-
 theme:
   name: material
   features:

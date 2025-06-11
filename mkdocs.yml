@@ -2,6 +2,8 @@ site_name: QuickForge Studio Documentation
 site_url: https://docs.quickforgestudio.com
 repo_url: https://github.com/george-shilovsky/quickforge-docs
 
+copyright: Copyright &copy; 2025 QuickForge Studio
+
 theme:
   name: material
   logo: images/logo500.png
@@ -10,10 +12,17 @@ theme:
     - navigation.tabs
     - navigation.sections
     - search.highlight
+    - navigation.footer
   palette:
     scheme: slate
     primary: blue
     accent: indigo
+
+extra:
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/qujzsty4
+      name: QuickForge Studio on Discord
 
 nav:
   - Home: index.md
@@ -21,11 +30,11 @@ nav:
       - Overview: SaveKitLite/index.md
       - Setup: SaveKitLite/setup.md
       - Save & Load: SaveKitLite/save-load.md
+      - Variables: SaveKitLite/variables.md
       - UI Integration: SaveKitLite/ui.md
       - Blueprint Reference: SaveKitLite/blueprint-reference.md
-      - Limitations: SaveKitLite/limitations.md
-      - Variables: SaveKitLite/variables.md
       - Demo: SaveKitLite/demo.md
+      - Limitations: SaveKitLite/limitations.md
       - Comparison: SaveKitLite/comparison.md
   - SaveKit Pro:
       - Overview: SaveKitPro/index.md

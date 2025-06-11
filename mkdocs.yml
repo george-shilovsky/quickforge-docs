@@ -4,6 +4,8 @@ repo_url: https://github.com/george-shilovsky/quickforge-docs
 
 theme:
   name: material
+  logo: images/logo500.png
+  favicon: images/logo500.png
   features:
     - navigation.tabs
     - navigation.sections

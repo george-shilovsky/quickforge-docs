@@ -18,3 +18,8 @@
   color: var(--md-accent-fg-color);
   font-weight: 600;
 }
+
+/* Improve link visibility in dark theme */
+[data-md-color-scheme="slate"] a {
+  color: var(--md-accent-fg-color);
+}

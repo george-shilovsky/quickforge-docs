@@ -1,15 +1,20 @@
 # SaveKit Pro
 
-🚧 **This plugin is under development.**
+🚀 **Next-gen saving system for Unreal Engine**  
+Based on SaveKit Lite, with powerful features for larger, more complex projects.
 
-SaveKit Pro will build on the foundation of SaveKit Lite with:
+### Key Features:
 
-- Versioned and schema-safe saves
-- Autosaving and restoration logic
-- Modular save scopes
-- Optional encryption
+- Autosave with flexible triggers
+- Multiplayer-ready architecture
+- World Partition & Streaming Level support
+- Complex data: arrays, maps, custom objects
+- Save versioning and migration
+- Save slot previews and metadata
 
-Stay tuned for release updates on [quickforgestudio.com](https://quickforgestudio.com) or the [Marketplace](#).
+> 📢 **All updates, previews and access via Discord only**  
+Join our community: [QuickForge Studio on Discord](https://discord.gg/qujzsty4)
 
 ---
-*Estimated launch: Q3 2025*
+
+*Pro edition planned for release in Q3 2025*

@@ -36,9 +36,6 @@ theme:
     text: Roboto
     code: Roboto Mono
 
-extra_css:
-  - stylesheets/colors.css
-
 extra:
   social:
     - icon: fontawesome/brands/discord

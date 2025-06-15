@@ -2,13 +2,13 @@
 /* Light theme override */
 [data-md-color-scheme="default"] {
   --md-primary-fg-color: #51b7c3;
-  --md-primary-bg-color: #17202b;
+  --md-primary-bg-color: #19222b;
   --md-accent-fg-color:  #2e8c96;
 }
 
 /* Dark theme override */
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #17202b;
+  --md-primary-fg-color: #19222b;
   --md-primary-bg-color: #51b7c3;
   --md-accent-fg-color:  #6ad1dd;
 }

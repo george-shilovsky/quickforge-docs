@@ -35,7 +35,7 @@ Use Saveable functions to manage data at runtime:
 - `IncrementVariable` — track counts or scores
 
 
-![Using Saveable: Set, Increment, SaveGame](images/Saveable_Set_Damaged_Health_HitCount.png)
+![Using Saveable: Set, Increment, SaveGame](images/Saveable_Set_Damaged_Health_HitCount.png){.lightbox}
 
 *Example: reducing Health, marking as Damaged, and incrementing HitCount.*
 
@@ -67,7 +67,7 @@ Use `Saveable` for flexible runtime state, and `SaveGame` for native Blueprint v
 Use `GetVariable`, `Tags`, and `SaveGame` properties to dynamically show state:
 
 
-![Displaying Saveable + SaveGame](images/Saveable_Display_Health_HitCount_Tags_Damaged.png)
+![Displaying Saveable + SaveGame](images/Saveable_Display_Health_HitCount_Tags_Damaged.png){.lightbox}
 
 *This Blueprint formats and displays Health, HitCount, Tags, and Damaged state.*
 

@@ -56,5 +56,6 @@ You can customize the `Saveable` component with the following settings:
 > 📌 Need more advanced usage?
 >
 > See:
+
 > - [Save & Load](save-load.md) — SaveGame, LoadGame, metadata, slot handling
 > - [Variables](variables.md) — Working with runtime values like Health or Score

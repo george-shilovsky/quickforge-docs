@@ -538,6 +538,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#function-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Function Index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#category-save-kit-slots" class="md-nav__link">
     <span class="md-ellipsis">
       🔹 Category: Save Kit → Slots
@@ -566,9 +575,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#loadsavemetaslotname-see-also-uimd-for-usage-in-preview" class="md-nav__link">
+  <a href="#loadsavemetadataslotname" class="md-nav__link">
     <span class="md-ellipsis">
-      LoadSaveMeta(SlotName) (see also: ui.md for usage in preview)
+      LoadSaveMetadata(SlotName)
     </span>
   </a>
   
@@ -893,6 +902,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#function-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Function Index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#category-save-kit-slots" class="md-nav__link">
     <span class="md-ellipsis">
       🔹 Category: Save Kit → Slots
@@ -921,9 +939,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#loadsavemetaslotname-see-also-uimd-for-usage-in-preview" class="md-nav__link">
+  <a href="#loadsavemetadataslotname" class="md-nav__link">
     <span class="md-ellipsis">
-      LoadSaveMeta(SlotName) (see also: ui.md for usage in preview)
+      LoadSaveMetadata(SlotName)
     </span>
   </a>
   
@@ -1084,27 +1102,35 @@
 
 <h1 id="blueprint-function-reference">📘 Blueprint Function Reference</h1>
 <p>This section lists all Blueprint-accessible functions provided by SaveKit Lite, grouped by category.</p>
+<h2 id="function-index">🧭 Function Index</h2>
+<ul>
+<li>🔹 <a href="#-category-save-kit--slots">Slots</a></li>
+<li>🔹 <a href="#-category-save-kit">Save/Load</a></li>
+<li>🔹 <a href="#-category-save-kit--saveable-component-functions">Saveable Variables</a></li>
+<li>🧱 <a href="#-save-slot-info-object">Save Slot Info Object</a></li>
+<li>📦 <a href="#-notes">Notes</a></li>
+</ul>
 <hr />
 <h2 id="category-save-kit-slots">🔹 Category: Save Kit → Slots</h2>
 <h3 id="getexistingsaveslots"><code>GetExistingSaveSlots()</code></h3>
 <ul>
-<li>Returns: <code>Array of Strings</code></li>
+<li>Returns: <code>FString[]</code></li>
 <li>Description: Lists all save slot names found in the save directory.</li>
 </ul>
 <p><a class="glightbox" href="../images/Node_GetExistingSaveSlots.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GetExistingSaveSlots" src="../images/Node_GetExistingSaveSlots.png" /></a></p>
 <h3 id="getsaveslotinfos"><code>GetSaveSlotInfos()</code></h3>
 <ul>
-<li>Returns: <code>Array of SaveSlotInfo Structures</code></li>
+<li>Returns: <code>FSaveSlotInfo[]</code></li>
 <li>Description: Returns metadata for all existing save slots (slot name, save time, save version).</li>
 </ul>
 <p><a class="glightbox" href="../images/Node_GetSaveSlotInfos.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="GetSaveSlotInfos" src="../images/Node_GetSaveSlotInfos.png" /></a></p>
-<h3 id="loadsavemetaslotname-see-also-uimd-for-usage-in-preview"><code>LoadSaveMeta(SlotName)</code> <em>(see also: <code>ui.md</code> for usage in preview)</em></h3>
+<h3 id="loadsavemetadataslotname"><code>LoadSaveMetadata(SlotName)</code></h3>
 <ul>
 <li>Input: <code>FString SlotName</code></li>
-<li>Returns: <code>SaveSlotInfo Structure</code></li>
-<li>Description: Returns metadata only — does NOT load or apply saved state.</li>
+<li>Returns: <code>FSaveSlotInfo</code></li>
+<li>Description: Returns metadata only (does NOT load state).<br />
+  See <a href="../ui/">UI Integration</a> for usage in slot previews.</li>
 </ul>
-<p><a class="glightbox" href="../images/Node_LoadSaveMetadata.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LoadSaveMeta" src="../images/Node_LoadSaveMetadata.png" /></a></p>
 <hr />
 <h2 id="category-save-kit">🔹 Category: Save Kit</h2>
 <h3 id="savegameslotname-saveversion"><code>SaveGame(SlotName, ``SaveVersion``)</code></h3>
@@ -1161,7 +1187,16 @@
 <hr />
 <h2 id="notes">📦 Notes</h2>
 <ul>
-<li>All function categories are searchable using context-sensitive Blueprint menus.</li>
+<li>All functions are exposed to Blueprints via context-sensitive search.</li>
+<li>Can be used in:</li>
+<li>✅ UMG widgets (<code>ListView</code>, <code>Button</code>, <code>Text</code>)</li>
+<li>✅ Actor, Level, or GameMode Blueprints</li>
+<li>
+<p>✅ Custom save/load UI logic</p>
+</li>
+<li>
+<p>All function categories are searchable using context-sensitive Blueprint menus.</p>
+</li>
 <li>You can use these functions inside UMG widgets, level Blueprints, or actor graphs.</li>
 </ul>
 

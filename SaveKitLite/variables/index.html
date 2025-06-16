@@ -559,9 +559,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unsupported-types" class="md-nav__link">
+  <a href="#limitations-of-saveable-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      ❌ Unsupported Types
+      🚫 Limitations of Saveable Variables
     </span>
   </a>
   
@@ -834,9 +834,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unsupported-types" class="md-nav__link">
+  <a href="#limitations-of-saveable-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      ❌ Unsupported Types
+      🚫 Limitations of Saveable Variables
     </span>
   </a>
   
@@ -865,6 +865,11 @@
 <p>The <code>Saveable</code> component allows storing key-value string pairs during runtime.</p>
 <hr />
 <h2 id="blueprint-functions">🔁 Blueprint Functions</h2>
+<blockquote>
+<p>ℹ️ All Saveable variables are stored as strings internally.
+Use <code>GetVariableAsInt</code> or manual conversion for numeric operations.</p>
+<p>✅ Saveable variables are ideal for counters, flags, or state values that don't need to exist as native Blueprint variables.</p>
+</blockquote>
 <p>Available under <code>Save Kit → Saveable</code>:</p>
 <ul>
 <li><code>SetVariable(Name, Value)</code> — set a string value at runtime</li>
@@ -887,6 +892,10 @@
 <p><em>Example: reducing Health, marking as Damaged, and incrementing HitCount.</em></p>
 <hr />
 <h2 id="saveable-variables-vs-savegame-properties">🆚 Saveable Variables vs SaveGame Properties</h2>
+<blockquote>
+<p>Use <code>Saveable</code> for lightweight, flexible runtime data.<br />
+Use <code>SaveGame</code> for Blueprint-visible variables and type-safe access.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -923,7 +932,10 @@ See <a href="../save-load/">Saving &amp; Loading</a> for details.</p>
 <p><img alt="Displaying Saveable + SaveGame" src="../images/Saveable_Display_Health_HitCount_Tags_Damaged.png" /></p>
 <p><em>This Blueprint formats and displays Health, HitCount, Tags, and Damaged state.</em></p>
 <hr />
-<h2 id="unsupported-types">❌ Unsupported Types</h2>
+<h2 id="limitations-of-saveable-variables">🚫 Limitations of Saveable Variables</h2>
+<blockquote>
+<p>⚠️ Only string values are supported in Saveable variables. Complex types like vectors, rotators, and structs are not supported.</p>
+</blockquote>
 <ul>
 <li>UObject references</li>
 <li>Arrays of objects</li>

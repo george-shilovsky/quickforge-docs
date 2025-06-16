@@ -31,9 +31,9 @@ Your actor’s state is now persistent between play sessions.
 
 ---
 
-## 🛠 Setup — Configuring `Saveable`
+## ⚙️ Advanced Configuration
 
-Adjust these properties in the Details panel of your actor:
+You can customize the `Saveable` component with the following settings:
 
 | Setting                | Description                                          |
 |------------------------|------------------------------------------------------|
@@ -50,3 +50,11 @@ Adjust these properties in the Details panel of your actor:
 - IsDamaged
 - Score
 ```
+
+---
+
+> 📌 Need more advanced usage?
+>
+> See:
+> - [Save & Load](save-load.md) — SaveGame, LoadGame, metadata, slot handling
+> - [Variables](variables.md) — Working with runtime values like Health or Score

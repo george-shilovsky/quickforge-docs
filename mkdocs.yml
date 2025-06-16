@@ -13,7 +13,6 @@ theme:
     - navigation.sections
     - search.highlight
     - navigation.footer
-    - content.images.lightbox
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
@@ -48,6 +47,8 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/@QuickForgeStudio
       name: QuickForge Studio on Youtube
+  features:
+  - content.images.lightbox
 
 nav:
   - Home: index.md

@@ -1,6 +1,6 @@
 # 🧠 SaveKit Lite – Blueprint-Only Save System
 
-**SaveKit Lite** is a minimalist, plug-and-play save/load system built entirely with Blueprints for Unreal Engine 5.
+**SaveKit Lite** is a minimalist save/load system for Unreal Engine 5 with full Blueprint support. Implemented in C++, designed for easy use in Blueprints.
 
 It allows you to save and load:
 
@@ -8,22 +8,6 @@ It allows you to save and load:
 - 🧠 Custom string variables (like score, health, state)
 - 🏷️ Actor tags and properties marked as `SaveGame`
 - 💾 Metadata about save slots for UI display
-
----
-
-## 🔧 Quick Start
-
-To get started:
-
-1. Add `Saveable` to any actor
-
-![Saveable Component](images/SaveableComponent.png)
-
-2. Use `Save Kit → SaveGame(SlotName)` and `LoadGame(SlotName)` Blueprint nodes
-
-![Save/Load Nodes](images/SaveGameLoadGame.png)
-
-3. ✅ Done! Your actor state is now persistent
 
 ---
 

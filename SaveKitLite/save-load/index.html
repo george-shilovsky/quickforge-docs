@@ -568,6 +568,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-gets-loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 What Gets Loaded?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -890,6 +899,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#what-gets-loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 What Gets Loaded?
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -910,6 +928,9 @@
 
 
 <h1 id="saving-loading-game-state">💾 Saving &amp; Loading Game State</h1>
+<blockquote>
+<p>🧭 First time using SaveKit Lite? Start with the <a href="../quick-start/">Quick Start guide</a></p>
+</blockquote>
 <p>SaveKit Lite provides simple Blueprint functions to persist and restore actor state across gameplay sessions.</p>
 <hr />
 <p>Want to store runtime data like counters or flags?
@@ -921,6 +942,9 @@ See <a href="../variables/">Working with Variables</a>.</p>
 </code></pre>
 <p><img alt="Save Game node example" src="../images/SaveGame1.png" /></p>
 <p><em>This Blueprint example saves to slot <code>Profile_1</code> with version <code>1</code>.</em></p>
+<blockquote>
+<p>💡 You can use any name as the slot (e.g. <code>"Main"</code>, <code>"Save1"</code>, <code>"AutoSave"</code>)</p>
+</blockquote>
 <p>This will:</p>
 <ul>
 <li>Create or overwrite a save slot with the given name</li>
@@ -934,6 +958,9 @@ See <a href="../variables/">Working with Variables</a>.</p>
 </code></pre>
 <p><img alt="Load Game node example" src="../images/LoadGame.png" /></p>
 <p><em>Restores the saved state of all matching actors in the current level.</em></p>
+<blockquote>
+<p>⚠️ Only actors that currently exist in the level and match the saved names will be affected. If an actor was deleted after saving, it will not be restored.</p>
+</blockquote>
 <p>This will:</p>
 <ul>
 <li>Load the specified save slot</li>
@@ -951,7 +978,15 @@ See <a href="../variables/">Working with Variables</a>.</p>
 <li>You can set a custom version manually (e.g. <code>2</code>, <code>5</code>, <code>1001</code>) to track changes in save data format</li>
 </ul>
 <h3 id="example-versioning-use-case">Example: versioning use case</h3>
-<p>To detect outdated slots and act accordingly, you could compare <code>SaveVersion</code> on load:</p>
+<blockquote>
+<p>💡 Use case: migrate old saves</p>
+<p><code>blueprint
+if SaveVersion &lt; 2 {
+  ApplyDefaultInventory()
+  NotifyPlayer("Your save has been updated.")
+}</code>
+To detect outdated slots and act accordingly, you could compare <code>SaveVersion</code> on load:</p>
+</blockquote>
 <pre><code class="language-blueprint">if SaveVersion &lt; 2 then ShowWarning()
 </code></pre>
 <pre><code class="language-blueprint">SaveGame(`AutoSave`, 3)
@@ -1000,6 +1035,22 @@ See <a href="../variables/">Working with Variables</a>.</p>
 <pre><code>Saved/SaveGames/
 </code></pre>
 <p>This applies to both <code>.sav</code> files and their metadata.</p>
+<blockquote>
+<p>🛠 You can access these files manually for backup, sync, or debugging purposes.
+In packaged builds, this path resolves to <code>YourProject/Saved/SaveGames/</code>.</p>
+</blockquote>
+<hr />
+<h2 id="what-gets-loaded">🔄 What Gets Loaded?</h2>
+<p>When loading, SaveKit Lite restores the following data for matching actors with a <code>Saveable</code> component:</p>
+<ul>
+<li>Actor transform (if <code>Save Transform</code> was enabled)</li>
+<li>All <code>Variables To Save</code> values</li>
+<li>Actor tags</li>
+<li>Any <code>SaveGame</code>-marked properties</li>
+</ul>
+<blockquote>
+<p>⚠️ Actors that no longer exist in the level will not be respawned.</p>
+</blockquote>
 
 
 

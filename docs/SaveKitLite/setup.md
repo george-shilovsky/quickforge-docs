@@ -1,50 +1,50 @@
-## 🔧 Quick Start
+## 🚀 Quick Start
 
-To get started:
+Getting started with **SaveKit Lite** takes just a few steps:
 
-1. Add `Saveable` to any actor
+---
+
+### 1. Add the `Saveable` Component
+
+Open the Blueprint of any actor you want to save (e.g. character, item, enemy):
+
+- Click **Add Component**
+- Select `Saveable` from the list
 
 ![Saveable Component](images/SaveableComponent.png)
 
-2. Use `Save Kit → SaveGame(SlotName)` and `LoadGame(SlotName)` Blueprint nodes
+---
+
+### 2. Use Blueprint Nodes to Save and Load
+
+Use these nodes in any Blueprint:
+
+- `Save Kit → SaveGame(SlotName)`
+- `Save Kit → LoadGame(SlotName)`
 
 ![Save/Load Nodes](images/SaveGameLoadGame.png)
 
-3. ✅ Done! Your actor state is now persistent
+---
+
+### 3. Done ✅  
+Your actor’s state is now persistent between play sessions.
 
 ---
 
-# 🛠️ Setup – Adding Saveable
+## 🛠 Setup — Configuring `Saveable`
 
-To enable saving on an actor, attach the `Saveable` component and configure it in the Details panel.
+Adjust these properties in the Details panel of your actor:
 
----
-
-## 1. Add `Saveable` to your Actor
-
-Open the Blueprint of any actor you want to save (e.g. character, chest, enemy).
-
-- Click **Add Component**
-- Choose `Saveable`
-
----
-
-## 2. Configure the component
-
-| Option            | Description                                       |
-|-------------------|---------------------------------------------------|
-| `Save Transform`  | Saves location, rotation, and scale               |
-| `Variables To Save` | List of custom key-value string variables       |
-
-> 🎯 These variables can later be updated dynamically at runtime and will persist through save/load.
-
+| Setting                | Description                                          |
+|------------------------|------------------------------------------------------|
+| `Save Transform`       | Saves actor's location, rotation, and scale         |
+| `Variables To Save`    | Custom key-value string pairs for runtime data      |
+| `Apply Control Rotation` | Restores controller yaw if the actor has one     |
 
 ![Saveable Component Settings](images/ChooseSaveable.png)
 
-💡 Example of Variables To Save:
+> 💡 Example `Variables To Save`:
 ```plaintext
-Variables To Save:
-- Health
-- IsDamaged
-- Score
-```
+Health
+IsDamaged
+Score

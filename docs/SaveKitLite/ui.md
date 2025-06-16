@@ -79,6 +79,7 @@ Below is a full example that:
 
 Make sure your widget implements `UserObjectListEntry`, which allows binding metadata to list items.
 
+---
 
 ## 🧾 4. Load Metadata for Selected Slot
 
@@ -108,6 +109,8 @@ These nodes are commonly used to build a save/load UI in UMG using Blueprints:
 
 > 🧠 Use these nodes inside Blueprint UMG widgets like `ListView`, `Button`, or `ComboBox`.  
 They return strings or structs and require **no C++ code**.
+
+---
 
 ## 💡 Tips
 

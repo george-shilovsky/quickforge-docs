@@ -39,13 +39,14 @@ Adjust these properties in the Details panel of your actor:
 |------------------------|------------------------------------------------------|
 | `Save Transform`       | Saves actor's location, rotation, and scale         |
 | `Variables To Save`    | Custom key-value string pairs for runtime data      |
-| `Apply Control Rotation` | Restores controller yaw if the actor has one     |
+| `Apply Control Rotation` | Applies saved actor rotation to the controller (only if owner is a Character with a controller)     |
 
 ![Saveable Component Settings](images/ChooseSaveable.png)
 
 > 💡 Example `Variables To Save`:
 
 ```plaintext
-Health
-IsDamaged
-Score
+- Health
+- IsDamaged
+- Score
+```

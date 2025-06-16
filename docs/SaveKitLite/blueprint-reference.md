@@ -33,8 +33,8 @@ This page lists all Blueprint-accessible functions provided by SaveKit Lite, gro
 
 ## 🔹 Category: Save Kit
 
-### `SaveGame(SlotName, ``SaveVersion``)`
-- Input: `FString SlotName`, `int32` ``SaveVersion`` (optional)
+### `SaveGame(SlotName, SaveVersion)`
+- Input: `FString SlotName`, `int32` `SaveVersion` (optional)
 - Description: Saves all actors with a Saveable component to the specified slot.
 
 

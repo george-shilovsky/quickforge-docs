@@ -62,6 +62,9 @@ Use this logic to populate a ListView with metadata:
 
 Each ListView item can use a `SaveSlotInfoObject` to display save name, time, and version.
 
+> ℹ️ `SaveSlotInfoObject` is a Blueprintable wrapper for slot metadata.
+You can create it in Blueprint or receive it from nodes like `LoadSaveMetadata`.
+
 Below is a full example that:
 
 - Displays the save slot name
@@ -106,8 +109,24 @@ You can use these in UMG widgets, buttons, or combo boxes.
 
 ---
 
+## 🧩 Using in Blueprints
+
+All listed functions are exposed to Blueprints and can be used with:
+
+- UMG widgets (e.g. `ListView`, `Button`, `ComboBox`)
+- Event Graphs
+- Custom UI logic (e.g. save menus, profile pickers)
+
+These nodes return strings or structs and require no C++ code.
+
 ## 💡 Tips
 
 - Sort slots by `SaveTime` to show newest first
+> 🕒 Recommended display format: `dd.MM.yyyy HH:mm`
+> Use the `FormatText` node in Blueprints for localization and styling.
 - Format `SaveTime` as ``"dd.MM.yyyy HH:mm"`` for better readability
 - Use ``AutoSave`` or ``Profile_1`` as consistent slot names
+
+
+> 📦 Want to display saved variables too?
+> See [Working with Variables](variables.md) for using `GetVariable()` in UI.

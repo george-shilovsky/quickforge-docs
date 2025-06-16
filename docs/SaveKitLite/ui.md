@@ -96,29 +96,18 @@ Returns a `SaveSlotInfo` struct for the selected slot. Use it when you want to p
 
 ---
 
-## 🧩 Summary of UI Nodes
+## 🧩 Summary of UI Nodes (for Blueprints)
 
-These are all the nodes you’ll typically use to create a save/load UI with SaveKit Lite:
+These nodes are commonly used to build a save/load UI in UMG using Blueprints:
 
 - `GetExistingSaveSlots()` → returns slot names (`FString[]`)
 - `GetSaveSlotInfos()` → returns metadata (`FSaveSlotInfo[]`)
-- `LoadSaveMetadata(SlotName)` → returns metadata for one slot
+- `LoadSaveMetadata(SlotName)` → metadata for one slot
 - `LoadGame(SlotName)` → loads selected slot
 - `SaveGame(SlotName)` → saves current actor states to the specified slot
 
-> Use them inside UMG widgets like `ListView`, buttons, or combo boxes.
-
----
-
-## 🧩 Using in Blueprints
-
-All listed functions are exposed to Blueprints and can be used with:
-
-- UMG widgets (e.g. `ListView`, `Button`, `ComboBox`)
-- Event Graphs
-- Custom UI logic (e.g. save menus, profile pickers)
-
-These nodes return strings or structs and require no C++ code.
+> 🧠 Use these nodes inside Blueprint UMG widgets like `ListView`, `Button`, or `ComboBox`.  
+They return strings or structs and require **no C++ code**.
 
 ## 💡 Tips
 

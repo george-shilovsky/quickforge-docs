@@ -946,6 +946,7 @@ You can create it in Blueprint or receive it from nodes like <code>LoadSaveMetad
 <p><a class="glightbox" href="../images/UI_ListItem_DisplayDetails.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Display slot info in List Entry" src="../images/UI_ListItem_DisplayDetails.png" /></a></p>
 <p><em>Blueprint setup for <code>OnListItemObjectSet</code> inside a ListView entry widget.</em></p>
 <p>Make sure your widget implements <code>UserObjectListEntry</code>, which allows binding metadata to list items.</p>
+<hr />
 <h2 id="4-load-metadata-for-selected-slot">🧾 4. Load Metadata for Selected Slot</h2>
 <p>Use:</p>
 <pre><code>Save Kit → Slots → LoadSaveMetadata(SlotName)
@@ -966,6 +967,7 @@ You can create it in Blueprint or receive it from nodes like <code>LoadSaveMetad
 <p>🧠 Use these nodes inside Blueprint UMG widgets like <code>ListView</code>, <code>Button</code>, or <code>ComboBox</code>.<br />
 They return strings or structs and require <strong>no C++ code</strong>.</p>
 </blockquote>
+<hr />
 <h2 id="tips">💡 Tips</h2>
 <ul>
 <li>Sort slots by <code>SaveTime</code> to show newest first<blockquote>

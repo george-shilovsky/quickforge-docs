@@ -6,6 +6,11 @@ The `Saveable` component allows storing key-value string pairs during runtime.
 
 ## 🔁 Blueprint Functions
 
+> ℹ️ All Saveable variables are stored as strings internally.
+Use `GetVariableAsInt` or manual conversion for numeric operations.
+
+> ✅ Saveable variables are ideal for counters, flags, or state values that don't need to exist as native Blueprint variables.
+
 Available under `Save Kit → Saveable`:
 
 - `SetVariable(Name, Value)` — set a string value at runtime
@@ -38,6 +43,9 @@ Use Saveable functions to manage data at runtime:
 
 ## 🆚 Saveable Variables vs SaveGame Properties
 
+> Use `Saveable` for lightweight, flexible runtime data.  
+> Use `SaveGame` for Blueprint-visible variables and type-safe access.
+
 | Method                | Defined In             | Access at Runtime      | Saved by SaveKit |
 |-----------------------|------------------------|-------------------------|------------------|
 | `Saveable` Variables  | Saveable Component     | ✔️ via Blueprint nodes   | ✔️ Yes           |
@@ -65,7 +73,10 @@ Use `GetVariable`, `Tags`, and `SaveGame` properties to dynamically show state:
 
 ---
 
-## ❌ Unsupported Types
+## 🚫 Limitations of Saveable Variables
+
+> ⚠️ Only string values are supported in Saveable variables. Complex types like vectors, rotators, and structs are not supported.
+
 
 - UObject references
 - Arrays of objects

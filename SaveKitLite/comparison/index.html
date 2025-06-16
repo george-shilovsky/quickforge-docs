@@ -823,9 +823,9 @@
 <td>✅ Automatic</td>
 </tr>
 <tr>
-<td>Custom variable system</td>
-<td>❌ You define it</td>
-<td>✅ Key-value system</td>
+<td>Variable saving logic</td>
+<td>❌ Manual coding</td>
+<td>✅ Built-in key-value</td>
 </tr>
 <tr>
 <td>Component-based setup</td>
@@ -846,6 +846,11 @@
 <td>Save versioning</td>
 <td>❌ Manual (code)</td>
 <td>✅ Optional param in node</td>
+</tr>
+<tr>
+<td>Blueprint-only compatibility</td>
+<td>⚠️ Limited</td>
+<td>✅ Full support</td>
 </tr>
 <tr>
 <td>Blueprint-only workflow</td>
@@ -869,12 +874,14 @@
 <ul>
 <li>Full control of serialized data structures</li>
 <li>Complex nested objects or UObject arrays</li>
+<li>Saving references to spawned actors or runtime instances</li>
 <li>Custom asynchronous systems at scale</li>
 </ul>
 <p>Then native SaveGame + C++ may be better.</p>
 <hr />
 <p>✅ For 90% of common use cases — SaveKit Lite is <strong>faster, easier, and modular</strong>.</p>
-<p>💡 You can extend SaveKit Lite with C++ if needed, e.g. for advanced serialization or object reconstruction.</p>
+<p>💡 SaveKit Lite is fully compatible with UE SaveGame — you can mix both as needed.
+Use C++ to extend or bridge advanced cases.</p>
 
 
 

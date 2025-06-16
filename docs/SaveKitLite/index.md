@@ -1,4 +1,4 @@
-# 🧠 SaveKit Lite – Blueprint-Only Save System
+# 🧠 SaveKit Lite – Easy Blueprint Save System for UE5 (C++ Backend)
 
 **SaveKit Lite** is a minimalist save/load system for Unreal Engine 5 with full Blueprint support. Implemented in C++, designed for easy use in Blueprints.
 
@@ -19,7 +19,7 @@ Unlike Unreal Engine's native Save Game system, SaveKit Lite gives you:
 - 🔁 Built-in transform & tag support
 - 📦 Key-value variable system for runtime data
 - 📊 Metadata for UI display (slot name, version, timestamp)
-- 🎯 Fully Blueprint-based, no coding required
+- 🎯 Built in C++, but used entirely via Blueprints – no coding required
 
 Want to know more? See the [Comparison with UE Save System](comparison.md) *(this file is part of the documentation bundle)*
 

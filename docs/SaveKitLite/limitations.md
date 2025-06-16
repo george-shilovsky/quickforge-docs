@@ -37,4 +37,5 @@ While SaveKit Lite is powerful and easy to use, it's important to understand its
 
 
 
-💡 Need advanced serialization? Use custom C++ logic or integrate formats like JSON for full control.
+💡 Need advanced serialization?
+Use custom C++ logic or integrate formats like JSON for full control.

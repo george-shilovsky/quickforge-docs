@@ -1,10 +1,10 @@
-## 🚀 Quick Start
+# 🚀 Quick Start
 
 Getting started with **SaveKit Lite** takes just a few steps:
 
 ---
 
-### 1. Add the `Saveable` Component
+## 1. Add the `Saveable` Component
 
 Open the Blueprint of any actor you want to save (e.g. character, item, enemy):
 
@@ -15,7 +15,7 @@ Open the Blueprint of any actor you want to save (e.g. character, item, enemy):
 
 ---
 
-### 2. Use Blueprint Nodes to Save and Load
+## 2. Use Blueprint Nodes to Save and Load
 
 Use these nodes in any Blueprint:
 
@@ -26,7 +26,7 @@ Use these nodes in any Blueprint:
 
 ---
 
-### 3. Done ✅  
+## 3. Done ✅  
 Your actor’s state is now persistent between play sessions.
 
 ---

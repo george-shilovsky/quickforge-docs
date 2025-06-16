@@ -93,19 +93,25 @@ When loading, SaveKit Lite restores the following data for matching actors with 
 
 ## 📁 Save Slot Location
 
-In packaged builds, saves are stored under:
+Where save files are stored depends on how the game is run:
 
+---
+
+### ▶️ While running in the Editor:
 ```
-Saved/SaveGames/
+<ProjectFolder>/Saved/SaveGames/
 ```
+> Used during development when playing in-editor (PIE or Standalone).
 
-This applies to both `.sav` files and their metadata.  
-> 🛠 You can access these files manually for backup, sync, or debugging purposes.  
-Depending on the build configuration, save files are stored in different locations:
+---
 
-### ✅ Windows (Shipping/Development build):
-```text
+### 📦 In packaged builds (Shipping/Development):
+```
 C:\Users\<UserName>\AppData\Local\<ProjectName>\Saved\SaveGames\
 ```
+> Used in final builds, including those launched outside of the editor.
 
-> This is the default location used by Unreal Engine for local and packaged builds on Windows.
+---
+
+This applies to both `.sav` files and their metadata.  
+You can access these files manually for backup, sync, or debugging purposes.

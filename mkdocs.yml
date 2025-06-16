@@ -51,7 +51,7 @@ nav:
       - Overview: SaveKitLite/index.md
       - Quick Start: SaveKitLite/quick-start.md
       - Save & Load: SaveKitLite/save-load.md
-      - Variables: SaveKitLite/variables.md
+      - Working with Variables: SaveKitLite/variables.md
       - UI Integration: SaveKitLite/ui.md
       - Blueprint Reference: SaveKitLite/blueprint-reference.md
       - Demo: SaveKitLite/demo.md

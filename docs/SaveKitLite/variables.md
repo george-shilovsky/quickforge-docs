@@ -21,7 +21,7 @@ Available under `Save Kit → Saveable`:
 - `RemoveVariable(Name)` — delete variable
 
 
-![Saveable Blueprint functions](images/Saveable_Functions_List.png)
+![Saveable Blueprint functions](images/Saveable_Functions_List.png){.lightbox}
 
 
 ---

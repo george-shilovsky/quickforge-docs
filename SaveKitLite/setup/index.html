@@ -475,35 +475,35 @@
         <li class="md-nav__item">
   <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
-      🔧 Quick Start
+      🚀 Quick Start
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-adding-saveable" class="md-nav__link">
-    <span class="md-ellipsis">
-      🛠️ Setup – Adding Saveable
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🛠️ Setup – Adding Saveable">
+    <nav class="md-nav" aria-label="🚀 Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-add-saveable-to-your-actor" class="md-nav__link">
+  <a href="#1-add-the-saveable-component" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Add Saveable to your Actor
+      1. Add the Saveable Component
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-the-component" class="md-nav__link">
+  <a href="#2-use-blueprint-nodes-to-save-and-load" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure the component
+      2. Use Blueprint Nodes to Save and Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Done ✅
     </span>
   </a>
   
@@ -511,6 +511,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-configuring-saveable" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠 Setup — Configuring Saveable
+    </span>
+  </a>
   
 </li>
       
@@ -791,35 +800,35 @@
         <li class="md-nav__item">
   <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
-      🔧 Quick Start
+      🚀 Quick Start
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-adding-saveable" class="md-nav__link">
-    <span class="md-ellipsis">
-      🛠️ Setup – Adding Saveable
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🛠️ Setup – Adding Saveable">
+    <nav class="md-nav" aria-label="🚀 Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-add-saveable-to-your-actor" class="md-nav__link">
+  <a href="#1-add-the-saveable-component" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Add Saveable to your Actor
+      1. Add the Saveable Component
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-the-component" class="md-nav__link">
+  <a href="#2-use-blueprint-nodes-to-save-and-load" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Configure the component
+      2. Use Blueprint Nodes to Save and Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-done" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Done ✅
     </span>
   </a>
   
@@ -827,6 +836,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-configuring-saveable" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠 Setup — Configuring Saveable
+    </span>
+  </a>
   
 </li>
       
@@ -849,59 +867,62 @@
   
 
 
-<h2 id="quick-start">🔧 Quick Start</h2>
-<p>To get started:</p>
-<ol>
-<li>Add <code>Saveable</code> to any actor</li>
-</ol>
-<p><img alt="Saveable Component" src="../images/SaveableComponent.png" /></p>
-<ol>
-<li>Use <code>Save Kit → SaveGame(SlotName)</code> and <code>LoadGame(SlotName)</code> Blueprint nodes</li>
-</ol>
-<p><img alt="Save/Load Nodes" src="../images/SaveGameLoadGame.png" /></p>
-<ol>
-<li>✅ Done! Your actor state is now persistent</li>
-</ol>
+  <h1>Setup</h1>
+
+<h2 id="quick-start">🚀 Quick Start</h2>
+<p>Getting started with <strong>SaveKit Lite</strong> takes just a few steps:</p>
 <hr />
-<h1 id="setup-adding-saveable">🛠️ Setup – Adding Saveable</h1>
-<p>To enable saving on an actor, attach the <code>Saveable</code> component and configure it in the Details panel.</p>
-<hr />
-<h2 id="1-add-saveable-to-your-actor">1. Add <code>Saveable</code> to your Actor</h2>
-<p>Open the Blueprint of any actor you want to save (e.g. character, chest, enemy).</p>
+<h3 id="1-add-the-saveable-component">1. Add the <code>Saveable</code> Component</h3>
+<p>Open the Blueprint of any actor you want to save (e.g. character, item, enemy):</p>
 <ul>
 <li>Click <strong>Add Component</strong></li>
-<li>Choose <code>Saveable</code></li>
+<li>Select <code>Saveable</code> from the list</li>
 </ul>
+<p><img alt="Saveable Component" src="../images/SaveableComponent.png" /></p>
 <hr />
-<h2 id="2-configure-the-component">2. Configure the component</h2>
+<h3 id="2-use-blueprint-nodes-to-save-and-load">2. Use Blueprint Nodes to Save and Load</h3>
+<p>Use these nodes in any Blueprint:</p>
+<ul>
+<li><code>Save Kit → SaveGame(SlotName)</code></li>
+<li><code>Save Kit → LoadGame(SlotName)</code></li>
+</ul>
+<p><img alt="Save/Load Nodes" src="../images/SaveGameLoadGame.png" /></p>
+<hr />
+<h3 id="3-done">3. Done ✅</h3>
+<p>Your actor’s state is now persistent between play sessions.</p>
+<hr />
+<h2 id="setup-configuring-saveable">🛠 Setup — Configuring <code>Saveable</code></h2>
+<p>Adjust these properties in the Details panel of your actor:</p>
 <table>
 <thead>
 <tr>
-<th>Option</th>
+<th>Setting</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>Save Transform</code></td>
-<td>Saves location, rotation, and scale</td>
+<td>Saves actor's location, rotation, and scale</td>
 </tr>
 <tr>
 <td><code>Variables To Save</code></td>
-<td>List of custom key-value string variables</td>
+<td>Custom key-value string pairs for runtime data</td>
+</tr>
+<tr>
+<td><code>Apply Control Rotation</code></td>
+<td>Restores controller yaw if the actor has one</td>
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p>🎯 These variables can later be updated dynamically at runtime and will persist through save/load.</p>
-</blockquote>
 <p><img alt="Saveable Component Settings" src="../images/ChooseSaveable.png" /></p>
-<p>💡 Example of Variables To Save:</p>
-<pre><code class="language-plaintext">Variables To Save:
-- Health
-- IsDamaged
-- Score
-</code></pre>
+<blockquote>
+<p>💡 Example <code>Variables To Save</code>:
+```plaintext
+Health
+IsDamaged
+Score</p>
+</blockquote>
 
 
 

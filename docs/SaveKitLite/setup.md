@@ -44,6 +44,7 @@ Adjust these properties in the Details panel of your actor:
 ![Saveable Component Settings](images/ChooseSaveable.png)
 
 > 💡 Example `Variables To Save`:
+
 ```plaintext
 Health
 IsDamaged

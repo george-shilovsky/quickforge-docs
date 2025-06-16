@@ -10,7 +10,7 @@ While SaveKit Lite is powerful and easy to use, it's important to understand its
 |-----------------------------|-------------------------------------------|
 | Saving UObject references   | Can't be serialized as text safely        |
 | Arrays of components        | No automatic serialization available      |
-| Blueprint-only dynamic spawning | Matching on name only, no GUIDs     |
+| Blueprint-only dynamic spawning | Relies on actor names only — dynamically spawned actors are not recreated |
 | Level streaming             | SaveKit Lite is level-instance-based only |
 
 ---
@@ -23,12 +23,13 @@ While SaveKit Lite is powerful and easy to use, it's important to understand its
 - ✅ For objects spawned at runtime — consider recreating them manually on Load
 - ✅ Use consistent slot naming (e.g., ``AutoSave``, ``Quick1``, ``Checkpoint``)
 - ✅ Don't rely on object references — instead store IDs or lookup keys
+- ✅ When using `SaveGame` variables, prefer basic types (strings, numbers, bools)
 
 ---
 
 ## 🔧 Suggestions
 
-If you need:
+🧭 These advanced needs are outside the scope of SaveKit Lite:
 
 - World-level saving across maps → use GameInstance or a wrapper
 - Custom object handling → extend Saveable with your logic
@@ -36,4 +37,4 @@ If you need:
 
 
 
-💡 Need advanced serialization? Use custom logic in C++ or external solutions like JSON.
+💡 Need advanced serialization? Use custom C++ logic or integrate formats like JSON for full control.

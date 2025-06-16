@@ -575,6 +575,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-in-blueprints" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Using in Blueprints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     <span class="md-ellipsis">
       💡 Tips
@@ -851,6 +860,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-in-blueprints" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Using in Blueprints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     <span class="md-ellipsis">
       💡 Tips
@@ -933,6 +951,10 @@
 <hr />
 <h2 id="3-display-info-in-list-entry">🧱 3. Display Info in List Entry</h2>
 <p>Each ListView item can use a <code>SaveSlotInfoObject</code> to display save name, time, and version.</p>
+<blockquote>
+<p>ℹ️ <code>SaveSlotInfoObject</code> is a Blueprintable wrapper for slot metadata.
+You can create it in Blueprint or receive it from nodes like <code>LoadSaveMetadata</code>.</p>
+</blockquote>
 <p>Below is a full example that:</p>
 <ul>
 <li>Displays the save slot name</li>
@@ -959,12 +981,28 @@
 </ul>
 <p>You can use these in UMG widgets, buttons, or combo boxes.</p>
 <hr />
+<h2 id="using-in-blueprints">🧩 Using in Blueprints</h2>
+<p>All listed functions are exposed to Blueprints and can be used with:</p>
+<ul>
+<li>UMG widgets (e.g. <code>ListView</code>, <code>Button</code>, <code>ComboBox</code>)</li>
+<li>Event Graphs</li>
+<li>Custom UI logic (e.g. save menus, profile pickers)</li>
+</ul>
+<p>These nodes return strings or structs and require no C++ code.</p>
 <h2 id="tips">💡 Tips</h2>
 <ul>
-<li>Sort slots by <code>SaveTime</code> to show newest first</li>
+<li>Sort slots by <code>SaveTime</code> to show newest first<blockquote>
+<p>🕒 Recommended display format: <code>dd.MM.yyyy HH:mm</code>
+Use the <code>FormatText</code> node in Blueprints for localization and styling.</p>
+</blockquote>
+</li>
 <li>Format <code>SaveTime</code> as <code>"dd.MM.yyyy HH:mm"</code> for better readability</li>
 <li>Use <code>AutoSave</code> or <code>Profile_1</code> as consistent slot names</li>
 </ul>
+<blockquote>
+<p>📦 Want to display saved variables too?
+See <a href="../variables/">Working with Variables</a> for using <code>GetVariable()</code> in UI.</p>
+</blockquote>
 
 
 

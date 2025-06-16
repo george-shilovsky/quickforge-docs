@@ -816,7 +816,7 @@
 </tr>
 <tr>
 <td>Blueprint-only dynamic spawning</td>
-<td>Matching on name only, no GUIDs</td>
+<td>Relies on actor names only — dynamically spawned actors are not recreated</td>
 </tr>
 <tr>
 <td>Level streaming</td>
@@ -833,16 +833,17 @@
 <li>✅ For objects spawned at runtime — consider recreating them manually on Load</li>
 <li>✅ Use consistent slot naming (e.g., <code>AutoSave</code>, <code>Quick1</code>, <code>Checkpoint</code>)</li>
 <li>✅ Don't rely on object references — instead store IDs or lookup keys</li>
+<li>✅ When using <code>SaveGame</code> variables, prefer basic types (strings, numbers, bools)</li>
 </ul>
 <hr />
 <h2 id="suggestions">🔧 Suggestions</h2>
-<p>If you need:</p>
+<p>🧭 These advanced needs are outside the scope of SaveKit Lite:</p>
 <ul>
 <li>World-level saving across maps → use GameInstance or a wrapper</li>
 <li>Custom object handling → extend Saveable with your logic</li>
 <li>Large game state persistence → look into full save systems or Pro-tier solutions</li>
 </ul>
-<p>💡 Need advanced serialization? Use custom logic in C++ or external solutions like JSON.</p>
+<p>💡 Need advanced serialization? Use custom C++ logic or integrate formats like JSON for full control.</p>
 
 
 

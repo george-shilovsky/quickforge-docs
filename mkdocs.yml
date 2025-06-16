@@ -48,7 +48,7 @@ extra:
       link: https://www.youtube.com/@QuickForgeStudio
       name: QuickForge Studio on Youtube
   features:
-  - content.images.lightbox
+   - content.images.lightbox
 
 nav:
   - Home: index.md

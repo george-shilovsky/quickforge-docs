@@ -1,3 +1,19 @@
+## 🔧 Quick Start
+
+To get started:
+
+1. Add `Saveable` to any actor
+
+![Saveable Component](images/SaveableComponent.png)
+
+2. Use `Save Kit → SaveGame(SlotName)` and `LoadGame(SlotName)` Blueprint nodes
+
+![Save/Load Nodes](images/SaveGameLoadGame.png)
+
+3. ✅ Done! Your actor state is now persistent
+
+---
+
 # 🛠️ Setup – Adding Saveable
 
 To enable saving on an actor, attach the `Saveable` component and configure it in the Details panel.

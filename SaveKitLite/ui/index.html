@@ -566,9 +566,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-additional-nodes" class="md-nav__link">
+  <a href="#summary-of-ui-nodes" class="md-nav__link">
     <span class="md-ellipsis">
-      📘 5. Additional Nodes
+      🧩 Summary of UI Nodes
     </span>
   </a>
   
@@ -851,9 +851,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-additional-nodes" class="md-nav__link">
+  <a href="#summary-of-ui-nodes" class="md-nav__link">
     <span class="md-ellipsis">
-      📘 5. Additional Nodes
+      🧩 Summary of UI Nodes
     </span>
   </a>
   
@@ -971,15 +971,18 @@ You can create it in Blueprint or receive it from nodes like <code>LoadSaveMetad
 <p><a class="glightbox" href="../images/Node_LoadSaveMetadata.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="LoadSaveMetadata node" src="../images/Node_LoadSaveMetadata.png" /></a></p>
 <p>Returns a <code>SaveSlotInfo</code> struct for the selected slot. Use it when you want to preview a slot before loading.</p>
 <hr />
-<h2 id="5-additional-nodes">📘 5. Additional Nodes</h2>
-<p>These nodes are used to build the save/load UI:</p>
+<h2 id="summary-of-ui-nodes">🧩 Summary of UI Nodes</h2>
+<p>These are all the nodes you’ll typically use to create a save/load UI with SaveKit Lite:</p>
 <ul>
-<li><code>GetExistingSaveSlots()</code></li>
-<li><code>GetSaveSlotInfos()</code></li>
-<li><code>LoadSaveMetadata(SlotName)</code> → returns metadata</li>
-<li><code>LoadGame(SlotName)</code> → loads the selected save</li>
+<li><code>GetExistingSaveSlots()</code> → returns slot names (<code>FString[]</code>)</li>
+<li><code>GetSaveSlotInfos()</code> → returns metadata (<code>FSaveSlotInfo[]</code>)</li>
+<li><code>LoadSaveMetadata(SlotName)</code> → returns metadata for one slot</li>
+<li><code>LoadGame(SlotName)</code> → loads selected slot</li>
+<li><code>SaveGame(SlotName)</code> → saves current actor states to the specified slot</li>
 </ul>
-<p>You can use these in UMG widgets, buttons, or combo boxes.</p>
+<blockquote>
+<p>Use them inside UMG widgets like <code>ListView</code>, buttons, or combo boxes.</p>
+</blockquote>
 <hr />
 <h2 id="using-in-blueprints">🧩 Using in Blueprints</h2>
 <p>All listed functions are exposed to Blueprints and can be used with:</p>

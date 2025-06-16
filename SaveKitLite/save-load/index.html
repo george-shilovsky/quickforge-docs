@@ -528,9 +528,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-versioning-use-case" class="md-nav__link">
+  <a href="#example-save-version-display" class="md-nav__link">
     <span class="md-ellipsis">
-      Example: versioning use case
+      💡 Example Save Version Display
     </span>
   </a>
   
@@ -542,18 +542,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases-for-saveversion" class="md-nav__link">
+  <a href="#what-gets-loaded" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Use Cases for SaveVersion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-else-gets-saved" class="md-nav__link">
-    <span class="md-ellipsis">
-      🏷️ What Else Gets Saved?
+      🧠 What Gets Loaded?
     </span>
   </a>
   
@@ -566,14 +557,20 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-gets-loaded" class="md-nav__link">
+    <nav class="md-nav" aria-label="📁 Save Slot Location">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-shippingdevelopment-build" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 What Gets Loaded?
+      ✅ Windows (Shipping/Development build):
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -859,9 +856,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-versioning-use-case" class="md-nav__link">
+  <a href="#example-save-version-display" class="md-nav__link">
     <span class="md-ellipsis">
-      Example: versioning use case
+      💡 Example Save Version Display
     </span>
   </a>
   
@@ -873,18 +870,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-cases-for-saveversion" class="md-nav__link">
+  <a href="#what-gets-loaded" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 Use Cases for SaveVersion
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-else-gets-saved" class="md-nav__link">
-    <span class="md-ellipsis">
-      🏷️ What Else Gets Saved?
+      🧠 What Gets Loaded?
     </span>
   </a>
   
@@ -897,14 +885,20 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-gets-loaded" class="md-nav__link">
+    <nav class="md-nav" aria-label="📁 Save Slot Location">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-shippingdevelopment-build" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 What Gets Loaded?
+      ✅ Windows (Shipping/Development build):
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -933,7 +927,7 @@
 </blockquote>
 <p>SaveKit Lite provides simple Blueprint functions to persist and restore actor state across gameplay sessions.</p>
 <hr />
-<p>Want to store runtime data like counters or flags?
+<p>Want to store runtime data like counters or flags?<br />
 See <a href="../variables/">Working with Variables</a>.</p>
 <hr />
 <h2 id="save-game">🔘 Save Game</h2>
@@ -967,9 +961,6 @@ See <a href="../variables/">Working with Variables</a>.</p>
 <li>Match actors by name in the current level</li>
 <li>Apply the saved state to each actor that has a <code>Saveable</code> component</li>
 </ul>
-<blockquote>
-<p>⚠️ Make sure actor names in the level match the saved names.</p>
-</blockquote>
 <hr />
 <h2 id="optional-save-version">🔢 Optional Save Version</h2>
 <p>The <code>SaveGame()</code> node includes an optional second parameter: <code>SaveVersion</code>.</p>
@@ -977,70 +968,17 @@ See <a href="../variables/">Working with Variables</a>.</p>
 <li>If not specified, version defaults to <code>1</code></li>
 <li>You can set a custom version manually (e.g. <code>2</code>, <code>5</code>, <code>1001</code>) to track changes in save data format</li>
 </ul>
-<h3 id="example-versioning-use-case">Example: versioning use case</h3>
-<blockquote>
-<p>💡 Use case: migrate old saves</p>
-<p><code>blueprint
-if SaveVersion &lt; 2 {
-  ApplyDefaultInventory()
-  NotifyPlayer("Your save has been updated.")
-}</code>
-To detect outdated slots and act accordingly, you could compare <code>SaveVersion</code> on load:</p>
-</blockquote>
-<pre><code class="language-blueprint">if SaveVersion &lt; 2 then ShowWarning()
-</code></pre>
-<pre><code class="language-blueprint">SaveGame(`AutoSave`, 3)
-</code></pre>
-<p><img alt="Save Game with version 3" src="../images/SaveGame2.png" /></p>
-<p><em>This example stores a save under slot <code>AutoSave</code> with version <code>3</code>.</em></p>
 <p>You can retrieve and display the version later via:</p>
 <ul>
 <li><code>GetSaveSlotInfos()</code> → returns <code>SaveVersion</code> along with slot name and time</li>
 <li>UI widgets (e.g. <code>ListView</code> using <code>SaveSlotInfoObject</code>)</li>
 </ul>
 <hr />
-<h2 id="use-cases-for-saveversion">🧠 Use Cases for <code>SaveVersion</code></h2>
-<ul>
-<li>Detect outdated save slots</li>
-<li>Display save version in UI (e.g. <code>"v2"</code>)</li>
-<li>Create conditional logic to migrate or reject old saves</li>
-</ul>
+<h3 id="example-save-version-display">💡 Example Save Version Display</h3>
+<p>This example stores a save under slot <code>AutoSave</code> with version <code>3</code>.</p>
+<p><img alt="Save Game with version 3" src="../images/SaveGame2.png" /></p>
 <hr />
-<h2 id="what-else-gets-saved">🏷️ What Else Gets Saved?</h2>
-<p>In addition to Saveable variables, SaveKit Lite also saves:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Transform</td>
-<td>Saved if <code>Save Transform</code> is enabled</td>
-</tr>
-<tr>
-<td>Actor Tags</td>
-<td>Saved automatically</td>
-</tr>
-<tr>
-<td>UPROPERTY(SaveGame) fields</td>
-<td>Saved if they support text serialization</td>
-</tr>
-</tbody>
-</table>
-<h2 id="save-slot-location">📁 Save Slot Location</h2>
-<p>In packaged builds, saves are stored under:</p>
-<pre><code>Saved/SaveGames/
-</code></pre>
-<p>This applies to both <code>.sav</code> files and their metadata.</p>
-<blockquote>
-<p>🛠 You can access these files manually for backup, sync, or debugging purposes.
-In packaged builds, this path resolves to <code>YourProject/Saved/SaveGames/</code>.</p>
-</blockquote>
-<hr />
-<h2 id="what-gets-loaded">🔄 What Gets Loaded?</h2>
+<h2 id="what-gets-loaded">🧠 What Gets Loaded?</h2>
 <p>When loading, SaveKit Lite restores the following data for matching actors with a <code>Saveable</code> component:</p>
 <ul>
 <li>Actor transform (if <code>Save Transform</code> was enabled)</li>
@@ -1050,6 +988,22 @@ In packaged builds, this path resolves to <code>YourProject/Saved/SaveGames/</co
 </ul>
 <blockquote>
 <p>⚠️ Actors that no longer exist in the level will not be respawned.</p>
+</blockquote>
+<hr />
+<h2 id="save-slot-location">📁 Save Slot Location</h2>
+<p>In packaged builds, saves are stored under:</p>
+<pre><code>Saved/SaveGames/
+</code></pre>
+<p>This applies to both <code>.sav</code> files and their metadata.  </p>
+<blockquote>
+<p>🛠 You can access these files manually for backup, sync, or debugging purposes.<br />
+Depending on the build configuration, save files are stored in different locations:</p>
+</blockquote>
+<h3 id="windows-shippingdevelopment-build">✅ Windows (Shipping/Development build):</h3>
+<pre><code class="language-text">C:\Users\&lt;UserName&gt;\AppData\Local\&lt;ProjectName&gt;\Saved\SaveGames\
+</code></pre>
+<blockquote>
+<p>This is the default location used by Unreal Engine for local and packaged builds on Windows.</p>
 </blockquote>
 
 

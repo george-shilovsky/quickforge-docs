@@ -1,16 +1,6 @@
 # 📘 Blueprint Function Reference
 
-This section lists all Blueprint-accessible functions provided by SaveKit Lite, grouped by category.
-
-## 🧭 Function Index
-
-- 🔹 [Slots](#-category-save-kit--slots)
-- 🔹 [Save/Load](#-category-save-kit)
-- 🔹 [Saveable Variables](#-category-save-kit--saveable-component-functions)
-- 🧱 [Save Slot Info Object](#-save-slot-info-object)
-- 📦 [Notes](#-notes)
-
----
+This page lists all Blueprint-accessible functions provided by SaveKit Lite, grouped by category.
 
 ## 🔹 Category: Save Kit → Slots
 
@@ -37,12 +27,14 @@ This section lists all Blueprint-accessible functions provided by SaveKit Lite, 
   See [UI Integration](ui.md) for usage in slot previews.
 
 
+![LoadSaveMeta](images/Node_LoadSaveMetadata.png)
+
 ---
 
 ## 🔹 Category: Save Kit
 
 ### `SaveGame(SlotName, ``SaveVersion``)`
-- Input: `FString SlotName`, `int32 ``SaveVersion``` (optional)
+- Input: `FString SlotName`, `int32` ``SaveVersion`` (optional)
 - Description: Saves all actors with a Saveable component to the specified slot.
 
 
@@ -118,11 +110,8 @@ This section lists all Blueprint-accessible functions provided by SaveKit Lite, 
 
 ## 📦 Notes
 
-- All functions are exposed to Blueprints via context-sensitive search.
-- Can be used in:
-  - ✅ UMG widgets (`ListView`, `Button`, `Text`)
-  - ✅ Actor, Level, or GameMode Blueprints
-  - ✅ Custom save/load UI logic
+All SaveKit Lite functions are available in Blueprints via context-sensitive search, and can be used in:
 
-- All function categories are searchable using context-sensitive Blueprint menus.
-- You can use these functions inside UMG widgets, level Blueprints, or actor graphs.
+- UMG widgets (`ListView`, `Button`, `Text`)
+- Level, Actor, or GameMode Blueprints
+- Custom save/load UI logic

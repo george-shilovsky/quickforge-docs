@@ -561,9 +561,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#windows-shippingdevelopment-build" class="md-nav__link">
+  <a href="#while-running-in-the-editor" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Windows (Shipping/Development build):
+      ▶️ While running in the Editor:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-packaged-builds-shippingdevelopment" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 In packaged builds (Shipping/Development):
     </span>
   </a>
   
@@ -889,9 +898,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#windows-shippingdevelopment-build" class="md-nav__link">
+  <a href="#while-running-in-the-editor" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Windows (Shipping/Development build):
+      ▶️ While running in the Editor:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-packaged-builds-shippingdevelopment" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 In packaged builds (Shipping/Development):
     </span>
   </a>
   
@@ -991,20 +1009,24 @@ See <a href="../variables/">Working with Variables</a>.</p>
 </blockquote>
 <hr />
 <h2 id="save-slot-location">📁 Save Slot Location</h2>
-<p>In packaged builds, saves are stored under:</p>
-<pre><code>Saved/SaveGames/
-</code></pre>
-<p>This applies to both <code>.sav</code> files and their metadata.  </p>
-<blockquote>
-<p>🛠 You can access these files manually for backup, sync, or debugging purposes.<br />
-Depending on the build configuration, save files are stored in different locations:</p>
-</blockquote>
-<h3 id="windows-shippingdevelopment-build">✅ Windows (Shipping/Development build):</h3>
-<pre><code class="language-text">C:\Users\&lt;UserName&gt;\AppData\Local\&lt;ProjectName&gt;\Saved\SaveGames\
+<p>Where save files are stored depends on how the game is run:</p>
+<hr />
+<h3 id="while-running-in-the-editor">▶️ While running in the Editor:</h3>
+<pre><code>&lt;ProjectFolder&gt;/Saved/SaveGames/
 </code></pre>
 <blockquote>
-<p>This is the default location used by Unreal Engine for local and packaged builds on Windows.</p>
+<p>Used during development when playing in-editor (PIE or Standalone).</p>
 </blockquote>
+<hr />
+<h3 id="in-packaged-builds-shippingdevelopment">📦 In packaged builds (Shipping/Development):</h3>
+<pre><code>C:\Users\&lt;UserName&gt;\AppData\Local\&lt;ProjectName&gt;\Saved\SaveGames\
+</code></pre>
+<blockquote>
+<p>Used in final builds, including those launched outside of the editor.</p>
+</blockquote>
+<hr />
+<p>This applies to both <code>.sav</code> files and their metadata.<br />
+You can access these files manually for backup, sync, or debugging purposes.</p>
 
 
 

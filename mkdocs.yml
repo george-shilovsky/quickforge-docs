@@ -66,6 +66,6 @@ nav:
         - Limitations: SaveKitLite/limitations.md
         - Comparison: SaveKitLite/comparison.md
     - 🧪 Examples:
-        - Demo: SaveKitLite/demo.md
+        - Interactive Demo: SaveKitLite/demo.md
   - SaveKit Pro:
       - Overview: SaveKitPro/index.md

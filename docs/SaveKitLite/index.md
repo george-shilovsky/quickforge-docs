@@ -7,6 +7,8 @@ It allows you to save and load:
 - 🎮 Actor transform (location, rotation, scale)
 - 🧠 Custom string variables (like score, health, state)
 - 🏷️ Actor tags and properties marked as `SaveGame`
+> 💡 **Why save actor tags?** Tags can be used to categorize actors (e.g., `Enemy`, `Loot`, `Checkpoint`) and drive gameplay logic. Saving them ensures that gameplay-relevant identifiers like quest objectives, interactables, or triggers remain intact after loading.
+
 - 💾 Metadata about save slots for UI display
 
 ---

@@ -1,56 +1,68 @@
-# 🎮 Demo Level – Quick Start Walkthrough
+# 🧪 Interactive Demo – See SaveKit Lite in Action
 
-The SaveKit Lite demo level is included to showcase the core features of the plugin in a live environment.
-
----
-
-## 🧩 What's Included
-
-- A simple level with interactable actors
-- Save/load logic bound to UI buttons
-- Real-time updates to transform and variables
-- UI `ListView` to preview existing save slots
+Experience how SaveKit Lite works directly in Unreal Engine — either by watching a live walkthrough, playing the demo, or inspecting real Blueprint implementations.
 
 ---
 
-## 🛠 How to Use
+## ▶️ Watch the Demo
 
-1. **Enable the plugin** in your UE5 project
-2. **Open the demo map** located under:
-   ```
-   Plugins/SaveKitLite/Content/Maps/DemoLevel.umap
-   ```
-3. Press **Play** to test:
-   - Move the character or actor
-   - Click Save
-   - Move again
-   - Click Load to restore
+🎥 [Watch on YouTube](https://www.youtube.com/watch?v=kNwZ6u3kZAg&ab_channel=QuickForgeStudio)
 
----
+The video walkthrough demonstrates:
 
-## 🧠 Features Demonstrated
-
-| Feature                | Demonstrated? |
-|------------------------|----------------|
-| Saveable      | ✅              |
-| Variable updates       | ✅              |
-| Actor transform saving | ✅              |
-| Tags preservation      | ✅              |
-| Save slot UI           | ✅              |
-| Metadata preview       | ✅              |
+- Saving and restoring actor transform
+- Saving custom variables like "Health" or "HitCount"
+- UI with real-time save slot previews
+- Save metadata (name, time, version)
+- Using Saveable component with no C++ coding
 
 ---
 
-> 💡 Use this demo as a starting point to implement your own save/load system by copying logic into your levels or UI widgets.
+## 🎮 Play the Demo (Windows)
 
+Try it yourself — interact with the live demo build:
+
+🔗 [Download Demo Build (.zip)](https://drive.google.com/file/d/16J595Bs1cA6bw32OF4m9tF7V82_S02s4/view?usp=sharing)
+
+What’s included:
+
+- Prebuilt demo scene with UI
+- Save/Load buttons and feedback
+- Supports transform, variables, tags
+- Quick slot selection menu
+
+📌 No installation required — unzip and run `SaveKitLiteDemo.exe`.
 
 ---
 
-## 🛠 How to Modify
+## 🧱 Blueprint Examples – Learn by Inspecting
 
-To adapt the demo to your game:
+Want to see how it works under the hood?
 
-- Copy the demo UI widgets (e.g. `WBP_SaveMenu`) to your project
-- Replace actor Blueprints with your own and attach `Saveable`
-- Customize save/load buttons and hook up nodes from SaveKit
-- 💡 To showcase variable saving, call `SetVariable` before `SaveGame`
+🔗 [Download Sample Projects + UI Widgets](https://drive.google.com/drive/folders/1zotgfGRoqFx7KZWaucpy0poU8bWn6wKQ?usp=sharing)
+
+Included:
+
+- `WBP_SaveMenu`, `WBP_SlotEntry` widgets
+- Pre-configured demo map
+- Saveable-enabled Blueprints with variable logic
+- Working ListView-based UI
+
+💡 These assets are free to copy/paste into your own project.
+
+---
+
+## 💡 Key Systems Demonstrated
+
+| Feature                  | Covered |
+|--------------------------|---------|
+| Actor transform saving   | ✅       |
+| Runtime variable saving  | ✅       |
+| Tag preservation         | ✅       |
+| Slot-based UI            | ✅       |
+| Save metadata preview    | ✅       |
+| Pure Blueprint workflow  | ✅       |
+
+---
+
+> 🧩 Use this showcase as a foundation — either as a quick reference or a real starting point for your save/load menu.

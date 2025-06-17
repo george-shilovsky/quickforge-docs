@@ -994,8 +994,15 @@
 <ul>
 <li>🎮 Actor transform (location, rotation, scale)</li>
 <li>🧠 Custom string variables (like score, health, state)</li>
-<li>🏷️ Actor tags and properties marked as <code>SaveGame</code></li>
-<li>💾 Metadata about save slots for UI display</li>
+<li>
+<p>🏷️ Actor tags and properties marked as <code>SaveGame</code></p>
+<blockquote>
+<p>💡 <strong>Why save actor tags?</strong> Tags can be used to categorize actors (e.g., <code>Enemy</code>, <code>Loot</code>, <code>Checkpoint</code>) and drive gameplay logic. Saving them ensures that gameplay-relevant identifiers like quest objectives, interactables, or triggers remain intact after loading.</p>
+</blockquote>
+</li>
+<li>
+<p>💾 Metadata about save slots for UI display</p>
+</li>
 </ul>
 <hr />
 <h2 id="why-savekit-lite">💡 Why SaveKit Lite?</h2>

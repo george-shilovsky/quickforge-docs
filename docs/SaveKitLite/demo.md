@@ -6,7 +6,7 @@ Experience how SaveKit Lite works directly in Unreal Engine — either by watchi
 
 ## ▶️ Watch the Demo
 
-🎥 [Watch on YouTube](https://www.youtube.com/watch?v=kNwZ6u3kZAg&ab_channel=QuickForgeStudio)
+🎥 <a href="https://www.youtube.com/watch?v=kNwZ6u3kZAg&ab_channel=QuickForgeStudio" target="_blank">Watch on YouTube</a>
 
 The video walkthrough demonstrates:
 
@@ -22,7 +22,7 @@ The video walkthrough demonstrates:
 
 Try it yourself — interact with the live demo build:
 
-🔗 [Download Demo Build (.zip)](https://drive.google.com/file/d/16J595Bs1cA6bw32OF4m9tF7V82_S02s4/view?usp=sharing)
+🔗 <a href="https://drive.google.com/file/d/16J595Bs1cA6bw32OF4m9tF7V82_S02s4/view?usp=sharing" target="_blank">Download Demo Build (.zip)</a>
 
 What’s included:
 
@@ -31,7 +31,7 @@ What’s included:
 - Supports transform, variables, tags
 - Quick slot selection menu
 
-📌 No installation required — unzip and run `SaveKitLiteDemo.exe`.
+📌 No installation required — unzip and run `SaveKitLiteExample.exe`.
 
 ---
 
@@ -39,7 +39,7 @@ What’s included:
 
 Want to see how it works under the hood?
 
-🔗 [Download Sample Projects + UI Widgets](https://drive.google.com/drive/folders/1zotgfGRoqFx7KZWaucpy0poU8bWn6wKQ?usp=sharing)
+🔗 <a href="https://drive.google.com/drive/folders/1zotgfGRoqFx7KZWaucpy0poU8bWn6wKQ?usp=sharing" target="_blank">Download Sample Projects + UI Widgets</a>
 
 Included:
 

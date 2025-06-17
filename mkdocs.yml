@@ -54,18 +54,18 @@ extra:
 nav:
   - Home: index.md
   - SaveKit Lite:
-    - Getting Started:
-      - Overview: SaveKitLite/index.md
-      - Quick Start: SaveKitLite/quick-start.md
-    - Core Features:
-      - Save & Load: SaveKitLite/save-load.md
-      - Working with Variables: SaveKitLite/variables.md
-      - UI Integration: SaveKitLite/ui.md
-    - Developer Reference:
-      - Blueprint Reference: SaveKitLite/blueprint-reference.md
-      - Limitations: SaveKitLite/limitations.md
-      - Comparison: SaveKitLite/comparison.md
-    - Examples:
-      - Demo: SaveKitLite/demo.md
+    - 🚀 Getting Started:
+        - Overview: SaveKitLite/index.md
+        - Quick Start: SaveKitLite/quick-start.md
+    - ⚙️ Core Features:
+        - Save & Load: SaveKitLite/save-load.md
+        - Working with Variables: SaveKitLite/variables.md
+        - UI Integration: SaveKitLite/ui.md
+    - 🛠 Developer Reference:
+        - Blueprint Reference: SaveKitLite/blueprint-reference.md
+        - Limitations: SaveKitLite/limitations.md
+        - Comparison: SaveKitLite/comparison.md
+    - 🧪 Examples:
+        - Demo: SaveKitLite/demo.md
   - SaveKit Pro:
       - Overview: SaveKitPro/index.md

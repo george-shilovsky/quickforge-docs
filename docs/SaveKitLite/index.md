@@ -2,7 +2,7 @@
 
 **SaveKit Lite** is a minimalist save/load system for Unreal Engine 5 with full Blueprint support. Implemented in C++, designed for easy use in Blueprints.
 
-🔗 [Available on Unreal Engine Marketplace](https://fab.com/s/1c043632008e) – get the plugin, leave a review, and support future development!
+🔗 <a href="https://fab.com/s/1c043632008e" target="_blank">Available on Unreal Engine Marketplace</a> – get the plugin, leave a review, and support future development!
 
 It allows you to save and load:
 

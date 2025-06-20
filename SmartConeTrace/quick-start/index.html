@@ -82,6 +82,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#quick-start" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -888,6 +893,21 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -900,6 +920,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-enable-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Enable the Plugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-add-the-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Add the Component
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-handle-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Handle the Result
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-test-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Test It
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#done" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Done!
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1072,6 +1156,61 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-enable-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Enable the Plugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-add-the-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Add the Component
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-handle-the-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Handle the Result
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-test-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Test It
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#done" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Done!
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1090,9 +1229,55 @@
   
 
 
-  <h1>Quick Start</h1>
-
-
+<h1 id="quick-start">🚀 Quick Start</h1>
+<p>This guide will help you start using <strong>Smart Cone Trace</strong> in less than 2 minutes.</p>
+<hr />
+<h2 id="1-enable-the-plugin">1. Enable the Plugin</h2>
+<ol>
+<li>Open your Unreal Engine project.</li>
+<li>Go to <code>Edit &gt; Plugins</code>.</li>
+<li>Search for <strong>Smart Cone Trace</strong> and enable it.</li>
+<li>Restart the editor if prompted.</li>
+</ol>
+<p>📷 <strong>[SCREENSHOT_1: Plugin browser with Smart Cone Trace enabled]</strong><br />
+<em>Show the plugin activated in the Plugins window.</em></p>
+<hr />
+<h2 id="2-add-the-component">2. Add the Component</h2>
+<ol>
+<li>Open any Actor Blueprint (like a character or AI pawn).</li>
+<li>In the Components panel, click <strong>Add Component</strong> and choose <code>SmartConeTraceComponent</code>.</li>
+<li>Select it and tweak the settings in the Details panel:</li>
+<li><code>Interval</code> — how often the trace runs (e.g. every 0.25 seconds)</li>
+<li><code>Length</code> — how far the cone reaches</li>
+<li><code>AngleDegrees</code> — how wide the cone is</li>
+</ol>
+<p>📷 <strong>[SCREENSHOT_2: Component added to Blueprint and settings panel]</strong><br />
+<em>Show the SmartConeTraceComponent selected with parameters like Interval and Length.</em></p>
+<hr />
+<h2 id="3-handle-the-result">3. Handle the Result</h2>
+<ol>
+<li>In the Event Graph, right-click the component and choose <strong>"Assign On Cone Trace Result"</strong>.</li>
+<li>Use the result pin to get hit actors, check if anything was hit, etc.</li>
+</ol>
+<p>📷 <strong>[SCREENSHOT_3: Event node and handling logic in Blueprint]</strong><br />
+<em>Show a simple event setup using the result — like printing the closest actor.</em></p>
+<hr />
+<h2 id="4-test-it">4. Test It</h2>
+<ol>
+<li>Place the Actor in the level.</li>
+<li>Hit <strong>Play</strong>.</li>
+<li>The cone will automatically trace and trigger the event.</li>
+</ol>
+<p>If debug mode is enabled, you’ll see lines, boxes, and hit points in the viewport.</p>
+<p>📷 <strong>[SCREENSHOT_4: In-game cone debug visualization]</strong><br />
+<em>Show the cone shape with debug lines and points.</em></p>
+<hr />
+<h2 id="done">✅ Done!</h2>
+<p>You’re now using Smart Cone Trace in your Blueprint project.</p>
+<p>Next:
+- Learn how it works in <a href="../usage/">Usage</a>
+- See real examples in <a href="../examples/">Examples</a></p>
+<hr />
 
 
 

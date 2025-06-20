@@ -1,97 +1,134 @@
 # 🛠️ Usage Guide
 
-This page explains how to use both the **SmartConeTraceComponent** and the **Blueprint function**.
+This page explains how to use:
+
+- `SmartConeTraceComponent` — the automatic way
+- `ConeTraceByChannel()` — the manual Blueprint function
+- All result fields and helper functions
+
+No C++ required — everything is Blueprint-ready.
 
 ---
 
-## 🧱 Option 1: Using the Component
+## 🧱 Using the Component
 
-The easiest way to use the plugin is with the `SmartConeTraceComponent`.
+Add the `SmartConeTraceComponent` to any actor.
 
-### ✅ It runs automatically:
-- No need to call anything manually.
-- Traces at regular intervals using your chosen settings.
-- Sends results via the `OnConeTraceResult` event.
+It will automatically perform a cone trace every few seconds and call the event `OnConeTraceResult`.
 
-📷 **[SCREENSHOT_1: Blueprint showing component + event node]**  
-*Show the component in the Blueprint and the OnConeTraceResult event connected.*
+📷 **[SCREENSHOT_1: Blueprint with the component and event]**  
+*Show a Blueprint with the component added and OnConeTraceResult in the Event Graph.*
 
 ---
 
-### 🔧 Key Parameters (in Details panel)
+### 🔧 Component Parameters
 
-| Parameter           | Description                                           |
-|---------------------|-------------------------------------------------------|
-| `Interval`          | How often the trace runs (in seconds)                |
-| `Length`            | How far the cone reaches                             |
-| `AngleDegrees`      | Width of the cone                                     |
-| `TraceChannel`      | Which objects to detect (visibility, pawn, etc.)     |
-| `RequiredClass`     | Only include actors of this class (optional)         |
-| `RequiredTags`      | Only include actors with these tags (optional)       |
-| `RequiredInterface` | Only include actors with this interface (optional)   |
-| `bMultiHit`         | If true, collect all hits; otherwise, only the closest |
-| `bIgnoreSelf`       | Skip tracing against the owner actor                 |
-| `DebugMode`         | Visualize the trace (lines, boxes, impact points)    |
+All settings can be adjusted in the Details panel.
 
-📷 **[SCREENSHOT_2: Component parameters in Details panel]**  
-*Show the component settings expanded with some values filled.*
+| Property             | Description |
+|----------------------|-------------|
+| `Interval`           | How often to perform the trace (in seconds). Set to `0` to disable automatic tracing. |
+| `Length`             | How far the cone reaches. |
+| `AngleDegrees`       | Width of the cone in degrees (spread). |
+| `TraceChannel`       | What object types to trace (e.g. Visibility, Pawn). |
+| `ActorsToIgnore`     | Optional list of actors to skip during trace. |
+| `RequiredClass`      | Only include hits with this actor class (or child classes). |
+| `RequiredTags`       | Only include actors that have any of these tags. |
+| `RequiredInterface`  | Only include actors that implement this Blueprint interface. |
+| `bMultiHit`          | If `true`, collect all valid hits. If `false`, only use the closest hit per step. |
+| `bIgnoreSelf`        | Skip tracing against the owner actor. Usually `true`. |
+| `DebugMode`          | Draw the cone in the world (lines, boxes, hit points). Options: `None`, `Basic`, `Full`. |
+| `DebugDuration`      | How long to keep the debug visuals on screen (in seconds). |
+| `StepSize`           | Distance between each box trace. Smaller = smoother cone. |
+| `BoxDepth`           | Length of each individual box trace. |
+| `ToleranceDegrees`   | Extra angle margin to accept hits slightly outside the cone. |
+| `bUseComponentTransform` | If `true`, the trace starts from the component's position and direction. If `false`, uses the actor’s transform. |
 
----
-
-## ⚙️ Option 2: Using the Blueprint Function
-
-You can also use `ConeTraceByChannel()` directly from any Blueprint.
-
-### 🧠 Use it when:
-- You want to trace manually (not on a timer)
-- You want to control when and where the cone is cast
-- You don’t need a component
-
-📷 **[SCREENSHOT_3: Blueprint using ConeTraceByChannel node]**  
-*Show the function node with inputs like Start, Direction, Length, etc.*
+📷 **[SCREENSHOT_2: Details panel with all properties visible]**  
+*Show the component selected in the Details panel with some example values.*
 
 ---
 
-### 🧪 Enabling Debug View
+## 📘 Result Event: `OnConeTraceResult`
 
-Set `DebugMode` to:
-- `Basic` — draw hit lines and impact points
-- `Full` — draw full cone shape (boxes + hits + lines)
-
-📷 **[SCREENSHOT_4: Debug mode in action]**  
-*Show visual output in the editor: colored lines, box shapes, red dots on hits.*
+This event is triggered after each trace (if interval > 0). It gives you a `SmartConeTraceResult` struct.
 
 ---
 
-## 📌 Output: FSmartConeTraceResult
+### 📦 SmartConeTraceResult Fields
 
-Whether you use the component or the function, the result is the same:
+| Field          | Type             | Description |
+|----------------|------------------|-------------|
+| `bDidHit`      | `bool`           | `true` if anything was hit. |
+| `Hits`         | `Array<HitResult>` | All filtered hits. |
+| `HitActors`    | `Array<Actor>`   | All valid actors that were hit. |
+| `ClosestHit`   | `HitResult`      | The closest valid hit among all steps. |
 
-- `HitActors` — array of all valid hit actors
-- `ClosestHit` — the nearest hit (with full hit info)
-- `bDidHit` — true if anything was hit
-
-You can also use helper functions like:
-- `GetClosestHitActor()`
-- `WasActorHit()`
-- `GetHitActorsByClass()`
-
-📷 **[SCREENSHOT_5: Example of using result in Blueprint]**  
-*Show result pin being used to print names or check if actor was hit.*
+📷 **[SCREENSHOT_3: Using result in Blueprint — print closest actor]**  
+*Show Blueprint logic printing the name of the closest actor if any.*
 
 ---
 
-## 🧭 Use with AI or Abilities
+## ⚙️ Using the Blueprint Function
 
-Smart Cone Trace is great for:
-- Enemy AI "vision cone"
-- Detecting nearby players
-- Area scan abilities or magical spells
-- Obstacle detection ahead of a vehicle
+If you want to trace manually, use `ConeTraceByChannel()` from `SmartConeTraceLib`.
 
-📷 **[SCREENSHOT_6: Practical in-game usage like AI vision]**  
-*Show actual use in game logic — AI scanning or detecting player.*
+It’s perfect for:
+
+- One-time checks (e.g. on key press)
+- Tracing from any point and direction
+- Custom cone logic
+
+📷 **[SCREENSHOT_4: Blueprint with ConeTraceByChannel node]**  
+*Show the function in use with inputs like Start, Direction, etc.*
 
 ---
 
-Next: Check out real-world [Examples](examples.md) »
+### 🧰 Function Inputs
+
+Same parameters as the component, but passed directly into the function:
+
+- `Start` — starting location of the cone
+- `Direction` — direction the cone is facing
+- All other parameters match the component (see table above)
+
+You can get `Start` and `Direction` using nodes like:
+- `Get Actor Location`
+- `Get Forward Vector`
+- `Get Component Location`
+
+---
+
+### 🔬 Debug Modes
+
+| Debug Mode | Description |
+|------------|-------------|
+| `None`     | No visuals |
+| `Basic`    | Lines + hit points |
+| `Full`     | Boxes, lines, hit points (most detailed) |
+
+📷 **[SCREENSHOT_5: Visual debug output in Full mode]**  
+*Show in-game view with boxes, red dots, and debug cone.*
+
+---
+
+## 🧠 Helper Functions
+
+You can use these helper functions from `SmartConeTraceLib` to work with the result:
+
+| Function | What it does |
+|----------|---------------|
+| `GetClosestHitActor(Result)` | Returns the actor from `Result.ClosestHit`, or `null` |
+| `WasActorHit(Result, Actor)` | Returns `true` if the given actor is in the hit list |
+| `GetFirstValidHitActor(Result)` | Returns the first actor from the `HitActors` array |
+| `GetHitActorsByClass(Result, Class)` | Returns all actors in `HitActors` that match the class |
+| `IsValidHit(Result)` | Returns `true` if `Result.bDidHit` is `true` |
+
+📷 **[SCREENSHOT_6: Blueprint calling GetClosestHitActor]**  
+*Show usage of helper node to get actor and do something with it.*
+
+---
+
+Continue to [Reference](reference.md) for a technical list of parameters and return types.
+
+Or jump to [Examples](examples.md) to see real use cases.

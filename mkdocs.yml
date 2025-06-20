@@ -67,5 +67,11 @@ nav:
         - Comparison: SaveKitLite/comparison.md
     - 🧪 Examples:
         - Interactive Demo: SaveKitLite/demo.md
+  - Smart Cone Trace:
+      - Overview: SmartConeTrace/index.md
+      - Quick Start: SmartConeTrace/quick-start.md
+      - Usage: SmartConeTrace/usage.md
+      - Blueprint Reference: SmartConeTrace/reference.md
+      - Interactive Demo: SmartConeTrace/examples.md
   - SaveKit Pro:
       - Overview: SaveKitPro/index.md

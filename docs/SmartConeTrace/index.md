@@ -10,7 +10,7 @@ It’s perfect for things like vision cones, ability areas, and AI detection zon
 - 🧠 Filters by tag, class, or interface
 - 🔬 Optional debug visualization
 
-📷 **[SCREENSHOT_1: Cone debug view with hit points]**  
+![Cone debug view with hit points](images/index_SCREENSHOT_1.png)
 *A cone showing in-game with debug mode on and visible hit results.*
 
 ---
@@ -32,10 +32,10 @@ You’ll be tracing in under 2 minutes.
 - Built-in timer support
 - Full source code
 
-📷 **[SCREENSHOT_2: Component in Blueprint and event node]**  
+![Component in Blueprint and event node](images/index_SCREENSHOT_2.png)  
 *Show the component in the Details panel and its event in the Event Graph.*
 
-📷 **[SCREENSHOT_3: Blueprint node ConeTraceByChannel]**  
+![Blueprint node ConeTraceByChannel](images/index_SCREENSHOT_3.png)  
 *A Blueprint calling the function with sample parameters.*
 
 ---

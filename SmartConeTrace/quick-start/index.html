@@ -1239,45 +1239,45 @@
 <li>Search for <strong>Smart Cone Trace</strong> and enable it.</li>
 <li>Restart the editor if prompted.</li>
 </ol>
-<p><a class="glightbox" href="../images/quick-start_SCREENSHOT_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Plugin browser with Smart Cone Trace enabled" src="../images/quick-start_SCREENSHOT_1.png" /></a>
-<em>Show the plugin activated in the Plugins window.</em></p>
+<p><a class="glightbox" href="../images/quick-start_SCREENSHOT_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Plugin browser with Smart Cone Trace enabled" src="../images/quick-start_SCREENSHOT_1.png" /></a><br />
+<em>Smart Cone Trace plugin enabled in the Plugins panel.</em></p>
 <hr />
 <h2 id="2-add-the-component">2. Add the Component</h2>
 <ol>
 <li>Open any Actor Blueprint (like a character or AI pawn).</li>
-<li>In the Components panel, click <strong>Add Component</strong> and choose <code>SmartConeTraceComponent</code>.</li>
-<li>Select it and tweak the settings in the Details panel:</li>
+<li>In the Components panel, click <strong>Add Component</strong> and choose <strong>SmartConeTrace</strong>.</li>
+<li>Select it and adjust the settings in the Details panel:</li>
 <li><code>Interval</code> — how often the trace runs (e.g. every 0.25 seconds)</li>
 <li><code>Length</code> — how far the cone reaches</li>
 <li><code>AngleDegrees</code> — how wide the cone is</li>
 </ol>
-<p><a class="glightbox" href="../images/quick-start_SCREENSHOT_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Component added to Blueprint and settings panel" src="../images/quick-start_SCREENSHOT_2.png" /></a>
-<em>Show the SmartConeTraceComponent selected with parameters like Interval and Length.</em></p>
+<p><a class="glightbox" href="../images/quick-start_SCREENSHOT_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Component added to Blueprint and settings panel" src="../images/quick-start_SCREENSHOT_2.png" /></a><br />
+<em>SmartConeTrace component selected, with editable parameters like Interval and Angle.</em></p>
 <hr />
 <h2 id="3-handle-the-result">3. Handle the Result</h2>
 <ol>
-<li>In the Event Graph, right-click the component and choose <strong>"Add On Cone Trace Result"</strong>.</li>
-<li>Use the result pin to get hit actors, check if anything was hit, etc.</li>
+<li>In the Components panel, right-click the <strong>SmartConeTrace</strong> component.</li>
+<li>Choose <strong>Add Event → Add OnConeTraceResult</strong>.</li>
 </ol>
+<p>This creates an event node that fires every time the trace runs.</p>
 <p><a class="glightbox" href="../images/quick-start_SCREENSHOT_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Event node and handling logic in Blueprint" src="../images/quick-start_SCREENSHOT_3.png" /></a><br />
-<em>Show a simple event setup using the result — like printing the closest actor.</em></p>
+<em>A basic event setup using the OnConeTraceResult node to print the closest hit actor.</em></p>
 <hr />
 <h2 id="4-test-it">4. Test It</h2>
 <ol>
-<li>Place the Actor in the level.</li>
+<li>Place the actor in the level.</li>
 <li>Hit <strong>Play</strong>.</li>
 <li>The cone will automatically trace and trigger the event.</li>
 </ol>
-<p>If debug mode is enabled, you’ll see lines, boxes, and hit points in the viewport.</p>
+<p>If debug mode is enabled, you’ll see the trace shape, hit boxes, and impact points.</p>
 <p><a class="glightbox" href="../images/quick-start_SCREENSHOT_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="In-game cone debug visualization" src="../images/quick-start_SCREENSHOT_4.png" /></a><br />
-<em>Show the cone shape with debug lines and points.</em></p>
+<em>Cone shape visualized in-game with debug mode set to Full.</em></p>
 <hr />
 <h2 id="done">✅ Done!</h2>
 <p>You’re now using Smart Cone Trace in your Blueprint project.</p>
-<p>Next:
-- Learn how it works in <a href="../usage/">Usage</a>
-- See real examples in <a href="../examples/">Examples</a></p>
-<hr />
+<p>Next:<br />
+→ Learn how it works in <a href="../usage/">Usage</a><br />
+→ See real examples in <a href="../examples/">Examples</a></p>
 
 
 

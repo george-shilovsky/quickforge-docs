@@ -978,6 +978,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#i-about-actorstoignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      ℹ️ About ActorsToIgnore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-settings-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Advanced Settings Tips
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1016,15 +1034,6 @@
   
     <nav class="md-nav" aria-label="⚙️ Using the Blueprint Function">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#function-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧰 Function Inputs
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#debug-modes" class="md-nav__link">
@@ -1229,6 +1238,24 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#i-about-actorstoignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      ℹ️ About ActorsToIgnore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-settings-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Advanced Settings Tips
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1267,15 +1294,6 @@
   
     <nav class="md-nav" aria-label="⚙️ Using the Blueprint Function">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#function-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧰 Function Inputs
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#debug-modes" class="md-nav__link">
@@ -1322,17 +1340,17 @@
 <h1 id="usage-guide">🛠️ Usage Guide</h1>
 <p>This page explains how to use:</p>
 <ul>
-<li><code>SmartConeTraceComponent</code> — the automatic way</li>
-<li><code>ConeTraceByChannel()</code> — the manual Blueprint function</li>
+<li><code>SmartConeTrace</code> — the automatic scene component  </li>
+<li><code>ConeTraceByChannel()</code> — the manual Blueprint function  </li>
 <li>All result fields and helper functions</li>
 </ul>
 <p>No C++ required — everything is Blueprint-ready.</p>
 <hr />
 <h2 id="using-the-component">🧱 Using the Component</h2>
-<p>Add the <code>SmartConeTraceComponent</code> to any actor.</p>
+<p>Add the <code>SmartConeTrace</code> component to any actor.</p>
 <p>It will automatically perform a cone trace every few seconds and call the event <code>OnConeTraceResult</code>.</p>
-<p><a class="glightbox" href="../images/usage_SCREENSHOT_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Blueprint with the component and event" src="../images/usage_SCREENSHOT_1.png" /></a>
-<em>Show a Blueprint with the component added and OnConeTraceResult in the Event Graph.</em></p>
+<p><a class="glightbox" href="../images/usage_SCREENSHOT_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Blueprint with the component and event" src="../images/usage_SCREENSHOT_1.png" /></a><br />
+<em>Actor Blueprint using the <code>SmartConeTrace</code> component with the <code>OnConeTraceResult</code> event.</em></p>
 <hr />
 <h3 id="component-parameters">🔧 Component Parameters</h3>
 <p>All settings can be adjusted in the Details panel.</p>
@@ -1411,11 +1429,31 @@
 </tbody>
 </table>
 <p><a class="glightbox" href="../images/usage_SCREENSHOT_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Details panel with all properties visible" src="../images/usage_SCREENSHOT_2.png" /></a><br />
-<em>Show the component selected in the Details panel with some example values.</em></p>
+<em>Details panel showing all parameters of the <code>SmartConeTrace</code> component.</em></p>
+<hr />
+<h3 id="i-about-actorstoignore">ℹ️ About <code>ActorsToIgnore</code></h3>
+<p>The <code>ActorsToIgnore</code> array lets you exclude specific actors from being hit by the cone trace.</p>
+<blockquote>
+<p>⚠️ <strong>Important:</strong> This array can only be filled with actors that are <strong>already placed in the scene</strong>.</p>
+</blockquote>
+<p>If you're using the component or calling the <code>ConeTraceByChannel()</code> function in Blueprint:</p>
+<ul>
+<li>You <strong>must</strong> select scene-placed actors (e.g. from the World Outliner).</li>
+<li><strong>You cannot</strong> add dynamically spawned actors or class references directly.</li>
+<li>The actor that owns the trace component or the Blueprint node <strong>must also be in the level</strong> — otherwise, the editor won't let you assign values to <code>ActorsToIgnore</code>.</li>
+</ul>
+<p>This is a limitation of how the Unreal Editor handles <code>TArray&lt;AActor*&gt;</code> in exposed Blueprint properties.</p>
+<p>To ignore the owner actor automatically, simply enable <code>bIgnoreSelf</code>.</p>
+<hr />
+<h3 id="advanced-settings-tips">⚙️ Advanced Settings Tips</h3>
+<ul>
+<li><strong>StepSize</strong> — Smaller values result in a smoother and more precise cone, but increase the number of traces and cost.</li>
+<li><strong>BoxDepth</strong> — Increase if some actors are being missed between trace steps.</li>
+<li><strong>ToleranceDegrees</strong> — Add a small margin (1–5°) to catch actors that appear visually inside the cone but technically fall just outside.</li>
+</ul>
 <hr />
 <h2 id="result-event-onconetraceresult">📘 Result Event: <code>OnConeTraceResult</code></h2>
 <p>This event is triggered after each trace (if interval &gt; 0). It gives you a <code>SmartConeTraceResult</code> struct.</p>
-<hr />
 <h3 id="smartconetraceresult-fields">📦 SmartConeTraceResult Fields</h3>
 <table>
 <thead>
@@ -1449,7 +1487,7 @@
 </tbody>
 </table>
 <p><a class="glightbox" href="../images/usage_SCREENSHOT_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Using result in Blueprint — print closest actor" src="../images/usage_SCREENSHOT_3.png" /></a><br />
-<em>Show Blueprint logic printing the name of the closest actor if any.</em></p>
+<em>Example of printing the name of the closest hit actor using the result.</em></p>
 <hr />
 <h2 id="using-the-blueprint-function">⚙️ Using the Blueprint Function</h2>
 <p>If you want to trace manually, use <code>ConeTraceByChannel()</code> from <code>SmartConeTraceLib</code>.</p>
@@ -1460,19 +1498,7 @@
 <li>Custom cone logic</li>
 </ul>
 <p><a class="glightbox" href="../images/usage_SCREENSHOT_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Blueprint with ConeTraceByChannel node" src="../images/usage_SCREENSHOT_4.png" /></a><br />
-<em>Show the function in use with inputs like Start, Direction, etc.</em></p>
-<hr />
-<h3 id="function-inputs">🧰 Function Inputs</h3>
-<p>Same parameters as the component, but passed directly into the function:</p>
-<ul>
-<li><code>Start</code> — starting location of the cone</li>
-<li><code>Direction</code> — direction the cone is facing</li>
-<li>All other parameters match the component (see table above)</li>
-</ul>
-<p>You can get <code>Start</code> and <code>Direction</code> using nodes like:
-- <code>Get Actor Location</code>
-- <code>Get Forward Vector</code>
-- <code>Get Component Location</code></p>
+<em>Calling the <code>ConeTraceByChannel</code> function with Start, Direction, and other parameters.</em></p>
 <hr />
 <h3 id="debug-modes">🔬 Debug Modes</h3>
 <table>
@@ -1498,7 +1524,7 @@
 </tbody>
 </table>
 <p><a class="glightbox" href="../images/usage_SCREENSHOT_5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Visual debug output in Full mode" src="../images/usage_SCREENSHOT_5.png" /></a><br />
-<em>Show in-game view with boxes, red dots, and debug cone.</em></p>
+<em>In-game view showing a fully visualized cone and hit points in Full debug mode.</em></p>
 <hr />
 <h2 id="helper-functions">🧠 Helper Functions</h2>
 <p>You can use these helper functions from <code>SmartConeTraceLib</code> to work with the result:</p>
@@ -1512,31 +1538,28 @@
 <tbody>
 <tr>
 <td><code>GetClosestHitActor(Result)</code></td>
-<td>Returns the actor from <code>Result.ClosestHit</code>, or <code>null</code></td>
+<td>Returns the actor from <code>Result.ClosestHit</code>, or <code>null</code>.</td>
 </tr>
 <tr>
 <td><code>WasActorHit(Result, Actor)</code></td>
-<td>Returns <code>true</code> if the given actor is in the hit list</td>
+<td>Returns <code>true</code> if the given actor is in the hit list.</td>
 </tr>
 <tr>
 <td><code>GetFirstValidHitActor(Result)</code></td>
-<td>Returns the first actor from the <code>HitActors</code> array</td>
+<td>Returns the first actor from the <code>HitActors</code> array.</td>
 </tr>
 <tr>
 <td><code>GetHitActorsByClass(Result, Class)</code></td>
-<td>Returns all actors in <code>HitActors</code> that match the class</td>
+<td>Filters hit actors by class.</td>
 </tr>
 <tr>
 <td><code>IsValidHit(Result)</code></td>
-<td>Returns <code>true</code> if <code>Result.bDidHit</code> is <code>true</code></td>
+<td>Returns <code>true</code> if <code>Result.bDidHit</code> is <code>true</code>.</td>
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="../images/usage_SCREENSHOT_6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Blueprint calling GetClosestHitActor" src="../images/usage_SCREENSHOT_6.png" /></a> 
-<em>Show usage of helper node to get actor and do something with it.</em></p>
-<hr />
-<p>Continue to <a href="../reference/">Reference</a> for a technical list of parameters and return types.</p>
-<p>Or jump to <a href="../examples/">Examples</a> to see real use cases.</p>
+<p><a class="glightbox" href="../images/usage_SCREENSHOT_6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Blueprint calling GetClosestHitActor" src="../images/usage_SCREENSHOT_6.png" /></a><br />
+<em>Using a helper function to get the closest actor and apply logic.</em></p>
 
 
 

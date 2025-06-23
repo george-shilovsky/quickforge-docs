@@ -11,7 +11,7 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
 3. Search for **Smart Cone Trace** and enable it.
 4. Restart the editor if prompted.
 
-📷 **[SCREENSHOT_1: Plugin browser with Smart Cone Trace enabled]**  
+![Plugin browser with Smart Cone Trace enabled](images/quick-start_SCREENSHOT_1.png)
 *Show the plugin activated in the Plugins window.*
 
 ---
@@ -25,7 +25,7 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
    - `Length` — how far the cone reaches
    - `AngleDegrees` — how wide the cone is
 
-📷 **[SCREENSHOT_2: Component added to Blueprint and settings panel]**  
+![Component added to Blueprint and settings panel](images/quick-start_SCREENSHOT_2.png)
 *Show the SmartConeTraceComponent selected with parameters like Interval and Length.*
 
 ---
@@ -35,7 +35,7 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
 1. In the Event Graph, right-click the component and choose **"Assign On Cone Trace Result"**.
 2. Use the result pin to get hit actors, check if anything was hit, etc.
 
-📷 **[SCREENSHOT_3: Event node and handling logic in Blueprint]**  
+![Event node and handling logic in Blueprint](images/quick-start_SCREENSHOT_3.png)  
 *Show a simple event setup using the result — like printing the closest actor.*
 
 ---
@@ -48,7 +48,7 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
 
 If debug mode is enabled, you’ll see lines, boxes, and hit points in the viewport.
 
-📷 **[SCREENSHOT_4: In-game cone debug visualization]**  
+![In-game cone debug visualization](images/quick-start_SCREENSHOT_4.png)  
 *Show the cone shape with debug lines and points.*
 
 ---

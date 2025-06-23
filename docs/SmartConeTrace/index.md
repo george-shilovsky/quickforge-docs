@@ -26,14 +26,14 @@ You’ll be tracing in under 2 minutes.
 
 ## 🧠 What’s Inside
 
-- A ready-to-use `SmartConeTraceComponent`
-- A flexible `ConeTraceByChannel` Blueprint function
-- Built-in filtering by tags, class, and interface
-- Accurate geometry with step-based tracing
+- A ready-to-use **SmartConeTrace** scene component  
+- A flexible `ConeTraceByChannel` Blueprint function  
+- Built-in filtering by tags, class, and interface  
+- Accurate geometry with step-based tracing  
 - Full source code and visual debug support
 
 ![Component in Blueprint and event node](images/index_SCREENSHOT_2.png)  
-*The component shown in the Details panel, along with its event node.*
+*The SmartConeTrace component shown in the Details panel, along with its event node.*
 
 ![Blueprint node ConeTraceByChannel](images/index_SCREENSHOT_3.png)  
 *The ConeTraceByChannel function being used in a Blueprint with sample parameters.*

@@ -13,7 +13,6 @@ This is a complete reference for all parameters, structures, functions, and enum
 | `AngleDegrees`           | `float`                | `40.0`      |
 | `TraceChannel`           | `ETraceTypeQuery`      | `TraceTypeQuery1` |
 | `ActorsToIgnore`         | `Array<Actor>`         | `[]`        |
-|                          |                        |             | > ℹ️ Only accepts actors already placed in the level. [More info](usage.md#about-actorstoignore)
 | `RequiredClass`          | `Class<Actor>`         | `None`      |
 | `RequiredTags`           | `Array<Name>`          | `[]`        |
 | `RequiredInterface`      | `Class<Interface>`     | `None`      |
@@ -25,6 +24,9 @@ This is a complete reference for all parameters, structures, functions, and enum
 | `BoxDepth`               | `float`                | `60.0`      |
 | `ToleranceDegrees`       | `float`                | `2.0`       |
 | `bUseComponentTransform` | `bool`                 | `true`      |
+
+**ℹ️ Note:** `ActorsToIgnore` only accepts actors that are already placed in the level.  
+[Learn more about this limitation →](usage.md#about-actorstoignore)
 
 ---
 

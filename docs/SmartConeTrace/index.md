@@ -26,7 +26,7 @@ You’ll be tracing in under 2 minutes.
 
 ## 🧠 What’s Inside
 
-- A ready-to-use **SmartConeTrace** scene component  
+- A ready-to-use `SmartConeTrace` scene component  
 - A flexible `ConeTraceByChannel` Blueprint function  
 - Built-in filtering by tags, class, and interface  
 - Accurate geometry with step-based tracing  

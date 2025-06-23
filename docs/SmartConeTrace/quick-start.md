@@ -38,7 +38,7 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
 This creates an event node that fires every time the trace runs.
 
 ![Event node and handling logic in Blueprint](images/quick-start_SCREENSHOT_3.png)  
-*A basic event setup using the OnConeTraceResult node to print the closest hit actor.*
+*Example of using the OnConeTraceResult event to print the names of all hit actors.*
 
 ---
 

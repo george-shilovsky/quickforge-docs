@@ -134,4 +134,4 @@ You can use these helper functions from `SmartConeTraceLib` to work with the res
 | `IsValidHit(Result)`            | Returns `true` if `Result.bDidHit` is `true`. |
 
 ![Blueprint calling GetClosestHitActor](images/usage_SCREENSHOT_6.png)  
-*Using a helper function to get the closest actor and apply logic.*
+*Helper functions available in Blueprint for working with Smart Cone Trace results.*

@@ -1007,30 +1007,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧰 Blueprint Function: ConeTraceByChannel()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#required-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Inputs:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optional Inputs:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1039,30 +1015,6 @@
       🔁 Timer Functions
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="🔁 Timer Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#startconetracetimerworldcontext-targetactor-callbackfunctionname-interval-bloop" class="md-nav__link">
-    <span class="md-ellipsis">
-      StartConeTraceTimer(WorldContext, TargetActor, CallbackFunctionName, Interval, bLoop)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stopconetracetimerworldcontext-targetactor" class="md-nav__link">
-    <span class="md-ellipsis">
-      StopConeTraceTimer(WorldContext, TargetActor)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1247,30 +1199,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧰 Blueprint Function: ConeTraceByChannel()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#required-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Required Inputs:
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-inputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optional Inputs:
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1279,30 +1207,6 @@
       🔁 Timer Functions
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="🔁 Timer Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#startconetracetimerworldcontext-targetactor-callbackfunctionname-interval-bloop" class="md-nav__link">
-    <span class="md-ellipsis">
-      StartConeTraceTimer(WorldContext, TargetActor, CallbackFunctionName, Interval, bLoop)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stopconetracetimerworldcontext-targetactor" class="md-nav__link">
-    <span class="md-ellipsis">
-      StopConeTraceTimer(WorldContext, TargetActor)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1478,41 +1382,146 @@
 </table>
 <hr />
 <h2 id="blueprint-function-conetracebychannel">🧰 Blueprint Function: <code>ConeTraceByChannel()</code></h2>
-<p>Defined in: <code>SmartConeTraceLib</code><br />
-Returns: <code>FSmartConeTraceResult</code></p>
-<h3 id="required-inputs">Required Inputs:</h3>
-<ul>
-<li><code>WorldContextObject</code> (usually <code>self</code>)</li>
-<li><code>Start</code> — <code>Vector</code></li>
-<li><code>Direction</code> — <code>Vector</code></li>
-<li><code>Length</code> — <code>float</code></li>
-<li><code>AngleDegrees</code> — <code>float</code></li>
-<li><code>TraceChannel</code> — <code>ETraceTypeQuery</code></li>
-</ul>
-<h3 id="optional-inputs">Optional Inputs:</h3>
-<ul>
-<li><code>ActorsToIgnore</code> — <code>Array&lt;Actor&gt;</code></li>
-<li><code>RequiredClass</code> — <code>Class&lt;Actor&gt;</code></li>
-<li><code>RequiredTags</code> — <code>Array&lt;Name&gt;</code></li>
-<li><code>RequiredInterface</code> — <code>Class&lt;Interface&gt;</code></li>
-<li><code>bMultiHit</code> — <code>bool</code></li>
-<li><code>bIgnoreSelf</code> — <code>bool</code></li>
-<li><code>DebugMode</code> — <code>EConeDebugMode</code></li>
-<li><code>DebugDuration</code> — <code>float</code></li>
-<li><code>StepSize</code> — <code>float</code></li>
-<li><code>BoxDepth</code> — <code>float</code></li>
-<li><code>ToleranceDegrees</code> — <code>float</code></li>
-</ul>
+<p>Returns: <code>FSmartConeTraceResult</code><br />
+Defined in: <code>SmartConeTraceLib</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WorldContextObject</code></td>
+<td><code>Object</code></td>
+<td>✅</td>
+<td>Usually <code>self</code></td>
+</tr>
+<tr>
+<td><code>Start</code></td>
+<td><code>Vector</code></td>
+<td>✅</td>
+<td>Origin point of the cone</td>
+</tr>
+<tr>
+<td><code>Direction</code></td>
+<td><code>Vector</code></td>
+<td>✅</td>
+<td>Direction the cone faces</td>
+</tr>
+<tr>
+<td><code>Length</code></td>
+<td><code>float</code></td>
+<td>✅</td>
+<td>How far the cone extends</td>
+</tr>
+<tr>
+<td><code>AngleDegrees</code></td>
+<td><code>float</code></td>
+<td>✅</td>
+<td>Half-angle of the cone in degrees</td>
+</tr>
+<tr>
+<td><code>TraceChannel</code></td>
+<td><code>ETraceTypeQuery</code></td>
+<td>✅</td>
+<td>Object types to trace</td>
+</tr>
+<tr>
+<td><code>ActorsToIgnore</code></td>
+<td><code>Array&lt;Actor&gt;</code></td>
+<td>❌</td>
+<td>Skip these actors during trace</td>
+</tr>
+<tr>
+<td><code>RequiredClass</code></td>
+<td><code>Class&lt;Actor&gt;</code></td>
+<td>❌</td>
+<td>Only include actors of this class</td>
+</tr>
+<tr>
+<td><code>RequiredTags</code></td>
+<td><code>Array&lt;Name&gt;</code></td>
+<td>❌</td>
+<td>Only include actors with these tags</td>
+</tr>
+<tr>
+<td><code>RequiredInterface</code></td>
+<td><code>Class&lt;Interface&gt;</code></td>
+<td>❌</td>
+<td>Only include actors implementing it</td>
+</tr>
+<tr>
+<td><code>bMultiHit</code></td>
+<td><code>bool</code></td>
+<td>❌</td>
+<td>Whether to collect all hits</td>
+</tr>
+<tr>
+<td><code>bIgnoreSelf</code></td>
+<td><code>bool</code></td>
+<td>❌</td>
+<td>Whether to skip tracing the owner</td>
+</tr>
+<tr>
+<td><code>DebugMode</code></td>
+<td><code>EConeDebugMode</code></td>
+<td>❌</td>
+<td>Visualize trace shapes</td>
+</tr>
+<tr>
+<td><code>DebugDuration</code></td>
+<td><code>float</code></td>
+<td>❌</td>
+<td>Time to display debug shapes</td>
+</tr>
+<tr>
+<td><code>StepSize</code></td>
+<td><code>float</code></td>
+<td>❌</td>
+<td>Distance between trace steps</td>
+</tr>
+<tr>
+<td><code>BoxDepth</code></td>
+<td><code>float</code></td>
+<td>❌</td>
+<td>Depth of each trace box</td>
+</tr>
+<tr>
+<td><code>ToleranceDegrees</code></td>
+<td><code>float</code></td>
+<td>❌</td>
+<td>Extra angular tolerance</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="timer-functions">🔁 Timer Functions</h2>
 <p>Also in <code>SmartConeTraceLib</code>:</p>
-<h3 id="startconetracetimerworldcontext-targetactor-callbackfunctionname-interval-bloop"><code>StartConeTraceTimer(WorldContext, TargetActor, CallbackFunctionName, Interval, bLoop)</code></h3>
-<p>Binds a Blueprint function to be called repeatedly on a timer.</p>
-<h3 id="stopconetracetimerworldcontext-targetactor"><code>StopConeTraceTimer(WorldContext, TargetActor)</code></h3>
-<p>Stops the timer for the given actor.</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>StartConeTraceTimer(WorldContext, TargetActor, CallbackFunctionName, Interval, bLoop)</code></td>
+<td>Binds a Blueprint function to be called repeatedly on a timer.</td>
+</tr>
+<tr>
+<td><code>StopConeTraceTimer(WorldContext, TargetActor)</code></td>
+<td>Stops the timer for the given actor.</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="helper-functions">🔍 Helper Functions</h2>
-<p>Return values are based on <code>FSmartConeTraceResult</code>.</p>
+<p>All helper functions work with the <code>FSmartConeTraceResult</code> struct.</p>
 <table>
 <thead>
 <tr>
@@ -1549,8 +1558,6 @@ Returns: <code>FSmartConeTraceResult</code></p>
 </tr>
 </tbody>
 </table>
-<p><a class="glightbox" href="../images/usage_SCREENSHOT_6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Blueprint calling GetClosestHitActor" src="../images/usage_SCREENSHOT_6.png" /></a><br />
-<em>Helper functions available in Blueprint for working with Smart Cone Trace results.</em></p>
 <hr />
 <h2 id="enum-econedebugmode">🧾 Enum: <code>EConeDebugMode</code></h2>
 <p>Used to control debug visualization.</p>

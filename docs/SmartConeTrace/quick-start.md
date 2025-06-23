@@ -32,7 +32,7 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
 
 ## 3. Handle the Result
 
-1. In the Event Graph, right-click the component and choose **"Assign On Cone Trace Result"**.
+1. In the Event Graph, right-click the component and choose **"Add On Cone Trace Result"**.
 2. Use the result pin to get hit actors, check if anything was hit, etc.
 
 ![Event node and handling logic in Blueprint](images/quick-start_SCREENSHOT_3.png)  

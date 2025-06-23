@@ -2,8 +2,8 @@
 
 This page explains how to use:
 
-- `SmartConeTraceComponent` — the automatic way
-- `ConeTraceByChannel()` — the manual Blueprint function
+- `SmartConeTrace` — the automatic scene component  
+- `ConeTraceByChannel()` — the manual Blueprint function  
 - All result fields and helper functions
 
 No C++ required — everything is Blueprint-ready.
@@ -12,12 +12,12 @@ No C++ required — everything is Blueprint-ready.
 
 ## 🧱 Using the Component
 
-Add the `SmartConeTraceComponent` to any actor.
+Add the `SmartConeTrace` component to any actor.
 
 It will automatically perform a cone trace every few seconds and call the event `OnConeTraceResult`.
 
-![Blueprint with the component and event](images/usage_SCREENSHOT_1.png)
-*Show a Blueprint with the component added and OnConeTraceResult in the Event Graph.*
+![Blueprint with the component and event](images/usage_SCREENSHOT_1.png)  
+*Actor Blueprint using the `SmartConeTrace` component with the `OnConeTraceResult` event.*
 
 ---
 
@@ -25,27 +25,53 @@ It will automatically perform a cone trace every few seconds and call the event 
 
 All settings can be adjusted in the Details panel.
 
-| Property             | Description |
-|----------------------|-------------|
-| `Interval`           | How often to perform the trace (in seconds). Set to `0` to disable automatic tracing. |
-| `Length`             | How far the cone reaches. |
-| `AngleDegrees`       | Width of the cone in degrees (spread). |
-| `TraceChannel`       | What object types to trace (e.g. Visibility, Pawn). |
-| `ActorsToIgnore`     | Optional list of actors to skip during trace. |
-| `RequiredClass`      | Only include hits with this actor class (or child classes). |
-| `RequiredTags`       | Only include actors that have any of these tags. |
-| `RequiredInterface`  | Only include actors that implement this Blueprint interface. |
-| `bMultiHit`          | If `true`, collect all valid hits. If `false`, only use the closest hit per step. |
-| `bIgnoreSelf`        | Skip tracing against the owner actor. Usually `true`. |
-| `DebugMode`          | Draw the cone in the world (lines, boxes, hit points). Options: `None`, `Basic`, `Full`. |
-| `DebugDuration`      | How long to keep the debug visuals on screen (in seconds). |
-| `StepSize`           | Distance between each box trace. Smaller = smoother cone. |
-| `BoxDepth`           | Length of each individual box trace. |
-| `ToleranceDegrees`   | Extra angle margin to accept hits slightly outside the cone. |
+| Property                 | Description |
+|--------------------------|-------------|
+| `Interval`               | How often to perform the trace (in seconds). Set to `0` to disable automatic tracing. |
+| `Length`                 | How far the cone reaches. |
+| `AngleDegrees`           | Width of the cone in degrees (spread). |
+| `TraceChannel`           | What object types to trace (e.g. Visibility, Pawn). |
+| `ActorsToIgnore`         | Optional list of actors to skip during trace. |
+| `RequiredClass`          | Only include hits with this actor class (or child classes). |
+| `RequiredTags`           | Only include actors that have any of these tags. |
+| `RequiredInterface`      | Only include actors that implement this Blueprint interface. |
+| `bMultiHit`              | If `true`, collect all valid hits. If `false`, only use the closest hit per step. |
+| `bIgnoreSelf`            | Skip tracing against the owner actor. Usually `true`. |
+| `DebugMode`              | Draw the cone in the world (lines, boxes, hit points). Options: `None`, `Basic`, `Full`. |
+| `DebugDuration`          | How long to keep the debug visuals on screen (in seconds). |
+| `StepSize`               | Distance between each box trace. Smaller = smoother cone. |
+| `BoxDepth`               | Length of each individual box trace. |
+| `ToleranceDegrees`       | Extra angle margin to accept hits slightly outside the cone. |
 | `bUseComponentTransform` | If `true`, the trace starts from the component's position and direction. If `false`, uses the actor’s transform. |
 
 ![Details panel with all properties visible](images/usage_SCREENSHOT_2.png)  
-*Show the component selected in the Details panel with some example values.*
+*Details panel showing all parameters of the `SmartConeTrace` component.*
+
+---
+
+### ℹ️ About `ActorsToIgnore`
+
+The `ActorsToIgnore` array lets you exclude specific actors from being hit by the cone trace.
+
+> ⚠️ **Important:** This array can only be filled with actors that are **already placed in the scene**.
+
+If you're using the component or calling the `ConeTraceByChannel()` function in Blueprint:
+
+- You **must** select scene-placed actors (e.g. from the World Outliner).
+- **You cannot** add dynamically spawned actors or class references directly.
+- The actor that owns the trace component or the Blueprint node **must also be in the level** — otherwise, the editor won't let you assign values to `ActorsToIgnore`.
+
+This is a limitation of how the Unreal Editor handles `TArray<AActor*>` in exposed Blueprint properties.
+
+To ignore the owner actor automatically, simply enable `bIgnoreSelf`.
+
+---
+
+### ⚙️ Advanced Settings Tips
+
+- **StepSize** — Smaller values result in a smoother and more precise cone, but increase the number of traces and cost.
+- **BoxDepth** — Increase if some actors are being missed between trace steps.
+- **ToleranceDegrees** — Add a small margin (1–5°) to catch actors that appear visually inside the cone but technically fall just outside.
 
 ---
 
@@ -53,19 +79,17 @@ All settings can be adjusted in the Details panel.
 
 This event is triggered after each trace (if interval > 0). It gives you a `SmartConeTraceResult` struct.
 
----
-
 ### 📦 SmartConeTraceResult Fields
 
-| Field          | Type             | Description |
-|----------------|------------------|-------------|
-| `bDidHit`      | `bool`           | `true` if anything was hit. |
-| `Hits`         | `Array<HitResult>` | All filtered hits. |
-| `HitActors`    | `Array<Actor>`   | All valid actors that were hit. |
-| `ClosestHit`   | `HitResult`      | The closest valid hit among all steps. |
+| Field        | Type               | Description |
+|--------------|--------------------|-------------|
+| `bDidHit`    | `bool`             | `true` if anything was hit. |
+| `Hits`       | `Array<HitResult>` | All filtered hits. |
+| `HitActors`  | `Array<Actor>`     | All valid actors that were hit. |
+| `ClosestHit` | `HitResult`        | The closest valid hit among all steps. |
 
 ![Using result in Blueprint — print closest actor](images/usage_SCREENSHOT_3.png)  
-*Show Blueprint logic printing the name of the closest actor if any.*
+*Example of printing the name of the closest hit actor using the result.*
 
 ---
 
@@ -80,22 +104,7 @@ It’s perfect for:
 - Custom cone logic
 
 ![Blueprint with ConeTraceByChannel node](images/usage_SCREENSHOT_4.png)  
-*Show the function in use with inputs like Start, Direction, etc.*
-
----
-
-### 🧰 Function Inputs
-
-Same parameters as the component, but passed directly into the function:
-
-- `Start` — starting location of the cone
-- `Direction` — direction the cone is facing
-- All other parameters match the component (see table above)
-
-You can get `Start` and `Direction` using nodes like:
-- `Get Actor Location`
-- `Get Forward Vector`
-- `Get Component Location`
+*Calling the `ConeTraceByChannel` function with Start, Direction, and other parameters.*
 
 ---
 
@@ -108,7 +117,7 @@ You can get `Start` and `Direction` using nodes like:
 | `Full`     | Boxes, lines, hit points (most detailed) |
 
 ![Visual debug output in Full mode](images/usage_SCREENSHOT_5.png)  
-*Show in-game view with boxes, red dots, and debug cone.*
+*In-game view showing a fully visualized cone and hit points in Full debug mode.*
 
 ---
 
@@ -116,19 +125,13 @@ You can get `Start` and `Direction` using nodes like:
 
 You can use these helper functions from `SmartConeTraceLib` to work with the result:
 
-| Function | What it does |
-|----------|---------------|
-| `GetClosestHitActor(Result)` | Returns the actor from `Result.ClosestHit`, or `null` |
-| `WasActorHit(Result, Actor)` | Returns `true` if the given actor is in the hit list |
-| `GetFirstValidHitActor(Result)` | Returns the first actor from the `HitActors` array |
-| `GetHitActorsByClass(Result, Class)` | Returns all actors in `HitActors` that match the class |
-| `IsValidHit(Result)` | Returns `true` if `Result.bDidHit` is `true` |
- 
-![Blueprint calling GetClosestHitActor](images/usage_SCREENSHOT_6.png) 
-*Show usage of helper node to get actor and do something with it.*
+| Function                        | What it does |
+|---------------------------------|---------------|
+| `GetClosestHitActor(Result)`    | Returns the actor from `Result.ClosestHit`, or `null`. |
+| `WasActorHit(Result, Actor)`    | Returns `true` if the given actor is in the hit list. |
+| `GetFirstValidHitActor(Result)` | Returns the first actor from the `HitActors` array. |
+| `GetHitActorsByClass(Result, Class)` | Filters hit actors by class. |
+| `IsValidHit(Result)`            | Returns `true` if `Result.bDidHit` is `true`. |
 
----
-
-Continue to [Reference](reference.md) for a technical list of parameters and return types.
-
-Or jump to [Examples](examples.md) to see real use cases.
+![Blueprint calling GetClosestHitActor](images/usage_SCREENSHOT_6.png)  
+*Using a helper function to get the closest actor and apply logic.*

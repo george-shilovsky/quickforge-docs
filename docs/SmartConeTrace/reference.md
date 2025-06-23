@@ -13,7 +13,7 @@ This is a complete reference for all parameters, structures, functions, and enum
 | `AngleDegrees`           | `float`                | `40.0`      |
 | `TraceChannel`           | `ETraceTypeQuery`      | `TraceTypeQuery1` |
 | `ActorsToIgnore`         | `Array<Actor>`         | `[]`        |
-|                          |                        |             | > ℹ️ Only accepts actors already placed in the level. [More info](usage.md#ℹ️-about-actorstoignore)
+|                          |                        |             | > ℹ️ Only accepts actors already placed in the level. [More info](usage.md#about-actorstoignore)
 | `RequiredClass`          | `Class<Actor>`         | `None`      |
 | `RequiredTags`           | `Array<Name>`          | `[]`        |
 | `RequiredInterface`      | `Class<Interface>`     | `None`      |
@@ -41,29 +41,28 @@ This is a complete reference for all parameters, structures, functions, and enum
 
 ## 🧰 Blueprint Function: `ConeTraceByChannel()`
 
-Defined in: `SmartConeTraceLib`  
-Returns: `FSmartConeTraceResult`
+Returns: `FSmartConeTraceResult`  
+Defined in: `SmartConeTraceLib`
 
-### Required Inputs:
-- `WorldContextObject` (usually `self`)
-- `Start` — `Vector`
-- `Direction` — `Vector`
-- `Length` — `float`
-- `AngleDegrees` — `float`
-- `TraceChannel` — `ETraceTypeQuery`
-
-### Optional Inputs:
-- `ActorsToIgnore` — `Array<Actor>`
-- `RequiredClass` — `Class<Actor>`
-- `RequiredTags` — `Array<Name>`
-- `RequiredInterface` — `Class<Interface>`
-- `bMultiHit` — `bool`
-- `bIgnoreSelf` — `bool`
-- `DebugMode` — `EConeDebugMode`
-- `DebugDuration` — `float`
-- `StepSize` — `float`
-- `BoxDepth` — `float`
-- `ToleranceDegrees` — `float`
+| Parameter             | Type                    | Required | Description                         |
+|-----------------------|-------------------------|----------|-------------------------------------|
+| `WorldContextObject`  | `Object`                | ✅       | Usually `self`                      |
+| `Start`               | `Vector`                | ✅       | Origin point of the cone            |
+| `Direction`           | `Vector`                | ✅       | Direction the cone faces            |
+| `Length`              | `float`                 | ✅       | How far the cone extends            |
+| `AngleDegrees`        | `float`                 | ✅       | Half-angle of the cone in degrees   |
+| `TraceChannel`        | `ETraceTypeQuery`       | ✅       | Object types to trace               |
+| `ActorsToIgnore`      | `Array<Actor>`          | ❌       | Skip these actors during trace      |
+| `RequiredClass`       | `Class<Actor>`          | ❌       | Only include actors of this class   |
+| `RequiredTags`        | `Array<Name>`           | ❌       | Only include actors with these tags |
+| `RequiredInterface`   | `Class<Interface>`      | ❌       | Only include actors implementing it |
+| `bMultiHit`           | `bool`                  | ❌       | Whether to collect all hits         |
+| `bIgnoreSelf`         | `bool`                  | ❌       | Whether to skip tracing the owner   |
+| `DebugMode`           | `EConeDebugMode`        | ❌       | Visualize trace shapes              |
+| `DebugDuration`       | `float`                 | ❌       | Time to display debug shapes        |
+| `StepSize`            | `float`                 | ❌       | Distance between trace steps        |
+| `BoxDepth`            | `float`                 | ❌       | Depth of each trace box             |
+| `ToleranceDegrees`    | `float`                 | ❌       | Extra angular tolerance             |
 
 ---
 
@@ -71,28 +70,24 @@ Returns: `FSmartConeTraceResult`
 
 Also in `SmartConeTraceLib`:
 
-### `StartConeTraceTimer(WorldContext, TargetActor, CallbackFunctionName, Interval, bLoop)`
-Binds a Blueprint function to be called repeatedly on a timer.
-
-### `StopConeTraceTimer(WorldContext, TargetActor)`
-Stops the timer for the given actor.
+| Function | Description |
+|---------|-------------|
+| `StartConeTraceTimer(WorldContext, TargetActor, CallbackFunctionName, Interval, bLoop)` | Binds a Blueprint function to be called repeatedly on a timer. |
+| `StopConeTraceTimer(WorldContext, TargetActor)` | Stops the timer for the given actor. |
 
 ---
 
 ## 🔍 Helper Functions
 
-Return values are based on `FSmartConeTraceResult`.
+All helper functions work with the `FSmartConeTraceResult` struct.
 
-| Function                         | Return Type     | Description                        |
-|----------------------------------|------------------|------------------------------------|
-| `GetClosestHitActor(Result)`     | `Actor`          | Returns the closest hit actor      |
-| `GetFirstValidHitActor(Result)`  | `Actor`          | Returns the first hit actor        |
-| `WasActorHit(Result, Actor)`     | `bool`           | `true` if that actor was hit       |
-| `IsValidHit(Result)`             | `bool`           | `true` if any valid hit exists     |
+| Function                          | Return Type     | Description                        |
+|-----------------------------------|------------------|------------------------------------|
+| `GetClosestHitActor(Result)`      | `Actor`          | Returns the closest hit actor      |
+| `GetFirstValidHitActor(Result)`   | `Actor`          | Returns the first hit actor        |
+| `WasActorHit(Result, Actor)`      | `bool`           | `true` if that actor was hit       |
+| `IsValidHit(Result)`              | `bool`           | `true` if any valid hit exists     |
 | `GetHitActorsByClass(Result, Class)` | `Array<Actor>` | Filters hit actors by class        |
-
-![Blueprint calling GetClosestHitActor](images/usage_SCREENSHOT_6.png)  
-*Helper functions available in Blueprint for working with Smart Cone Trace results.*
 
 ---
 

@@ -16,7 +16,7 @@ Add the `SmartConeTraceComponent` to any actor.
 
 It will automatically perform a cone trace every few seconds and call the event `OnConeTraceResult`.
 
-📷 **[SCREENSHOT_1: Blueprint with the component and event]**  
+![Blueprint with the component and event](usage_SCREENSHOT_1.png)
 *Show a Blueprint with the component added and OnConeTraceResult in the Event Graph.*
 
 ---
@@ -44,7 +44,7 @@ All settings can be adjusted in the Details panel.
 | `ToleranceDegrees`   | Extra angle margin to accept hits slightly outside the cone. |
 | `bUseComponentTransform` | If `true`, the trace starts from the component's position and direction. If `false`, uses the actor’s transform. |
 
-📷 **[SCREENSHOT_2: Details panel with all properties visible]**  
+![Details panel with all properties visible](usage_SCREENSHOT_2.png)  
 *Show the component selected in the Details panel with some example values.*
 
 ---
@@ -64,7 +64,7 @@ This event is triggered after each trace (if interval > 0). It gives you a `Smar
 | `HitActors`    | `Array<Actor>`   | All valid actors that were hit. |
 | `ClosestHit`   | `HitResult`      | The closest valid hit among all steps. |
 
-📷 **[SCREENSHOT_3: Using result in Blueprint — print closest actor]**  
+![Using result in Blueprint — print closest actor](usage_SCREENSHOT_3.png)  
 *Show Blueprint logic printing the name of the closest actor if any.*
 
 ---
@@ -79,7 +79,7 @@ It’s perfect for:
 - Tracing from any point and direction
 - Custom cone logic
 
-📷 **[SCREENSHOT_4: Blueprint with ConeTraceByChannel node]**  
+![Blueprint with ConeTraceByChannel node](usage_SCREENSHOT_4.png)  
 *Show the function in use with inputs like Start, Direction, etc.*
 
 ---
@@ -107,7 +107,7 @@ You can get `Start` and `Direction` using nodes like:
 | `Basic`    | Lines + hit points |
 | `Full`     | Boxes, lines, hit points (most detailed) |
 
-📷 **[SCREENSHOT_5: Visual debug output in Full mode]**  
+![Visual debug output in Full mode](usage_SCREENSHOT_5.png)  
 *Show in-game view with boxes, red dots, and debug cone.*
 
 ---
@@ -123,8 +123,8 @@ You can use these helper functions from `SmartConeTraceLib` to work with the res
 | `GetFirstValidHitActor(Result)` | Returns the first actor from the `HitActors` array |
 | `GetHitActorsByClass(Result, Class)` | Returns all actors in `HitActors` that match the class |
 | `IsValidHit(Result)` | Returns `true` if `Result.bDidHit` is `true` |
-
-📷 **[SCREENSHOT_6: Blueprint calling GetClosestHitActor]**  
+ 
+![Blueprint calling GetClosestHitActor](usage_SCREENSHOT_6.png) 
 *Show usage of helper node to get actor and do something with it.*
 
 ---

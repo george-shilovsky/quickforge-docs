@@ -26,7 +26,7 @@ This is a complete reference for all parameters, structures, functions, and enum
 | `bUseComponentTransform` | `bool`                 | `true`      |
 
 **ℹ️ Note:** `ActorsToIgnore` only accepts actors that are already placed in the level.  
-[Learn more about this limitation →](usage.md#about-actorstoignore)
+[Learn more about this limitation →](usage.md##i-about-actorstoignore)
 
 ---
 

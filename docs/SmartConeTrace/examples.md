@@ -1,109 +1,114 @@
-# 🎮 Examples
+# 🧪 Interactive Demo – See Smart Cone Trace in Action
 
-This page shows real use cases for Smart Cone Trace, using only Blueprints.
-
----
-
-## 🧠 Example 1: AI Vision Cone
-
-You want your enemy AI to detect the player when they enter a visible cone area in front of them.
-
-### Setup
-
-1. Open your AI character Blueprint.
-2. Add a `SmartConeTraceComponent`.
-3. Set these values:
-   - `Interval` = `0.2`
-   - `Length` = `1000`
-   - `AngleDegrees` = `60`
-   - `TraceChannel` = `Visibility`
-   - `RequiredClass` = `Character` (optional)
-   - `DebugMode` = `Full`
-
-4. Use the `OnConeTraceResult` event.
-
-📷 **[SCREENSHOT_1: AI Blueprint with component and event]**  
-*Show the component and its event in use.*
+See Smart Cone Trace in a real-world Blueprint setup — using actor components, trace functions, filtering, and debug visualization — all in one quick, hands-on demo.
 
 ---
 
-### Blueprint Logic
+## ▶️ Watch the Demo
 
-In the event:
+🎥 <a href="https://youtu.be/DdDTlY605dc" target="_blank">Watch on YouTube</a>
 
-1. Use `GetClosestHitActor(Result)` to check for the player.
-2. If the player is found, update AI blackboard or chase them.
+In this demo, you'll see:
 
-📷 **[SCREENSHOT_2: Event checking for player and triggering alert]**  
-*Show a branch checking the actor class and triggering some behavior.*
-
----
-
-### Debug Output
-
-You will see:
-
-- Cone shape in pink
-- Red dots at impact points
-- Green lines for hits
-
-📷 **[SCREENSHOT_3: In-game cone hitting the player]**  
-*Show player standing in cone with debug visuals.*
+- A tank actor with a `SmartConeTrace` component that detects the player
+- A static sensor actor using the `ConeTraceByChannel()` function manually
+- The player actor also using SmartConeTrace to detect other actors
+- Live tag, class, and interface filtering in action
+- Full debug visualization of cone shape and hit results
+- All logic implemented in Blueprints — no C++ needed
 
 ---
 
-## ✨ Example 2: Area Scan Ability
+## 🎮 Play the Demo (Windows)
 
-You want the player to scan the area in front of them (like a sonar pulse).
+Try the exact project shown in the video:
 
-### Setup
+🔗 <a href="https://drive.google.com/file/d/1IhOfhfgEwXEqNAWH45OQX-M07HXVDtAF/view?usp=sharing" target="_blank">Download Demo Build (.zip)</a>
 
-1. In your player Blueprint, call `ConeTraceByChannel()` when pressing a key (e.g. "E").
-2. Set inputs:
-   - `Start` = `GetActorLocation`
-   - `Direction` = `GetActorForwardVector`
-   - `Length` = `1500`
-   - `AngleDegrees` = `45`
-   - `TraceChannel` = `Visibility`
-   - `bMultiHit` = `true`
-   - `DebugMode` = `Full`
+Includes:
 
-📷 **[SCREENSHOT_4: Blueprint calling ConeTraceByChannel]**  
-*Show function node connected to an input event.*
+- Third-person level with three working cone trace actors:
+  - A tank with automatic forward detection
+  - A scanning sensor that reacts to the player
+  - The player showing trace results with different filters
+- Real-time debug drawing and UI feedback
+
+📌 Just unzip and run `SmartConeTraceEx.exe`.
 
 ---
 
-### Logic After Trace
+## 🧱 Blueprint Examples – Learn by Inspecting
 
-1. Loop over `HitActors` and highlight them (outline, glow, etc.)
-2. Play a sound or visual pulse.
+Download the project files and explore how each actor works:
 
-📷 **[SCREENSHOT_5: Looping over actors and calling a custom event]**  
-*Show a `For Each` node handling detected actors.*
+🔗 <a href="https://drive.google.com/drive/folders/1yq24qvmLCNEyeOrcuhkoNv97G7AKprcg?usp=sharing" target="_blank">Download Sample Project</a>
 
----
+You’ll get:
 
-### Optional: Add Tags or Interfaces
-
-You can restrict what gets detected:
-
-- Only actors with tag `"Scannable"`
-- Or actors that implement a custom interface like `BPI_Scannable`
-
-📷 **[SCREENSHOT_6: Using tag or interface filter in Details panel]**  
-*Show `RequiredTags` or `RequiredInterface` filled in.*
+- Tank, Sensor, and Player Blueprints using cone trace
+- Both component-based and function-based setups
+- Example filters: `RequiredTags`, `RequiredClass`, `RequiredInterface`
+- On-screen UI: `WBP_TraceInfo` widget
+- Ready to copy and adapt
 
 ---
 
-## ✅ Summary
+## 🎮 Real-World Usage Examples
 
-These examples show just a few ideas:
+Smart Cone Trace is flexible and can be used in many gameplay scenarios:
 
-- AI detection (guards, creatures, turrets)
-- Ability range checks (fire cones, ice bursts, sonar)
-- Trap triggers and sensors
-- Player field of view checks
+### 🧠 AI Vision
 
-Now it’s your turn — trace anything, filter everything, and build smart logic with just Blueprints.
+Give enemies, drones, or creatures a cone-based field of view.  
+Trigger alerts or behaviors when the player enters their line of sight.
 
-Need more details? Return to [Usage](usage.md) or [Reference](reference.md).
+- Attach the component to AI characters
+- Detect only specific actors (e.g. Characters with tag `"Player"`)
+- React through `OnConeTraceResult` in Blueprint
+
+---
+
+### ✨ Area Scan Ability
+
+Let the player scan an area in front of them on command (like a pulse).
+
+- Call `ConeTraceByChannel()` on key press
+- Highlight found objects
+- Filter results by tag or interface
+
+---
+
+### 🔥 Ability Zones
+
+Use cone-shaped traces for flame breath, ice blasts, or shout attacks.
+
+- Hit multiple enemies with `bMultiHit`
+- Sync VFX and SFX with the actual trace volume
+- Trigger effects only for valid targets
+
+---
+
+### 🧩 Traps & Sensors
+
+Use cone tracing in level geometry to detect intruders or activate traps.
+
+- Automatically trace at intervals
+- Combine with trigger boxes, cameras, or events
+
+---
+
+## ✅ Key Features Demonstrated
+
+| Feature                          | Covered |
+|----------------------------------|---------|
+| Component-based cone tracing     | ✅       |
+| Manual function-based tracing    | ✅       |
+| Tag/class/interface filtering    | ✅       |
+| Closest hit and multi-hit logic  | ✅       |
+| Real-time debug visualization    | ✅       |
+| On-screen hit display (UI)       | ✅       |
+| Pure Blueprint implementation    | ✅       |
+
+---
+
+> 🧩 Whether you're building AI vision, scanning tools, trap systems, or gameplay abilities — Smart Cone Trace gives you precision control with simple Blueprint logic.

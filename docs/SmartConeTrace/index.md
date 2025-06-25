@@ -10,7 +10,7 @@ It’s perfect for things like vision cones, ability areas, and AI detection zon
 - 🧠 Filters by tag, class, or interface  
 - 🔬 Optional debug visualization  
 
-<a href="https://fab.com/s/f30caa652090" target="_blank">👉 **Available now on the**</a>
+<a href="https://fab.com/s/f30caa652090" target="_blank">Available on Unreal Engine Marketplace</a> – get the plugin, leave a review, and support future development!
 
 ![Cone debug view with hit points](images/index_SCREENSHOT_1.png)  
 *A cone-shaped trace with debug mode enabled and visible hit points in-game.*

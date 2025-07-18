@@ -73,5 +73,12 @@ nav:
       - Usage: SmartConeTrace/usage.md
       - Blueprint Reference: SmartConeTrace/reference.md
       - Interactive Demo: SmartConeTrace/examples.md
+      - Home: index.md
+  - Animation Trigger Zones:
+      - Getting Started: AnimationTriggerZones/getting-started.md
+      - Trigger Zone Settings: AnimationTriggerZones/trigger-zone.md
+      - Entry Points & Interactions: AnimationTriggerZones/entry-and-interaction.md
+      - Blueprint Events & Interfaces: AnimationTriggerZones/blueprints.md
+      - Advanced Features: AnimationTriggerZones/advanced.md
   - SaveKit Pro:
       - Overview: SaveKitPro/index.md

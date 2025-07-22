@@ -1545,8 +1545,8 @@
 <p>Entry points define where an actor should go before playing their animation.</p>
 <h3 id="how-to-add-an-entry-point">How to add an Entry Point</h3>
 <ol>
-<li>Select your <code>AnimTriggerZoneActor</code> in the level.</li>
-<li>In the <strong>World Outliner</strong>, right-click → <code>Add Component</code> → <code>ATZEntryPoint</code>.</li>
+<li>Select the actor that contains your <code>AnimTriggerZoneComponent</code>.</li>
+<li>In the <strong>Details</strong> panel, click <strong>Add Component</strong> → search for <code>ATZEntryPointComponent</code>.</li>
 <li>Position the new component where the actor should appear.</li>
 <li>Rotate the arrow to face the desired direction.</li>
 </ol>
@@ -1571,7 +1571,7 @@
 <p>Interaction points allow animation notifies to trigger logic in Blueprint.</p>
 <h3 id="how-to-use">How to use</h3>
 <ol>
-<li>Add a component <code>ATZInteractionPoint</code> under your zone actor.</li>
+<li>Add a component <code>ATZInteractionPointComponent</code> to the same actor that holds your <code>AnimTriggerZoneComponent</code>.</li>
 <li>Set the <strong>Interaction Tag</strong> (e.g., "Use", "Fire", "Sit").</li>
 <li>Open your AnimMontage and add an AnimNotify of type <code>ATZInteraction</code>.</li>
 <li>In the notify, enter the same tag.</li>

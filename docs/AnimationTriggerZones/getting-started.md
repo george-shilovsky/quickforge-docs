@@ -18,7 +18,7 @@ This guide shows how to quickly set up and use the **Animation Trigger Zones** p
 
 1. Open the desired map in your project.
 2. Select an existing actor in your level (or create a new empty Actor).
-3. In the **Details** panel, click **Add Component** → search for `AnimTriggerZoneComponent` and add it.
+3. In the **Details** panel, click **Add Component** → search for `AnimTriggerZone` and add it.
 
 🎯 This component handles all animation triggering logic and can be configured via the Details panel.
 
@@ -26,26 +26,45 @@ This guide shows how to quickly set up and use the **Animation Trigger Zones** p
 
 ## Assigning Animations
 
-1. Select the `AnimTriggerZoneActor` in the scene.
-2. In the **Details** panel, go to the `Animation` category.
-3. Add one or more `AnimMontage` assets to the `Montages` array.
+Animations are assigned through **ATZEntryPoint** components.
 
-📌 If you use **entry points**, montages should be assigned to those components instead. Otherwise, use this array directly.
+1. In the same actor, add at least one `ATZEntryPoint` as a **child** of the `AnimTriggerZone` component (via the component hierarchy).
+2. Select the `ATZEntryPoint`.
+3. In the **Details** panel, add one or more `AnimMontage` assets to the `Random Montage` array.
+
+📌 `ATZEntryPoint` must be a **child of the `AnimTriggerZone`** in the component hierarchy. Otherwise, it will not be used at runtime.
+
+📌 Even if you are not using entry-based movement, **you must have at least one ATZEntryPoint to provide montages**.  
+Each entry point acts as a container for animations.
+
+💡 You can add multiple entry points to offer variety or random selection.
+
+---
+
+## Optional: Adding Interaction Points
+
+You can also use **ATZInteractionPoint** components to trigger additional logic during animations (e.g. grab, push, pick up):
+
+1. Add one or more `ATZInteractionPoint` components as **children of the `AnimTriggerZone`**.
+2. Assign a unique `Interaction Tag` in the Details panel.
+3. In your animation, add a `ATZInteraction` notify and set the same tag.
+
+⚠️ Just like entry points, **interaction points must be children of the AnimTriggerZone** component to function properly.
 
 ---
 
 ## Configuring the Zone Shape
 
-In the `Shape` category:
+In the `Shape` category of the `AnimTriggerZone`:
 
 1. Choose the zone shape:
    - `Box`
    - `Sphere`
    - `Capsule`
 2. Set the corresponding dimensions:
-   - `BoxExtent`
-   - `SphereRadius`
-   - `CapsuleRadius` and `CapsuleHalfHeight`
+   - `Box Extent`
+   - `Sphere Radius`
+   - `Capsule Radius` and `Capsule Half Height`
 
 <!-- PLACEHOLDER: SCREENSHOT_SHAPE_SETTINGS -->
 
@@ -61,8 +80,8 @@ In the `Animation` category:
 
 - **Repeat Mode**  
   - `Once`: plays once per actor.  
-  - `LoopWhileInside`: keeps playing in a loop while the actor stays inside.  
-  - `RepeatOnReenter`: plays every time the actor enters the zone.
+  - `Loop While Inside`: keeps playing in a loop while the actor stays inside.  
+  - `Repeat On Reenter`: plays every time the actor enters the zone.
 
 ---
 
@@ -84,7 +103,6 @@ Event OnAnimTriggerEnter (Zone)
 
 Event OnButtonPressed
 → MyCurrentZone → Trigger Zone Interact (Self)
-```
 
 ---
 

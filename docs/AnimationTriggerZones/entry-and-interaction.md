@@ -10,8 +10,8 @@ Entry points define where an actor should go before playing their animation.
 
 ### How to add an Entry Point
 
-1. Select your `AnimTriggerZoneActor` in the level.
-2. In the **World Outliner**, right-click → `Add Component` → `ATZEntryPoint`.
+1. Select the actor that contains your `AnimTriggerZoneComponent`.
+2. In the **Details** panel, click **Add Component** → search for `ATZEntryPointComponent`.
 3. Position the new component where the actor should appear.
 4. Rotate the arrow to face the desired direction.
 
@@ -41,7 +41,7 @@ Interaction points allow animation notifies to trigger logic in Blueprint.
 
 ### How to use
 
-1. Add a component `ATZInteractionPoint` under your zone actor.
+1. Add a component `ATZInteractionPointComponent` to the same actor that holds your `AnimTriggerZoneComponent`.
 2. Set the **Interaction Tag** (e.g., "Use", "Fire", "Sit").
 3. Open your AnimMontage and add an AnimNotify of type `ATZInteraction`.
 4. In the notify, enter the same tag.

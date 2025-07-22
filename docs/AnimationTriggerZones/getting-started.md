@@ -17,10 +17,10 @@ This guide shows how to quickly set up and use the **Animation Trigger Zones** p
 ## Adding a Trigger Zone to Your Level
 
 1. Open the desired map in your project.
-2. In the **Place Actors** panel, search for `AnimTriggerZoneActor`.
-3. Drag it into your level.
+2. Select an existing actor in your level (or create a new empty Actor).
+3. In the **Details** panel, click **Add Component** → search for `AnimTriggerZoneComponent` and add it.
 
-🎯 `AnimTriggerZoneActor` includes a preconfigured `UAnimTriggerZoneComponent` ready to use.
+🎯 This component handles all animation triggering logic and can be configured via the Details panel.
 
 ---
 

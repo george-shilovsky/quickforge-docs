@@ -53,6 +53,8 @@ You’ll get:
 - Character interface integration for queue and interaction events
 - Example UI feedback widgets
 
+📌 **Note**: Due to licensing restrictions, some original animation assets were removed from the sample project. You can easily replace them with your own animation montages or those available from the Marketplace.
+
 ---
 
 ## 🎮 Real-World Usage Examples

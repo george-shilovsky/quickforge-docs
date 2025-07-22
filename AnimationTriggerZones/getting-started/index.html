@@ -1149,6 +1149,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#optional-adding-interaction-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Adding Interaction Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-the-zone-shape" class="md-nav__link">
     <span class="md-ellipsis">
       Configuring the Zone Shape
@@ -1442,6 +1451,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#optional-adding-interaction-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Adding Interaction Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-the-zone-shape" class="md-nav__link">
     <span class="md-ellipsis">
       Configuring the Zone Shape
@@ -1512,29 +1530,42 @@
 <ol>
 <li>Open the desired map in your project.</li>
 <li>Select an existing actor in your level (or create a new empty Actor).</li>
-<li>In the <strong>Details</strong> panel, click <strong>Add Component</strong> → search for <code>AnimTriggerZoneComponent</code> and add it.</li>
+<li>In the <strong>Details</strong> panel, click <strong>Add Component</strong> → search for <code>AnimTriggerZone</code> and add it.</li>
 </ol>
 <p>🎯 This component handles all animation triggering logic and can be configured via the Details panel.</p>
 <hr />
 <h2 id="assigning-animations">Assigning Animations</h2>
+<p>Animations are assigned through <strong>ATZEntryPoint</strong> components.</p>
 <ol>
-<li>Select the <code>AnimTriggerZoneActor</code> in the scene.</li>
-<li>In the <strong>Details</strong> panel, go to the <code>Animation</code> category.</li>
-<li>Add one or more <code>AnimMontage</code> assets to the <code>Montages</code> array.</li>
+<li>In the same actor, add at least one <code>ATZEntryPoint</code> as a <strong>child</strong> of the <code>AnimTriggerZone</code> component (via the component hierarchy).</li>
+<li>Select the <code>ATZEntryPoint</code>.</li>
+<li>In the <strong>Details</strong> panel, add one or more <code>AnimMontage</code> assets to the <code>Random Montage</code> array.</li>
 </ol>
-<p>📌 If you use <strong>entry points</strong>, montages should be assigned to those components instead. Otherwise, use this array directly.</p>
+<p>📌 <code>ATZEntryPoint</code> must be a <strong>child of the <code>AnimTriggerZone</code></strong> in the component hierarchy. Otherwise, it will not be used at runtime.</p>
+<p>📌 Even if you are not using entry-based movement, <strong>you must have at least one ATZEntryPoint to provide montages</strong>.<br />
+Each entry point acts as a container for animations.</p>
+<p>💡 You can add multiple entry points to offer variety or random selection.</p>
+<hr />
+<h2 id="optional-adding-interaction-points">Optional: Adding Interaction Points</h2>
+<p>You can also use <strong>ATZInteractionPoint</strong> components to trigger additional logic during animations (e.g. grab, push, pick up):</p>
+<ol>
+<li>Add one or more <code>ATZInteractionPoint</code> components as <strong>children of the <code>AnimTriggerZone</code></strong>.</li>
+<li>Assign a unique <code>Interaction Tag</code> in the Details panel.</li>
+<li>In your animation, add a <code>ATZInteraction</code> notify and set the same tag.</li>
+</ol>
+<p>⚠️ Just like entry points, <strong>interaction points must be children of the AnimTriggerZone</strong> component to function properly.</p>
 <hr />
 <h2 id="configuring-the-zone-shape">Configuring the Zone Shape</h2>
-<p>In the <code>Shape</code> category:</p>
+<p>In the <code>Shape</code> category of the <code>AnimTriggerZone</code>:</p>
 <ol>
 <li>Choose the zone shape:</li>
 <li><code>Box</code></li>
 <li><code>Sphere</code></li>
 <li><code>Capsule</code></li>
 <li>Set the corresponding dimensions:</li>
-<li><code>BoxExtent</code></li>
-<li><code>SphereRadius</code></li>
-<li><code>CapsuleRadius</code> and <code>CapsuleHalfHeight</code></li>
+<li><code>Box Extent</code></li>
+<li><code>Sphere Radius</code></li>
+<li><code>Capsule Radius</code> and <code>Capsule Half Height</code></li>
 </ol>
 <!-- PLACEHOLDER: SCREENSHOT_SHAPE_SETTINGS -->
 
@@ -1551,8 +1582,8 @@
 <p><strong>Repeat Mode</strong>  </p>
 </li>
 <li><code>Once</code>: plays once per actor.  </li>
-<li><code>LoopWhileInside</code>: keeps playing in a loop while the actor stays inside.  </li>
-<li><code>RepeatOnReenter</code>: plays every time the actor enters the zone.</li>
+<li><code>Loop While Inside</code>: keeps playing in a loop while the actor stays inside.  </li>
+<li><code>Repeat On Reenter</code>: plays every time the actor enters the zone.</li>
 </ul>
 <hr />
 <h2 id="manual-trigger-blueprint-example">Manual Trigger (Blueprint Example)</h2>
@@ -1565,12 +1596,11 @@
 <!-- PLACEHOLDER: SCREENSHOT_TRIGGER_ZONE_INTERACT -->
 
 <p>Example Blueprint flow:</p>
-<pre><code class="language-blueprint">Event OnAnimTriggerEnter (Zone)
-→ Set MyCurrentZone = Zone
-
-Event OnButtonPressed
-→ MyCurrentZone → Trigger Zone Interact (Self)
-</code></pre>
+<p>```blueprint
+Event OnAnimTriggerEnter (Zone)
+→ Set MyCurrentZone = Zone</p>
+<p>Event OnButtonPressed
+→ MyCurrentZone → Trigger Zone Interact (Self)</p>
 <hr />
 <h2 id="testing-the-setup">Testing the Setup</h2>
 <ol>

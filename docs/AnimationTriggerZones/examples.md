@@ -11,8 +11,7 @@ See Animation Trigger Zones in a real-world Blueprint setup — with entry point
 In this demo, you'll see:
 
 - Trigger zones that play animation montages when actors enter them
-- Smart positioning via Entry Points with teleport and MoveTo modes
-- Looping animations while inside the zone
+- Smart positioning via Entry Points with MoveTo modes
 - Queued access when all entry points are occupied
 - Interaction Points triggered via animation notifies
 - Full debug visualization of entry and interaction markers
@@ -29,13 +28,12 @@ Try the exact project shown in the video:
 Includes:
 
 - Third-person scene with multiple interactive trigger zones:
-  - Teleport to animation points
   - Smooth MoveTo behavior with rotation
   - Playback of randomized animation montages
 - Entry queue handling with wait timers
 - Blueprint UI feedback and debug drawing
 
-📌 Just unzip and run `AnimTriggerDemo.exe`.
+📌 Just unzip and run `AnimTriggerZonesEx.exe`.
 
 ---
 
@@ -48,7 +46,7 @@ Download the full project and explore how each component works:
 You’ll get:
 
 - Zones with different shapes: box, sphere, capsule
-- Configurable trigger modes: Auto, Manual, Loop
+- Configurable trigger modes: Auto, Manual
 - EntryPoint and InteractionPoint examples
 - Character interface integration for queue and interaction events
 - Example UI feedback widgets
@@ -117,7 +115,6 @@ Fire logic from animations using `UAnimNotify_ATZInteraction`.
 | Entry points with positioning       | ✅       |
 | Animation montage triggering        | ✅       |
 | Manual and automatic trigger modes  | ✅       |
-| Looping and once-per-visit modes    | ✅       |
 | Tag/class/filter-based actor logic  | ✅       |
 | Entry queue with delay handling     | ✅       |
 | AnimNotify-triggered interactions   | ✅       |

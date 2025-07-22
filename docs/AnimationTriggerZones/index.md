@@ -67,6 +67,9 @@ To get started, follow the quick setup guide:
 - [Advanced Features](advanced.md)  
   Queuing, saving/loading, replication, and debugging.
 
+- [Interactive Demo Overview](examples.md)  
+  Walkthrough with sample use cases, queue handling, interaction points, and more.
+
 ---
 
 > 🧠 Whether you're building a cutscene, an immersive interaction, or a virtual world full of NPCs — this plugin gives you full animation control with no coding required.

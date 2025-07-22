@@ -32,6 +32,7 @@ Controls how and when the animation plays.
   - `RepeatOnReenter`: plays each time actor re-enters.
 - **Only Once Per Actor** — prevents replaying for the same actor.
 - **Only Once Per Visit** — only triggers once until actor leaves and re-enters.
+- **Stop On Movement** — cancels animation if actor starts moving.
 
 ---
 
@@ -41,7 +42,6 @@ Affects actor behavior during animation.
 
 - **Lock Movement** — disables movement input while playing.
 - **Freeze Rotation** — disables look/turn input while playing.
-- **Stop On Movement** — cancels animation if actor starts moving.
 
 ---
 

@@ -75,6 +75,7 @@ nav:
       - Interactive Demo: SmartConeTrace/examples.md
       - Home: index.md
   - Animation Trigger Zones:
+      - Overview: AnimationTriggerZones/index.md
       - Getting Started: AnimationTriggerZones/getting-started.md
       - Trigger Zone Settings: AnimationTriggerZones/trigger-zone.md
       - Entry Points & Interactions: AnimationTriggerZones/entry-and-interaction.md

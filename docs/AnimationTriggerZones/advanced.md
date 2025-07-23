@@ -27,6 +27,8 @@ The plugin supports multiple actors waiting for a free entry point.
 
 You can also receive these via `ATZCharacterInterface`.
 
+📌 Queuing only works when **Use Entry Points** is enabled.
+
 ---
 
 ## Saving and Loading State
@@ -56,12 +58,12 @@ Each zone stores its state under its full path name.
 
 ## Multiplayer & Replication
 
-`UAnimTriggerZoneComponent` is fully network-replicated.
+The `AnimTriggerZone` component is fully network-replicated.
 
 - Zone state, animation triggering, and interaction events are synchronized.
 - Server-side authority is required to trigger most actions.
 
-📌 Make sure the owning actor is also set to replicate.
+📌 Ensure the owning actor is also set to **replicates** and is placed properly in the level.
 
 ---
 

@@ -1242,24 +1242,15 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#recommended-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recommended usage
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#triggering-zones-manually" class="md-nav__link">
+  <a href="#manual-triggering-recommended-usage" class="md-nav__link">
     <span class="md-ellipsis">
-      Triggering Zones Manually
+      Manual Triggering (Recommended Usage)
     </span>
   </a>
   
@@ -1487,24 +1478,15 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#recommended-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recommended usage
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#triggering-zones-manually" class="md-nav__link">
+  <a href="#manual-triggering-recommended-usage" class="md-nav__link">
     <span class="md-ellipsis">
-      Triggering Zones Manually
+      Manual Triggering (Recommended Usage)
     </span>
   </a>
   
@@ -1542,7 +1524,7 @@
 <p>This section explains how to use Blueprint events and the <code>ATZCharacterInterface</code> to integrate your character or objects with Animation Trigger Zones.</p>
 <hr />
 <h2 id="built-in-blueprint-events">Built-in Blueprint Events</h2>
-<p>The <code>UAnimTriggerZoneComponent</code> exposes several assignable events.</p>
+<p>The <code>AnimTriggerZone</code> component exposes several assignable events.</p>
 <h3 id="available-events">Available Events</h3>
 <table>
 <thead>
@@ -1607,21 +1589,9 @@
 <li><code>OnAnimTriggerInteraction(Zone, InteractionTag)</code></li>
 </ul>
 <p><a class="glightbox" href="../images/blueprints_SCREENSHOT_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/blueprints_SCREENSHOT_2.png" /></a></p>
-<h3 id="recommended-usage">Recommended usage</h3>
-<p>In <code>OnAnimTriggerEnter</code>, store the passed <code>Zone</code> reference to a variable. This allows you to later call <code>Trigger Zone Interact</code> manually.</p>
-<pre><code class="language-blueprint">Event OnAnimTriggerEnter (Zone)
-→ Set MyCurrentZone = Zone
-</code></pre>
-<p>Then on button press:</p>
-<pre><code class="language-blueprint">Event OnButtonPressed
-→ MyCurrentZone → Trigger Zone Interact (Self)
-</code></pre>
 <hr />
-<h2 id="triggering-zones-manually">Triggering Zones Manually</h2>
-<p>If using <strong>Manual</strong> trigger mode, call this function:</p>
-<pre><code class="language-blueprint">Target: Zone Component → Trigger Zone Interact (Actor)
-</code></pre>
-<p>Pass in the actor that should play the animation (usually <code>Self</code>).</p>
+<h2 id="manual-triggering-recommended-usage">Manual Triggering (Recommended Usage)</h2>
+<p>If you're using <strong>Manual</strong> trigger mode, store the passed zone and call <code>Trigger Zone Interact</code> on input.</p>
 <p><a class="glightbox" href="../images/blueprints_SCREENSHOT_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/blueprints_SCREENSHOT_3.png" /></a></p>
 <hr />
 <h2 id="other-zone-functions">Other Zone Functions</h2>
@@ -1631,7 +1601,7 @@
 <li><code>Block Rotation</code> / <code>Unblock Rotation</code></li>
 <li><code>Save State</code> / <code>Load State</code></li>
 </ul>
-<p>Useful if you want precise control via Blueprints.</p>
+<p>These are useful if you want precise control via Blueprints.</p>
 <p><a class="glightbox" href="../images/blueprints_SCREENSHOT_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/blueprints_SCREENSHOT_4.png" /></a></p>
 <hr />
 <p>➡️ Next: <a href="../advanced/">Advanced Features</a></p>

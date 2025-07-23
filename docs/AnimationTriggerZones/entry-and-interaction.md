@@ -39,6 +39,7 @@ Each entry point defines its own animation list:
 - Choose **Entry Mode**:
   - `Teleport`: instantly moves the actor to the entry point.
   - `Move To`: navigates the actor using AI to the entry point.
+  
   ⚠️ This requires a Navigation Mesh (NavMesh) to be present in the level. Without it, actors will teleport instead.
   - `None`: skips movement but still uses the animation from entry point.
 

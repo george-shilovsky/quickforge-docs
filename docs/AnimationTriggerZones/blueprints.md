@@ -20,6 +20,8 @@ The `UAnimTriggerZoneComponent` exposes several assignable events.
 | **OnQueueExit**          | Actor is removed from the queue              |
 | **OnInteractionTriggeredEvent** | An `ATZInteraction` notify fires     |
 
+![SCREENSHOT](images/blueprints_SCREENSHOT_1.png)
+
 These can be used like any Blueprint dispatcher:
 ```blueprint
 Bind Event to OnAnimationStart
@@ -47,6 +49,8 @@ To receive zone-related callbacks directly in your Blueprint character, implemen
 - `OnAnimTriggerAnimationStart(Zone)`
 - `OnAnimTriggerAnimationEnd(Zone)`
 - `OnAnimTriggerInteraction(Zone, InteractionTag)`
+
+![SCREENSHOT](images/blueprints_SCREENSHOT_2.png)
 
 ### Recommended usage
 
@@ -76,6 +80,8 @@ Target: Zone Component → Trigger Zone Interact (Actor)
 
 Pass in the actor that should play the animation (usually `Self`).
 
+![SCREENSHOT](images/blueprints_SCREENSHOT_3.png)
+
 ---
 
 ## Other Zone Functions
@@ -87,6 +93,8 @@ You can also call:
 - `Save State` / `Load State`
 
 Useful if you want precise control via Blueprints.
+
+![SCREENSHOT](images/blueprints_SCREENSHOT_4.png)
 
 ---
 

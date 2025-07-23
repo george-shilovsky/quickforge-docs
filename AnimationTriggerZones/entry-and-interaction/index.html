@@ -1556,10 +1556,10 @@
 <p>Each entry point defines its own animation list:</p>
 <ul>
 <li>Use the <code>Random Montage</code> array inside the <code>ATZEntryPoint</code>.</li>
-<li>One or more <code>AnimMontage</code> assets must be assigned here — this is now <strong>required</strong>.</li>
+<li>One or more <code>AnimMontage</code> assets must be assigned here.</li>
 <li>If multiple montages are specified, one will be chosen at random.</li>
 </ul>
-<p>📌 The plugin no longer uses a global <code>Montages</code> array. Every trigger zone must have at least one <code>ATZEntryPoint</code> with animations assigned.</p>
+<p>📌 Every trigger zone must have at least one <code>ATZEntryPoint</code> with animations assigned.</p>
 <p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_1.png" /></a></p>
 <hr />
 <h3 id="zone-settings">Zone Settings</h3>
@@ -1567,7 +1567,8 @@
 <li>Enable <code>Use Entry Points</code> in the zone component.</li>
 <li>Choose <strong>Entry Mode</strong>:</li>
 <li><code>Teleport</code>: instantly moves the actor to the entry point.</li>
-<li><code>Move To</code>: navigates the actor using AI to the entry point.</li>
+<li><code>Move To</code>: navigates the actor using AI to the entry point.
+  ⚠️ This requires a Navigation Mesh (NavMesh) to be present in the level. Without it, actors will teleport instead.</li>
 <li><code>None</code>: skips movement but still uses the animation from entry point.</li>
 </ul>
 <p>📌 Only one actor can occupy each entry point at a time. If all are full, the actor is queued (if queuing is enabled).</p>
@@ -1575,7 +1576,6 @@
 <hr />
 <h2 id="interaction-points-atzinteractionpoint">Interaction Points (<code>ATZInteractionPoint</code>)</h2>
 <p>Interaction points allow you to trigger Blueprint logic from inside an animation, using <code>ATZInteraction</code> notifies.</p>
-<p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_3.png" /></a></p>
 <h3 id="how-to-add">How to add</h3>
 <ol>
 <li>Add a component <code>ATZInteractionPoint</code> to the actor that contains the <code>AnimTriggerZone</code>.</li>
@@ -1584,15 +1584,13 @@
 <li>Open your AnimMontage and insert a notify of type <code>ATZInteraction</code>.</li>
 <li>Enter the same tag into the notify.</li>
 </ol>
+<p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_3.png" /></a></p>
 <p>⚠️ Like entry points, <strong>interaction points must be children of the AnimTriggerZone</strong> to be discovered at runtime.</p>
 <hr />
 <h3 id="triggering-blueprint-logic">Triggering Blueprint Logic</h3>
 <p>Use the <code>OnInteractionTriggered</code> event inside the <code>ATZInteractionPoint</code>.</p>
-<pre><code class="language-blueprint">Event OnInteractionTriggered (Instigator)
-→ Run your custom Blueprint logic
-</code></pre>
-<p>💡 You can also use <code>OnInteractionTriggeredEvent</code> on the AnimTriggerZone itself to receive tagged notifies globally.</p>
 <p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_4.png" /></a></p>
+<p>💡 You can also use <code>OnInteractionTriggeredEvent</code> on the AnimTriggerZone itself to receive tagged notifies globally.</p>
 <hr />
 <h2 id="interaction-types">Interaction Types</h2>
 <p>Each <code>ATZInteractionPoint</code> has a <strong>Type</strong> field to categorize the interaction:</p>

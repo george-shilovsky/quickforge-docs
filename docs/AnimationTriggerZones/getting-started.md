@@ -12,6 +12,8 @@ This guide shows how to quickly set up and use the **Animation Trigger Zones** p
 4. Enable the plugin.
 5. Restart the editor to apply changes.
 
+![Plugin Installation](images/getting-started_SCREENSHOT_1.png)
+
 ---
 
 ## Adding a Trigger Zone to Your Level
@@ -37,6 +39,8 @@ Animations are assigned through **ATZEntryPoint** components.
 📌 Even if you are not using entry-based movement, **you must have at least one ATZEntryPoint to provide montages**.  
 Each entry point acts as a container for animations.
 
+![Assigning Montages to ATZEntryPoint](images/getting-started_SCREENSHOT_2.png)
+
 💡 You can add multiple entry points to offer variety or random selection.
 
 ---
@@ -50,6 +54,9 @@ You can also use **ATZInteractionPoint** components to trigger additional logic 
 3. In your animation, add a `ATZInteraction` notify and set the same tag.
 
 ⚠️ Just like entry points, **interaction points must be children of the AnimTriggerZone** component to function properly.
+
+![Adding ATZInteractionPoint as Child of AnimTriggerZone](images/getting-started_SCREENSHOT_3.png)
+![Setting Interaction Tag in ATZInteractionPoint Details](images/getting-started_SCREENSHOT_4.png)
 
 ---
 
@@ -66,7 +73,7 @@ In the `Shape` category of the `AnimTriggerZone`:
    - `Sphere Radius`
    - `Capsule Radius` and `Capsule Half Height`
 
-<!-- PLACEHOLDER: SCREENSHOT_SHAPE_SETTINGS -->
+![Choosing Collision Shape and Adjusting Size](images/getting-started_SCREENSHOT_5.png)
 
 ---
 
@@ -83,6 +90,8 @@ In the `Animation` category:
   - `Loop While Inside`: keeps playing in a loop while the actor stays inside.  
   - `Repeat On Reenter`: plays every time the actor enters the zone.
 
+  ![Trigger and Repeat Mode Settings](images/getting-started_SCREENSHOT_6.png)
+
 ---
 
 ## Manual Trigger (Blueprint Example)
@@ -93,16 +102,7 @@ If you're using **Manual** mode:
 2. Store the passed zone reference in a variable.
 3. On button press, call `Trigger Zone Interact` and pass `Self` as the actor.
 
-<!-- PLACEHOLDER: SCREENSHOT_TRIGGER_ZONE_INTERACT -->
-
-Example Blueprint flow:
-
-```blueprint
-Event OnAnimTriggerEnter (Zone)
-→ Set MyCurrentZone = Zone
-
-Event OnButtonPressed
-→ MyCurrentZone → Trigger Zone Interact (Self)
+![Manual Trigger Blueprint Example Using Trigger Zone Interact](images/getting-started_SCREENSHOT_7.png)
 
 ---
 

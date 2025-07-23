@@ -38,7 +38,7 @@ This plugin is built entirely for Blueprint users and is ideal for:
 
 ## Screenshots
 
-![SCREENSHOT_ANIM_TRIGGER_ZONE_ACTOR](images/SCREENSHOT_ANIM_TRIGGER_ZONE_ACTOR.png)  
+![SCREENSHOT_ANIM_TRIGGER_ZONE_ACTOR](images/SCREENSHOT_ANIM_TRIGGER_ZONE_ACTOR.png)
 
 ---
 

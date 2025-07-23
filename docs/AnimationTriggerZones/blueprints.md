@@ -6,19 +6,19 @@ This section explains how to use Blueprint events and the `ATZCharacterInterface
 
 ## Built-in Blueprint Events
 
-The `UAnimTriggerZoneComponent` exposes several assignable events.
+The `AnimTriggerZone` component exposes several assignable events.
 
 ### Available Events
 
-| Event Name               | Triggered When...                           |
-|--------------------------|----------------------------------------------|
-| **OnEnter**              | Actor enters the trigger zone                |
-| **OnExit**               | Actor exits the trigger zone                 |
-| **OnAnimationStart**     | Animation montage starts playing             |
-| **OnAnimationEnd**       | Animation montage ends or is interrupted     |
-| **OnQueueEnter**         | Actor is added to the waiting queue          |
-| **OnQueueExit**          | Actor is removed from the queue              |
-| **OnInteractionTriggeredEvent** | An `ATZInteraction` notify fires     |
+| Event Name                   | Triggered When...                           |
+|------------------------------|----------------------------------------------|
+| **OnEnter**                  | Actor enters the trigger zone                |
+| **OnExit**                   | Actor exits the trigger zone                 |
+| **OnAnimationStart**         | Animation montage starts playing             |
+| **OnAnimationEnd**           | Animation montage ends or is interrupted     |
+| **OnQueueEnter**             | Actor is added to the waiting queue          |
+| **OnQueueExit**              | Actor is removed from the queue              |
+| **OnInteractionTriggeredEvent** | An `ATZInteraction` notify fires         |
 
 ![SCREENSHOT](images/blueprints_SCREENSHOT_1.png)
 
@@ -52,33 +52,11 @@ To receive zone-related callbacks directly in your Blueprint character, implemen
 
 ![SCREENSHOT](images/blueprints_SCREENSHOT_2.png)
 
-### Recommended usage
-
-In `OnAnimTriggerEnter`, store the passed `Zone` reference to a variable. This allows you to later call `Trigger Zone Interact` manually.
-
-```blueprint
-Event OnAnimTriggerEnter (Zone)
-→ Set MyCurrentZone = Zone
-```
-
-Then on button press:
-
-```blueprint
-Event OnButtonPressed
-→ MyCurrentZone → Trigger Zone Interact (Self)
-```
-
 ---
 
-## Triggering Zones Manually
+## Manual Triggering (Recommended Usage)
 
-If using **Manual** trigger mode, call this function:
-
-```blueprint
-Target: Zone Component → Trigger Zone Interact (Actor)
-```
-
-Pass in the actor that should play the animation (usually `Self`).
+If you're using **Manual** trigger mode, store the passed zone and call `Trigger Zone Interact` on input.
 
 ![SCREENSHOT](images/blueprints_SCREENSHOT_3.png)
 
@@ -92,7 +70,7 @@ You can also call:
 - `Block Rotation` / `Unblock Rotation`
 - `Save State` / `Load State`
 
-Useful if you want precise control via Blueprints.
+These are useful if you want precise control via Blueprints.
 
 ![SCREENSHOT](images/blueprints_SCREENSHOT_4.png)
 

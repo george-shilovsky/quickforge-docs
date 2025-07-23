@@ -1168,13 +1168,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#entry-points-atzentrypointcomponent" class="md-nav__link">
+  <a href="#entry-points-atzentrypoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Entry Points (ATZEntryPointComponent)
+      Entry Points (ATZEntryPoint)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Entry Points (ATZEntryPointComponent)">
+    <nav class="md-nav" aria-label="Entry Points (ATZEntryPoint)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1187,18 +1187,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#zone-settings" class="md-nav__link">
+  <a href="#assigning-animations" class="md-nav__link">
     <span class="md-ellipsis">
-      Zone settings
+      Assigning Animations
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#random-animation-per-entry" class="md-nav__link">
+  <a href="#zone-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Random Animation per Entry
+      Zone Settings
     </span>
   </a>
   
@@ -1210,28 +1210,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-points-atzinteractionpointcomponent" class="md-nav__link">
+  <a href="#interaction-points-atzinteractionpoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Interaction Points (ATZInteractionPointComponent)
+      Interaction Points (ATZInteractionPoint)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Interaction Points (ATZInteractionPointComponent)">
+    <nav class="md-nav" aria-label="Interaction Points (ATZInteractionPoint)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-use" class="md-nav__link">
+  <a href="#how-to-add" class="md-nav__link">
     <span class="md-ellipsis">
-      How to use
+      How to add
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#blueprint-event" class="md-nav__link">
+  <a href="#triggering-blueprint-logic" class="md-nav__link">
     <span class="md-ellipsis">
-      Blueprint Event
+      Triggering Blueprint Logic
     </span>
   </a>
   
@@ -1436,13 +1436,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#entry-points-atzentrypointcomponent" class="md-nav__link">
+  <a href="#entry-points-atzentrypoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Entry Points (ATZEntryPointComponent)
+      Entry Points (ATZEntryPoint)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Entry Points (ATZEntryPointComponent)">
+    <nav class="md-nav" aria-label="Entry Points (ATZEntryPoint)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1455,18 +1455,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#zone-settings" class="md-nav__link">
+  <a href="#assigning-animations" class="md-nav__link">
     <span class="md-ellipsis">
-      Zone settings
+      Assigning Animations
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#random-animation-per-entry" class="md-nav__link">
+  <a href="#zone-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Random Animation per Entry
+      Zone Settings
     </span>
   </a>
   
@@ -1478,28 +1478,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interaction-points-atzinteractionpointcomponent" class="md-nav__link">
+  <a href="#interaction-points-atzinteractionpoint" class="md-nav__link">
     <span class="md-ellipsis">
-      Interaction Points (ATZInteractionPointComponent)
+      Interaction Points (ATZInteractionPoint)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Interaction Points (ATZInteractionPointComponent)">
+    <nav class="md-nav" aria-label="Interaction Points (ATZInteractionPoint)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#how-to-use" class="md-nav__link">
+  <a href="#how-to-add" class="md-nav__link">
     <span class="md-ellipsis">
-      How to use
+      How to add
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#blueprint-event" class="md-nav__link">
+  <a href="#triggering-blueprint-logic" class="md-nav__link">
     <span class="md-ellipsis">
-      Blueprint Event
+      Triggering Blueprint Logic
     </span>
   </a>
   
@@ -1539,61 +1539,69 @@
 
 
 <h1 id="entry-points-interactions">Entry Points &amp; Interactions</h1>
-<p>This section explains how to position actors before animations and how to trigger logic using animation notifies.</p>
+<p>This section explains how to position actors before animations and trigger logic using animation notifies, using the <strong>AnimTriggerZone</strong> component and its child components.</p>
 <hr />
-<h2 id="entry-points-atzentrypointcomponent">Entry Points (<code>ATZEntryPointComponent</code>)</h2>
-<p>Entry points define where an actor should go before playing their animation.</p>
+<h2 id="entry-points-atzentrypoint">Entry Points (<code>ATZEntryPoint</code>)</h2>
+<p>Entry points define where an actor should go before playing their animation and also provide the animation(s) to play.</p>
 <h3 id="how-to-add-an-entry-point">How to add an Entry Point</h3>
 <ol>
-<li>Select the actor that contains your <code>AnimTriggerZoneComponent</code>.</li>
-<li>In the <strong>Details</strong> panel, click <strong>Add Component</strong> → search for <code>ATZEntryPointComponent</code>.</li>
-<li>Position the new component where the actor should appear.</li>
-<li>Rotate the arrow to face the desired direction.</li>
+<li>Select the actor that contains your <code>AnimTriggerZone</code>.</li>
+<li>In the <strong>Details</strong> panel, click <strong>Add Component</strong> → search for <code>ATZEntryPoint</code>.</li>
+<li>Make sure the new entry point is a <strong>child of the <code>AnimTriggerZone</code></strong> in the component hierarchy.</li>
+<li>Position and rotate it to define where and how the actor should appear.</li>
 </ol>
-<!-- PLACEHOLDER: SCREENSHOT_ADD_ENTRY_POINT -->
-
-<h3 id="zone-settings">Zone settings</h3>
-<ul>
-<li>Enable <code>Use Entry Points</code> in the zone.</li>
-<li>Choose <strong>Entry Mode</strong>:</li>
-<li><code>Teleport</code>: actor instantly moves to the point.</li>
-<li><code>Move To</code>: actor walks to the point using AI navigation.</li>
-</ul>
-<h3 id="random-animation-per-entry">Random Animation per Entry</h3>
-<p>Each entry point can define its own animation list:</p>
-<ul>
-<li>Use the <code>RandomMontage</code> array inside the <code>ATZEntryPointComponent</code>.</li>
-<li>If left empty, the zone will use the global <code>Montages</code> array.</li>
-</ul>
-<p>📌 Only one actor can occupy each entry point at a time. If all are full, the actor is added to the queue (if enabled).</p>
+<p>⚠️ The component <strong>must be a direct child of the <code>AnimTriggerZone</code></strong>, or it will be ignored at runtime.</p>
 <hr />
-<h2 id="interaction-points-atzinteractionpointcomponent">Interaction Points (<code>ATZInteractionPointComponent</code>)</h2>
-<p>Interaction points allow animation notifies to trigger logic in Blueprint.</p>
-<h3 id="how-to-use">How to use</h3>
+<h3 id="assigning-animations">Assigning Animations</h3>
+<p>Each entry point defines its own animation list:</p>
+<ul>
+<li>Use the <code>Random Montage</code> array inside the <code>ATZEntryPoint</code>.</li>
+<li>One or more <code>AnimMontage</code> assets must be assigned here — this is now <strong>required</strong>.</li>
+<li>If multiple montages are specified, one will be chosen at random.</li>
+</ul>
+<p>📌 The plugin no longer uses a global <code>Montages</code> array. Every trigger zone must have at least one <code>ATZEntryPoint</code> with animations assigned.</p>
+<p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_1.png" /></a></p>
+<hr />
+<h3 id="zone-settings">Zone Settings</h3>
+<ul>
+<li>Enable <code>Use Entry Points</code> in the zone component.</li>
+<li>Choose <strong>Entry Mode</strong>:</li>
+<li><code>Teleport</code>: instantly moves the actor to the entry point.</li>
+<li><code>Move To</code>: navigates the actor using AI to the entry point.</li>
+<li><code>None</code>: skips movement but still uses the animation from entry point.</li>
+</ul>
+<p>📌 Only one actor can occupy each entry point at a time. If all are full, the actor is queued (if queuing is enabled).</p>
+<p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_2.png" /></a></p>
+<hr />
+<h2 id="interaction-points-atzinteractionpoint">Interaction Points (<code>ATZInteractionPoint</code>)</h2>
+<p>Interaction points allow you to trigger Blueprint logic from inside an animation, using <code>ATZInteraction</code> notifies.</p>
+<p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_3.png" /></a></p>
+<h3 id="how-to-add">How to add</h3>
 <ol>
-<li>Add a component <code>ATZInteractionPointComponent</code> to the same actor that holds your <code>AnimTriggerZoneComponent</code>.</li>
-<li>Set the <strong>Interaction Tag</strong> (e.g., "Use", "Fire", "Sit").</li>
-<li>Open your AnimMontage and add an AnimNotify of type <code>ATZInteraction</code>.</li>
-<li>In the notify, enter the same tag.</li>
+<li>Add a component <code>ATZInteractionPoint</code> to the actor that contains the <code>AnimTriggerZone</code>.</li>
+<li>In the <strong>component hierarchy</strong>, make sure the <code>ATZInteractionPoint</code> is a <strong>child of the <code>AnimTriggerZone</code></strong>.</li>
+<li>In the <strong>Details</strong> panel, assign an <code>Interaction Tag</code> (e.g. <code>"Use"</code>, <code>"Fire"</code>, <code>"Sit"</code>).</li>
+<li>Open your AnimMontage and insert a notify of type <code>ATZInteraction</code>.</li>
+<li>Enter the same tag into the notify.</li>
 </ol>
-<p>When the notify fires, the zone will find the matching interaction point and call its event.</p>
-<h3 id="blueprint-event">Blueprint Event</h3>
-<p>Use the <code>OnInteractionTriggered</code> event to hook up logic.</p>
+<p>⚠️ Like entry points, <strong>interaction points must be children of the AnimTriggerZone</strong> to be discovered at runtime.</p>
+<hr />
+<h3 id="triggering-blueprint-logic">Triggering Blueprint Logic</h3>
+<p>Use the <code>OnInteractionTriggered</code> event inside the <code>ATZInteractionPoint</code>.</p>
 <pre><code class="language-blueprint">Event OnInteractionTriggered (Instigator)
 → Run your custom Blueprint logic
 </code></pre>
-<p>📌 You can also use the <code>OnInteractionTriggeredEvent</code> on the zone itself to receive tagged notifies globally.</p>
-<!-- PLACEHOLDER: SCREENSHOT_NOTIFY_TAG -->
-
+<p>💡 You can also use <code>OnInteractionTriggeredEvent</code> on the AnimTriggerZone itself to receive tagged notifies globally.</p>
+<p><a class="glightbox" href="../images/entry-and-interaction_SCREENSHOT_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/entry-and-interaction_SCREENSHOT_4.png" /></a></p>
 <hr />
 <h2 id="interaction-types">Interaction Types</h2>
-<p>Each <code>ATZInteractionPoint</code> also has a <strong>Type</strong> field (enum):</p>
+<p>Each <code>ATZInteractionPoint</code> has a <strong>Type</strong> field to categorize the interaction:</p>
 <ul>
-<li><code>Activate</code> — for use or switch-type logic.</li>
-<li><code>Pickup</code> — for items or grabbing.</li>
-<li><code>Custom</code> — anything else.</li>
+<li><code>Activate</code> — For buttons, terminals, switches</li>
+<li><code>Pickup</code> — For grabbing items or loot</li>
+<li><code>Custom</code> — Anything else you define</li>
 </ul>
-<p>You can branch on this in Blueprints for different behaviors.</p>
+<p>You can use this to branch logic in your Blueprints.</p>
 <hr />
 <p>➡️ Next: <a href="../blueprints/">Blueprint Events &amp; Interfaces</a></p>
 

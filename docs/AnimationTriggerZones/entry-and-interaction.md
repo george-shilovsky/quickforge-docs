@@ -1,77 +1,94 @@
 # Entry Points & Interactions
 
-This section explains how to position actors before animations and how to trigger logic using animation notifies.
+This section explains how to position actors before animations and trigger logic using animation notifies, using the **AnimTriggerZone** component and its child components.
 
 ---
 
-## Entry Points (`ATZEntryPointComponent`)
+## Entry Points (`ATZEntryPoint`)
 
-Entry points define where an actor should go before playing their animation.
+Entry points define where an actor should go before playing their animation and also provide the animation(s) to play.
 
 ### How to add an Entry Point
 
-1. Select the actor that contains your `AnimTriggerZoneComponent`.
-2. In the **Details** panel, click **Add Component** → search for `ATZEntryPointComponent`.
-3. Position the new component where the actor should appear.
-4. Rotate the arrow to face the desired direction.
+1. Select the actor that contains your `AnimTriggerZone`.
+2. In the **Details** panel, click **Add Component** → search for `ATZEntryPoint`.
+3. Make sure the new entry point is a **child of the `AnimTriggerZone`** in the component hierarchy.
+4. Position and rotate it to define where and how the actor should appear.
 
-<!-- PLACEHOLDER: SCREENSHOT_ADD_ENTRY_POINT -->
-
-### Zone settings
-
-- Enable `Use Entry Points` in the zone.
-- Choose **Entry Mode**:
-  - `Teleport`: actor instantly moves to the point.
-  - `Move To`: actor walks to the point using AI navigation.
-
-### Random Animation per Entry
-
-Each entry point can define its own animation list:
-
-- Use the `RandomMontage` array inside the `ATZEntryPointComponent`.
-- If left empty, the zone will use the global `Montages` array.
-
-📌 Only one actor can occupy each entry point at a time. If all are full, the actor is added to the queue (if enabled).
+⚠️ The component **must be a direct child of the `AnimTriggerZone`**, or it will be ignored at runtime.
 
 ---
 
-## Interaction Points (`ATZInteractionPointComponent`)
+### Assigning Animations
 
-Interaction points allow animation notifies to trigger logic in Blueprint.
+Each entry point defines its own animation list:
 
-### How to use
+- Use the `Random Montage` array inside the `ATZEntryPoint`.
+- One or more `AnimMontage` assets must be assigned here — this is now **required**.
+- If multiple montages are specified, one will be chosen at random.
 
-1. Add a component `ATZInteractionPointComponent` to the same actor that holds your `AnimTriggerZoneComponent`.
-2. Set the **Interaction Tag** (e.g., "Use", "Fire", "Sit").
-3. Open your AnimMontage and add an AnimNotify of type `ATZInteraction`.
-4. In the notify, enter the same tag.
+📌 The plugin no longer uses a global `Montages` array. Every trigger zone must have at least one `ATZEntryPoint` with animations assigned.
 
-When the notify fires, the zone will find the matching interaction point and call its event.
+![SCREENSHOT](images/entry-and-interaction_SCREENSHOT_1.png)
 
-### Blueprint Event
+---
 
-Use the `OnInteractionTriggered` event to hook up logic.
+### Zone Settings
+
+- Enable `Use Entry Points` in the zone component.
+- Choose **Entry Mode**:
+  - `Teleport`: instantly moves the actor to the entry point.
+  - `Move To`: navigates the actor using AI to the entry point.
+  - `None`: skips movement but still uses the animation from entry point.
+
+📌 Only one actor can occupy each entry point at a time. If all are full, the actor is queued (if queuing is enabled).
+
+![SCREENSHOT](images/entry-and-interaction_SCREENSHOT_2.png)
+
+---
+
+## Interaction Points (`ATZInteractionPoint`)
+
+Interaction points allow you to trigger Blueprint logic from inside an animation, using `ATZInteraction` notifies.
+
+![SCREENSHOT](images/entry-and-interaction_SCREENSHOT_3.png)
+
+### How to add
+
+1. Add a component `ATZInteractionPoint` to the actor that contains the `AnimTriggerZone`.
+2. In the **component hierarchy**, make sure the `ATZInteractionPoint` is a **child of the `AnimTriggerZone`**.
+3. In the **Details** panel, assign an `Interaction Tag` (e.g. `"Use"`, `"Fire"`, `"Sit"`).
+4. Open your AnimMontage and insert a notify of type `ATZInteraction`.
+5. Enter the same tag into the notify.
+
+⚠️ Like entry points, **interaction points must be children of the AnimTriggerZone** to be discovered at runtime.
+
+---
+
+### Triggering Blueprint Logic
+
+Use the `OnInteractionTriggered` event inside the `ATZInteractionPoint`.
 
 ```blueprint
 Event OnInteractionTriggered (Instigator)
 → Run your custom Blueprint logic
 ```
 
-📌 You can also use the `OnInteractionTriggeredEvent` on the zone itself to receive tagged notifies globally.
+💡 You can also use `OnInteractionTriggeredEvent` on the AnimTriggerZone itself to receive tagged notifies globally.
 
-<!-- PLACEHOLDER: SCREENSHOT_NOTIFY_TAG -->
+![SCREENSHOT](images/entry-and-interaction_SCREENSHOT_4.png)
 
 ---
 
 ## Interaction Types
 
-Each `ATZInteractionPoint` also has a **Type** field (enum):
+Each `ATZInteractionPoint` has a **Type** field to categorize the interaction:
 
-- `Activate` — for use or switch-type logic.
-- `Pickup` — for items or grabbing.
-- `Custom` — anything else.
+- `Activate` — For buttons, terminals, switches
+- `Pickup` — For grabbing items or loot
+- `Custom` — Anything else you define
 
-You can branch on this in Blueprints for different behaviors.
+You can use this to branch logic in your Blueprints.
 
 ---
 

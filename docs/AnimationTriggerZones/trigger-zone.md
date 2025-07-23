@@ -1,6 +1,6 @@
 # Trigger Zone Settings
 
-This section explains all configuration options available on the `UAnimTriggerZoneComponent`, grouped by category as shown in the Unreal Editor.
+This section explains all configuration options available on the `AnimTriggerZone` component, grouped by category as shown in the Unreal Editor.
 
 ---
 

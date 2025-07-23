@@ -1582,6 +1582,7 @@
 </tr>
 </tbody>
 </table>
+<p><a class="glightbox" href="../images/blueprints_SCREENSHOT_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/blueprints_SCREENSHOT_1.png" /></a></p>
 <p>These can be used like any Blueprint dispatcher:</p>
 <pre><code class="language-blueprint">Bind Event to OnAnimationStart
 → Play Sound / Trigger Logic / etc.
@@ -1605,6 +1606,7 @@
 <li><code>OnAnimTriggerAnimationEnd(Zone)</code></li>
 <li><code>OnAnimTriggerInteraction(Zone, InteractionTag)</code></li>
 </ul>
+<p><a class="glightbox" href="../images/blueprints_SCREENSHOT_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/blueprints_SCREENSHOT_2.png" /></a></p>
 <h3 id="recommended-usage">Recommended usage</h3>
 <p>In <code>OnAnimTriggerEnter</code>, store the passed <code>Zone</code> reference to a variable. This allows you to later call <code>Trigger Zone Interact</code> manually.</p>
 <pre><code class="language-blueprint">Event OnAnimTriggerEnter (Zone)
@@ -1620,6 +1622,7 @@
 <pre><code class="language-blueprint">Target: Zone Component → Trigger Zone Interact (Actor)
 </code></pre>
 <p>Pass in the actor that should play the animation (usually <code>Self</code>).</p>
+<p><a class="glightbox" href="../images/blueprints_SCREENSHOT_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/blueprints_SCREENSHOT_3.png" /></a></p>
 <hr />
 <h2 id="other-zone-functions">Other Zone Functions</h2>
 <p>You can also call:</p>
@@ -1629,6 +1632,7 @@
 <li><code>Save State</code> / <code>Load State</code></li>
 </ul>
 <p>Useful if you want precise control via Blueprints.</p>
+<p><a class="glightbox" href="../images/blueprints_SCREENSHOT_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SCREENSHOT" src="../images/blueprints_SCREENSHOT_4.png" /></a></p>
 <hr />
 <p>➡️ Next: <a href="../advanced/">Advanced Features</a></p>
 

@@ -20,6 +20,8 @@ The plugin supports multiple actors waiting for a free entry point.
 - **Queue Exit Delay** — delay between previous actor exiting and next one starting.
 - **Wait For Exit After Animation** — ensures the next actor only enters after the previous actor fully leaves the trigger zone.
 
+![SCREENSHOT](images/advanced_SCREENSHOT_1.png)
+
 ### Events
 
 - `OnQueueEnter` — actor was added to the queue.
@@ -54,6 +56,8 @@ The plugin includes built-in support for persistent trigger states.
 
 Each zone stores its state under its full path name.
 
+![SCREENSHOT](images/advanced_SCREENSHOT_2.png)
+
 ---
 
 ## Multiplayer & Replication
@@ -74,6 +78,8 @@ You can enable zone visualization during play for easier testing.
 - **Enable Debug Draw** — turns on runtime drawing.
 - **Debug Color** — the color of the zone shape and points.
 
+![SCREENSHOT](images/advanced_SCREENSHOT_3.png)
+
 ### What is visualized
 
 - The zone shape (box/sphere/capsule)
@@ -81,7 +87,7 @@ You can enable zone visualization during play for easier testing.
 - Interaction points (blue spheres)
 - The currently selected entry (cyan marker)
 
-<!-- PLACEHOLDER: SCREENSHOT_DEBUG_DRAW_ACTIVE -->
+![SCREENSHOT](images/advanced_SCREENSHOT_4.png)
 
 ---
 

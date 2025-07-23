@@ -1609,6 +1609,7 @@
 <li><code>OnQueueExit</code> — actor left the queue (either to animate or by timeout).</li>
 </ul>
 <p>You can also receive these via <code>ATZCharacterInterface</code>.</p>
+<p>📌 Queuing only works when <strong>Use Entry Points</strong> is enabled.</p>
 <hr />
 <h2 id="saving-and-loading-state">Saving and Loading State</h2>
 <p>The plugin includes built-in support for persistent trigger states.</p>
@@ -1630,12 +1631,12 @@
 <p>Each zone stores its state under its full path name.</p>
 <hr />
 <h2 id="multiplayer-replication">Multiplayer &amp; Replication</h2>
-<p><code>UAnimTriggerZoneComponent</code> is fully network-replicated.</p>
+<p>The <code>AnimTriggerZone</code> component is fully network-replicated.</p>
 <ul>
 <li>Zone state, animation triggering, and interaction events are synchronized.</li>
 <li>Server-side authority is required to trigger most actions.</li>
 </ul>
-<p>📌 Make sure the owning actor is also set to replicate.</p>
+<p>📌 Ensure the owning actor is also set to <strong>replicates</strong> and is placed properly in the level.</p>
 <hr />
 <h2 id="debug-visualization">Debug Visualization</h2>
 <p>You can enable zone visualization during play for easier testing.</p>

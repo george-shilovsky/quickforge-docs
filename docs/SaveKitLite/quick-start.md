@@ -40,6 +40,7 @@ You can customize the `Saveable` component with the following settings:
 | `Save Transform`       | Saves actor's location, rotation, and scale         |
 | `Variables To Save`    | Custom key-value string pairs for runtime data      |
 | `Apply Control Rotation` | Applies saved actor rotation to the controller (only if owner is a Character with a controller)     |
+| `StableId` (v1.1+)     | Optional ID used to match this actor during Load, even across different maps |
 
 ![Saveable Component Settings](images/ChooseSaveable.png)
 

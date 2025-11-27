@@ -19,6 +19,7 @@ While SaveKit Lite is powerful and easy to use, it's important to understand its
 
 - ✅ Ensure each actor has a **unique name** in the level
 - ✅ Use `VariablesToSave` for any dynamic state that isn't stored in properties
+- ✅ For actors that must persist across multiple maps, **assign a StableId** (v1.1+)
 - ✅ If you need to save complex data — break it into string tokens
 - ✅ For objects spawned at runtime — consider recreating them manually on Load
 - ✅ Use consistent slot naming (e.g., ``AutoSave``, ``Quick1``, ``Checkpoint``)

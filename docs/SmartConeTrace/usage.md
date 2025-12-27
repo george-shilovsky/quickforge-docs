@@ -62,6 +62,7 @@ When enabled, the plugin performs secondary line traces against every actor foun
 3.  **Result:** If any trace reaches the target without being blocked by the `VisibilityChannel`, the actor is added to the **`VisibleActors`** list.
 
 **Usage Tips:**
+
 - **AI Vision:** Set `VisibilityOriginMode` to `ConeStart` so the AI checks visibility from its own eyes/sensor.
 - **Player Vision:** Set to `ScreenPoints` to ensure the player can actually see the object on screen.
 - **VisibilityBoundsScale:** Reduce this (e.g., 0.8) if you want to require more of the object to be visible to count as a "hit".

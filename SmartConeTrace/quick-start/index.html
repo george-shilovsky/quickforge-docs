@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../images/logo500.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1694,18 +1694,19 @@
 <li><code>Interval</code> — how often the trace runs (e.g. every 0.25 seconds)</li>
 <li><code>Length</code> — how far the cone reaches</li>
 <li><code>AngleDegrees</code> — how wide the cone is</li>
+<li><code>bCheckVisibility</code> — enable if you want to ignore objects behind walls</li>
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/quick-start_SCREENSHOT_2.png" data-desc-position="bottom"><img alt="Component added to Blueprint and settings panel" src="../images/quick-start_SCREENSHOT_2.png"></a><br>
-<em>SmartConeTrace component selected, with editable parameters like Interval and Angle.</em></p>
+<em>SmartConeTrace component selected, with editable parameters like Interval, Angle, and Visibility settings.</em></p>
 <hr>
 <h2 id="3-handle-the-result">3. Handle the Result</h2>
 <ol>
 <li>In the Components panel, right-click the <strong>SmartConeTrace</strong> component.</li>
 <li>Choose <strong>Add Event → Add OnConeTraceResult</strong>.</li>
 </ol>
-<p>This creates an event node that fires every time the trace runs.</p>
+<p>This creates an event node that fires every time the trace runs. You can access both <strong>Hit Actors</strong> (overlap) and <strong>Visible Actors</strong> (line-of-sight) from the result struct.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/quick-start_SCREENSHOT_3.png" data-desc-position="bottom"><img alt="Event node and handling logic in Blueprint" src="../images/quick-start_SCREENSHOT_3.png"></a><br>
-<em>Example of using the OnConeTraceResult event to print the names of all hit actors.</em></p>
+<em>Example of using the OnConeTraceResult event to handle both Hit and Visible actors.</em></p>
 <hr>
 <h2 id="4-test-it">4. Test It</h2>
 <ol>
@@ -1836,10 +1837,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

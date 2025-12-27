@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../images/logo500.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1197,6 +1197,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#enum-evisibilityoriginmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧾 Enum: EVisibilityOriginMode
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1675,6 +1686,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#enum-evisibilityoriginmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧾 Enum: EVisibilityOriginMode
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1788,6 +1810,26 @@
 <td><code>bool</code></td>
 <td><code>true</code></td>
 </tr>
+<tr>
+<td><code>bCheckVisibility</code></td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>VisibilityChannel</code></td>
+<td><code>ETraceTypeQuery</code></td>
+<td><code>TraceTypeQuery1</code></td>
+</tr>
+<tr>
+<td><code>VisibilityOriginMode</code></td>
+<td><code>EVisibilityOriginMode</code></td>
+<td><code>ScreenPoints</code></td>
+</tr>
+<tr>
+<td><code>VisibilityBoundsScale</code></td>
+<td><code>float</code></td>
+<td><code>0.95</code></td>
+</tr>
 </tbody>
 </table>
 <p><strong>ℹ️ Note:</strong> <code>ActorsToIgnore</code> only accepts actors that are already placed in the level.<br>
@@ -1822,6 +1864,11 @@
 <td><code>ClosestHit</code></td>
 <td><code>HitResult</code></td>
 <td>Closest valid hit</td>
+</tr>
+<tr>
+<td><code>VisibleActors</code></td>
+<td><code>Array</code></td>
+<td>Actors that passed the visibility (line-of-sight) check. Empty if <code>bCheckVisibility</code> is false.</td>
 </tr>
 </tbody>
 </table>
@@ -1941,6 +1988,24 @@ Defined in: <code>SmartConeTraceLib</code></p>
 <td>❌</td>
 <td>Extra angular tolerance</td>
 </tr>
+<tr>
+<td><code>bCheckVisibility</code></td>
+<td><code>bool</code></td>
+<td>❌</td>
+<td>Enable line-of-sight checks</td>
+</tr>
+<tr>
+<td><code>VisibilityOriginMode</code></td>
+<td><code>EVisibilityOriginMode</code></td>
+<td>❌</td>
+<td>Start point of visibility traces</td>
+</tr>
+<tr>
+<td><code>VisibilityBoundsScale</code></td>
+<td><code>float</code></td>
+<td>❌</td>
+<td>Scale of target bounds to trace against</td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -2001,6 +2066,16 @@ Defined in: <code>SmartConeTraceLib</code></p>
 <td><code>Array&lt;Actor&gt;</code></td>
 <td>Filters hit actors by class</td>
 </tr>
+<tr>
+<td><code>GetVisibleActors(Result)</code></td>
+<td><code>Array&lt;Actor&gt;</code></td>
+<td>Returns only actors that passed the visibility check</td>
+</tr>
+<tr>
+<td><code>IsActorVisible(Result, Actor)</code></td>
+<td><code>bool</code></td>
+<td>Returns true if the actor is in the VisibleActors list</td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -2025,6 +2100,31 @@ Defined in: <code>SmartConeTraceLib</code></p>
 <tr>
 <td><code>Full</code></td>
 <td>Full cone shape: lines, boxes, points</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="enum-evisibilityoriginmode">🧾 Enum: <code>EVisibilityOriginMode</code></h2>
+<p>Determines the starting point for visibility raycasts.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ScreenPoints</code></td>
+<td>Traces from the camera (Center + 4 corners). Best for "Player Vision"</td>
+</tr>
+<tr>
+<td><code>ScreenCenter</code></td>
+<td>Traces from the exact center of the screen (Crosshair)</td>
+</tr>
+<tr>
+<td><code>ConeStart</code></td>
+<td>Traces from the cone's origin. Best for "AI Vision" or sensors</td>
 </tr>
 </tbody>
 </table>
@@ -2144,10 +2244,10 @@ Defined in: <code>SmartConeTraceLib</code></p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

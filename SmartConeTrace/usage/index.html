@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../images/logo500.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1126,6 +1126,23 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visibility-line-of-sight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👁️ Visibility &amp; Line of Sight
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👁️ Visibility &amp; Line of Sight">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#i-about-actorstoignore" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1683,6 +1700,23 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visibility-line-of-sight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👁️ Visibility &amp; Line of Sight
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="👁️ Visibility &amp; Line of Sight">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#i-about-actorstoignore" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1886,10 +1920,31 @@
 <td><code>bUseComponentTransform</code></td>
 <td>If <code>true</code>, the trace starts from the component's position and direction. If <code>false</code>, uses the actor’s transform.</td>
 </tr>
+<tr>
+<td><strong><code>bCheckVisibility</code></strong></td>
+<td>If <code>true</code>, performs line-of-sight checks on hit actors to ensure they aren't behind walls.</td>
+</tr>
+<tr>
+<td><strong><code>VisibilityOriginMode</code></strong></td>
+<td>Where visibility traces start (<code>ScreenPoints</code>, <code>ScreenCenter</code>, or <code>ConeStart</code>).</td>
+</tr>
 </tbody>
 </table>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../images/usage_SCREENSHOT_2.png" data-desc-position="bottom"><img alt="Details panel with all properties visible" src="../images/usage_SCREENSHOT_2.png"></a><br>
 <em>Details panel showing all parameters of the <code>SmartConeTrace</code> component.</em></p>
+<hr>
+<h2 id="visibility-line-of-sight">👁️ Visibility &amp; Line of Sight</h2>
+<p>By default, a cone trace will hit actors even if they are behind walls (because it checks for shape overlap). To prevent this, enable <strong><code>bCheckVisibility</code></strong>.</p>
+<p>When enabled, the plugin performs secondary line traces against every actor found in the cone:</p>
+<ol>
+<li><strong>Origin:</strong> Traces start from the Camera (if set to <code>ScreenPoints</code>) or the Cone Origin (if set to <code>ConeStart</code>).</li>
+<li><strong>Target:</strong> Traces end at the target actor's center and 8 corners of its bounding box.</li>
+<li><strong>Result:</strong> If any trace reaches the target without being blocked by the <code>VisibilityChannel</code>, the actor is added to the <strong><code>VisibleActors</code></strong> list.</li>
+</ol>
+<p><strong>Usage Tips:</strong>
+* <strong>AI Vision:</strong> Set <code>VisibilityOriginMode</code> to <code>ConeStart</code> so the AI checks visibility from its own eyes/sensor.
+* <strong>Player Vision:</strong> Set to <code>ScreenPoints</code> to ensure the player can actually see the object on screen.
+* <strong>VisibilityBoundsScale:</strong> Reduce this (e.g., 0.8) if you want to require more of the object to be visible to count as a "hit".</p>
 <hr>
 <h3 id="i-about-actorstoignore">ℹ️ About <code>ActorsToIgnore</code></h3>
 <p>The <code>ActorsToIgnore</code> array lets you exclude specific actors from being hit by the cone trace.</p>
@@ -1943,6 +1998,11 @@
 <td><code>ClosestHit</code></td>
 <td><code>HitResult</code></td>
 <td>The closest valid hit among all steps.</td>
+</tr>
+<tr>
+<td><code>VisibleActors</code></td>
+<td><code>Array&lt;Actor&gt;</code></td>
+<td>Subset of HitActors that passed the line-of-sight check (requires <code>bCheckVisibility</code>).</td>
 </tr>
 </tbody>
 </table>
@@ -2015,6 +2075,14 @@
 <tr>
 <td><code>IsValidHit(Result)</code></td>
 <td>Returns <code>true</code> if <code>Result.bDidHit</code> is <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>GetVisibleActors(Result)</code></td>
+<td>Returns array of actors visible via line-of-sight.</td>
+</tr>
+<tr>
+<td><code>IsActorVisible(Result, Actor)</code></td>
+<td>Returns <code>true</code> if the actor passed the visibility check.</td>
 </tr>
 </tbody>
 </table>
@@ -2134,10 +2202,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "search.highlight", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   

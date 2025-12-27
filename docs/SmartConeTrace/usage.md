@@ -43,9 +43,28 @@ All settings can be adjusted in the Details panel.
 | `BoxDepth`               | Length of each individual box trace. |
 | `ToleranceDegrees`       | Extra angle margin to accept hits slightly outside the cone. |
 | `bUseComponentTransform` | If `true`, the trace starts from the component's position and direction. If `false`, uses the actor’s transform. |
+| **`bCheckVisibility`** | If `true`, performs line-of-sight checks on hit actors to ensure they aren't behind walls. |
+| **`VisibilityOriginMode`** | Where visibility traces start (`ScreenPoints`, `ScreenCenter`, or `ConeStart`). |
 
 ![Details panel with all properties visible](images/usage_SCREENSHOT_2.png)  
 *Details panel showing all parameters of the `SmartConeTrace` component.*
+
+---
+
+## 👁️ Visibility & Line of Sight
+
+By default, a cone trace will hit actors even if they are behind walls (because it checks for shape overlap). To prevent this, enable **`bCheckVisibility`**.
+
+When enabled, the plugin performs secondary line traces against every actor found in the cone:
+
+1.  **Origin:** Traces start from the Camera (if set to `ScreenPoints`) or the Cone Origin (if set to `ConeStart`).
+2.  **Target:** Traces end at the target actor's center and 8 corners of its bounding box.
+3.  **Result:** If any trace reaches the target without being blocked by the `VisibilityChannel`, the actor is added to the **`VisibleActors`** list.
+
+**Usage Tips:**
+* **AI Vision:** Set `VisibilityOriginMode` to `ConeStart` so the AI checks visibility from its own eyes/sensor.
+* **Player Vision:** Set to `ScreenPoints` to ensure the player can actually see the object on screen.
+* **VisibilityBoundsScale:** Reduce this (e.g., 0.8) if you want to require more of the object to be visible to count as a "hit".
 
 ---
 
@@ -81,12 +100,13 @@ This event is triggered after each trace (if interval > 0). It gives you a `Smar
 
 ### 📦 SmartConeTraceResult Fields
 
-| Field        | Type               | Description |
-|--------------|--------------------|-------------|
-| `bDidHit`    | `bool`             | `true` if anything was hit. |
-| `Hits`       | `Array<HitResult>` | All filtered hits. |
-| `HitActors`  | `Array<Actor>`     | All valid actors that were hit. |
-| `ClosestHit` | `HitResult`        | The closest valid hit among all steps. |
+| Field           | Type               | Description |
+|-----------------|--------------------|-------------|
+| `bDidHit`       | `bool`             | `true` if anything was hit. |
+| `Hits`          | `Array<HitResult>` | All filtered hits. |
+| `HitActors`     | `Array<Actor>`     | All valid actors that were hit. |
+| `ClosestHit`    | `HitResult`        | The closest valid hit among all steps. |
+| `VisibleActors` | `Array<Actor>`     | Subset of HitActors that passed the line-of-sight check (requires `bCheckVisibility`).|
 
 ![Using result in Blueprint — print closest actor](images/usage_SCREENSHOT_3.png)  
 *Example of printing the name of the closest hit actor using the result.*
@@ -132,6 +152,8 @@ You can use these helper functions from `SmartConeTraceLib` to work with the res
 | `GetFirstValidHitActor(Result)` | Returns the first actor from the `HitActors` array. |
 | `GetHitActorsByClass(Result, Class)` | Filters hit actors by class. |
 | `IsValidHit(Result)`            | Returns `true` if `Result.bDidHit` is `true`. |
+| `GetVisibleActors(Result)`      | Returns array of actors visible via line-of-sight. |
+| `IsActorVisible(Result, Actor)` | Returns `true` if the actor passed the visibility check. |
 
 ![Blueprint calling GetClosestHitActor](images/usage_SCREENSHOT_6.png)  
 *Helper functions available in Blueprint for working with Smart Cone Trace results.*

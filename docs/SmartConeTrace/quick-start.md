@@ -24,9 +24,10 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
    - `Interval` — how often the trace runs (e.g. every 0.25 seconds)
    - `Length` — how far the cone reaches
    - `AngleDegrees` — how wide the cone is
+   - `bCheckVisibility` — enable if you want to ignore objects behind walls
 
 ![Component added to Blueprint and settings panel](images/quick-start_SCREENSHOT_2.png)  
-*SmartConeTrace component selected, with editable parameters like Interval and Angle.*
+*SmartConeTrace component selected, with editable parameters like Interval, Angle, and Visibility settings.*
 
 ---
 
@@ -35,10 +36,10 @@ This guide will help you start using **Smart Cone Trace** in less than 2 minutes
 1. In the Components panel, right-click the **SmartConeTrace** component.
 2. Choose **Add Event → Add OnConeTraceResult**.
 
-This creates an event node that fires every time the trace runs.
+This creates an event node that fires every time the trace runs. You can access both **Hit Actors** (overlap) and **Visible Actors** (line-of-sight) from the result struct.
 
 ![Event node and handling logic in Blueprint](images/quick-start_SCREENSHOT_3.png)  
-*Example of using the OnConeTraceResult event to print the names of all hit actors.*
+*Example of using the OnConeTraceResult event to handle both Hit and Visible actors.*
 
 ---
 

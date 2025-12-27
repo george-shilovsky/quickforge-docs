@@ -8,6 +8,7 @@ It’s perfect for things like vision cones, ability areas, and AI detection zon
 - 🧩 Drop-in scene component  
 - 🔁 Runs automatically on a timer  
 - 🧠 Filters by tag, class, or interface  
+- 👁️ **Built-in Visibility / Line-of-Sight checks**
 - 🔬 Optional debug visualization  
 
 <a href="https://fab.com/s/f30caa652090" target="_blank">Available on Unreal Engine Marketplace</a> – get the plugin, leave a review, and support future development!
@@ -31,6 +32,7 @@ You’ll be tracing in under 2 minutes.
 - A ready-to-use `SmartConeTrace` scene component  
 - A flexible `ConeTraceByChannel` Blueprint function  
 - Built-in filtering by tags, class, and interface  
+- **Visibility checks** to ignore objects behind walls
 - Accurate geometry with step-based tracing  
 - Full source code and visual debug support
 

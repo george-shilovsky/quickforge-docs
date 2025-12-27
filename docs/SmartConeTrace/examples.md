@@ -6,7 +6,8 @@ See Smart Cone Trace in a real-world Blueprint setup — using actor components,
 
 ## ▶️ Watch the Demo
 
-🎥 <a href="https://youtu.be/DdDTlY605dc" target="_blank">Watch on YouTube</a>
+🎥 <a href="https://youtu.be/DdDTlY605dc" target="_blank">Watch on YouTube V1.0</a>
+🎥 <a href="https://youtu.be/w6bPGncPn-c" target="_blank">Watch on YouTube V1.1</a>
 
 In this demo, you'll see:
 
@@ -23,7 +24,7 @@ In this demo, you'll see:
 
 Try the exact project shown in the video:
 
-🔗 <a href="https://drive.google.com/file/d/1IhOfhfgEwXEqNAWH45OQX-M07HXVDtAF/view?usp=sharing" target="_blank">Download Demo Build (.zip)</a>
+🔗 <a href="https://drive.google.com/file/d/10DbIip9hQaxYcFPoechDhvckbUmndk4L/view?usp=sharing" target="_blank">Download Demo Build (.zip)</a>
 
 Includes:
 
@@ -63,6 +64,7 @@ Give enemies, drones, or creatures a cone-based field of view.
 Trigger alerts or behaviors when the player enters their line of sight.
 
 - Attach the component to AI characters
+- **Use `bCheckVisibility` to prevent seeing through walls**
 - Detect only specific actors (e.g. Characters with tag `"Player"`)
 - React through `OnConeTraceResult` in Blueprint
 

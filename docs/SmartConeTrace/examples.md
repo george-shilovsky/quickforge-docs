@@ -7,6 +7,7 @@ See Smart Cone Trace in a real-world Blueprint setup — using actor components,
 ## ▶️ Watch the Demo
 
 🎥 <a href="https://youtu.be/DdDTlY605dc" target="_blank">Watch on YouTube V1.0</a>
+
 🎥 <a href="https://youtu.be/w6bPGncPn-c" target="_blank">Watch on YouTube V1.1</a>
 
 In this demo, you'll see:

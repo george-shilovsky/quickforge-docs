@@ -6,6 +6,13 @@ Welcome to the official documentation hub for all QuickForge Studio plugins for 
 
 ## 📦 Available Plugins
 
+!!! warning "Maintenance Notice"
+    As of April 2026, QuickForge Studio plugins are no longer 
+    actively maintained. All documented versions remain fully 
+    functional for UE 5.7. No new features, bug fixes, or UE 
+    version migrations are planned. Documentation remains 
+    available as a reference for existing users.
+
 ### 🔹 [SaveKit Lite](SaveKitLite/index.md)
 Minimalist save/load system for Blueprint-first workflows. Easy to integrate and production-ready.
 
@@ -15,13 +22,13 @@ Precision cone-shaped trace with filtering, debugging, and visual representation
 ### 🔹 [Animation Trigger Zones](AnimationTriggerZones/index.md)  
 Trigger animation montages when actors enter a zone. Supports entry points, interactions, queuing, multiplayer, and more — 100% Blueprint-compatible.
 
-### 🔹 [SaveKit Pro](SaveKitPro/index.md)
-Coming soon — a powerful extension of SaveKit Lite with advanced features for larger projects.
-
 ---
 
 ## 📘 About
 
-Each plugin comes with a detailed setup guide, blueprint integration examples, and usage best practices.
+Each plugin comes with a detailed setup guide, blueprint 
+integration examples, and usage best practices. Source code 
+is included with each plugin — users are welcome to fork and 
+adapt for their own needs.
 
-Stay tuned for more tools designed to enhance your UE5 development workflow.
+For questions, please use the QuickForge Studio Discord server.

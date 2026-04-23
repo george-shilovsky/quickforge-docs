@@ -6,7 +6,7 @@ Welcome to the official documentation hub for all QuickForge Studio plugins for 
 
 ## 📦 Available Plugins
 
-!!! warning "Maintenance Notice"
+⚠️ "Maintenance Notice"
     As of April 2026, QuickForge Studio plugins are no longer 
     actively maintained. All documented versions remain fully 
     functional for UE 5.7. No new features, bug fixes, or UE 
